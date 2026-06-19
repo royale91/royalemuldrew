@@ -28,25 +28,58 @@ building, trading, growing, developing — now multiplied by AI.**
 - The differentiator that ties every venture together: **Royale + AI = a one-person
   operation that moves like a full team and ships fast.**
 
-## 3. Aesthetic
+## 3. Experience & Aesthetic (awwwards-grade 3D)
 
-- **Theme:** near-black background (#08090C-ish), premium Tesla/Apple restraint.
+Target quality bar: awwwards portfolio winners. This is a **real WebGL 3D experience**, not
+a flat page with effects.
+
+- **Theme:** near-black (#08090C-ish), premium Tesla/Apple restraint.
 - **Accent:** electric cyan / green tech-glow. **No gold.**
-- **Typography:** large, confident, clean sans (hero treatment echoing "MEET ROYALE
-  MULDREW"). Generous spacing.
-- **Motion:** subtle — parallax on hero, glow/lift on cards, fade-up on scroll. Tasteful,
-  not busy.
-- **3D-ready:** hero is built in a swappable container so a live Spline / Three.js scene
-  can replace the static image later without a rebuild.
+- **Typography:** large, confident, clean sans; oversized hero type with kinetic reveal.
+- **Signature 3D moment — "Enter the Mind":** the hero is a live WebGL scene. The
+  brain-factory concept becomes interactive — a floating 3D head/portrait of Royale with
+  the "departments" as glowing 3D modules orbiting/embedded above it. Mouse moves the
+  camera (parallax); scroll flies the camera through the scene, moving department to
+  department. Implementation can be (a) a 3D model of the departments, or (b) the existing
+  illustration mapped onto layered/displaced planes with depth, particles, and a custom
+  shader glow — chosen at plan time based on asset availability.
+- **Scroll = camera/story:** GSAP ScrollTrigger drives a scroll-told narrative; each
+  department section is a "stop." Smooth inertia scrolling via Lenis.
+- **Signature interactions:** custom cursor, magnetic buttons, kinetic text reveals,
+  WebGL grain/noise + bloom post-processing, page-load intro animation.
+- **Performance budget:** 60fps on modern laptops; graceful 2D fallback on low-power /
+  reduced-motion / mobile (static hero image, CSS transitions instead of WebGL).
+- **Accessibility:** honors `prefers-reduced-motion`; all content reachable without the
+  3D layer.
+
+## 3.5 awwwards Patterns We're Adopting
+
+Studied current awwwards portfolio honorees (Hiroto Sato, Pacôme Pertant, James
+Breedlove, Gustaf Furusten, Playfight). The shared winning formula:
+
+- WebGL/Three.js hero as the signature moment (the "wow" in first 2 seconds).
+- GSAP **ScrollTrigger** turning the scroll into a guided story; **Lenis** smooth scroll.
+- Custom cursor + magnetic/hover microinteractions.
+- Kinetic, oversized typography with staggered reveals.
+- Bold visual moments inside an otherwise minimal, dark, restrained layout.
+- Page-load intro animation; section-to-section transitions.
+- Single-page, content-focused, strong visual hierarchy.
+
+We adopt all of the above, themed to the cyan/green-on-black brand.
 
 ## 4. Tech Approach
 
-- **Static site**: `index.html` + `styles.css` + light `main.js` (scroll reveal, nav).
-- **Hosting:** GitHub Pages (same pattern as the owner's other sites, e.g.
-  `royale91.github.io`).
-- **Assets:** hero illustration at `assets/hero-royale.png` (owner to provide).
-- **No backend** for v1. Contact form posts via a no-backend service (Formspree or
-  `mailto:` fallback). Calendly/Cal.com embed slot reserved for when a link exists.
+- **Stack:** **Vite** + **Three.js** (WebGL), **GSAP + ScrollTrigger** (scroll
+  choreography), **Lenis** (smooth scroll). Vanilla JS modules — no React needed.
+- **Why Vite (not a single hand-written file):** bundles Three.js/GSAP, gives fast dev with
+  HMR, outputs a static `dist/` that still deploys to **GitHub Pages**. Best of both:
+  award-grade tooling, static hosting.
+- **Hosting:** GitHub Pages serves the built `dist/` (same account pattern as
+  `royale91.github.io`). Build step: `npm run build`.
+- **Assets:** hero illustration at `assets/hero-royale.png` (owner to provide); optional
+  cut-out PNG of Royale (transparent bg) and per-department icons/labels for the 3D scene.
+- **No backend** for v1. Contact form via Formspree (or `mailto:` fallback). Calendly /
+  Cal.com embed slot reserved for when a link exists.
 
 ## 5. Page Structure (single-page scroll)
 
