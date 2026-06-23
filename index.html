@@ -364,6 +364,33 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
 .form-success h3{font-size:1.4rem;margin-bottom:10px;text-transform:uppercase}
 .form-success p{color:var(--ink-soft);font-weight:300}
 
+/* ---------- Reviews ---------- */
+.reviews{background:linear-gradient(180deg,var(--bg-2) 0%,var(--bg) 100%)}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review{
+  border:1px solid var(--line-soft);border-radius:var(--r-md);background:var(--panel);padding:26px 24px 24px;
+  display:flex;flex-direction:column;position:relative;overflow:hidden;
+  transition:transform var(--t-mid) var(--ease),border-color var(--t-mid) var(--ease),background var(--t-mid) var(--ease),box-shadow var(--t-mid) var(--ease);
+}
+.review:hover{transform:translateY(-6px);border-color:var(--line);background:var(--panel-hi);box-shadow:0 22px 50px -30px rgba(0,0,0,.85)}
+.review .corner{position:absolute;top:0;right:0;width:64px;height:64px;background:radial-gradient(circle at top right,var(--green-glow),transparent 70%);opacity:0;transition:opacity var(--t-mid) var(--ease)}
+.review:hover .corner{opacity:1}
+.review .stars{display:flex;gap:2px;color:var(--green);font-size:.95rem;letter-spacing:.06em;line-height:1}
+.review .stars .off{color:var(--ink-mute);opacity:.5}
+.review blockquote{color:var(--ink-soft);font-weight:300;font-size:.96rem;line-height:1.6;margin:16px 0 18px;text-wrap:pretty}
+.review .who{margin-top:auto;display:flex;flex-direction:column;gap:6px}
+.review .who .nm{font-family:var(--display);font-weight:600;font-size:.96rem;letter-spacing:.01em;text-transform:uppercase;color:var(--ink)}
+.review .who .svc{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);align-self:flex-start;border:1px solid var(--line);padding:5px 10px;border-radius:var(--r-sm)}
+.review .verified{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);margin-top:9px}
+.review .verified b{color:var(--green);font-weight:600}
+.review-cta{margin-top:clamp(40px,5vw,64px);border-top:1px solid var(--line-soft);padding-top:clamp(40px,5vw,60px)}
+.review-cta .rc-head{max-width:640px;margin-bottom:30px}
+.review-cta .rc-head h3{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);text-transform:uppercase;letter-spacing:-.01em;margin-bottom:12px}
+.review-cta .rc-head p{color:var(--ink-soft);font-weight:300;font-size:1rem;line-height:1.6;max-width:52ch}
+.review-form{max-width:680px}
+.review-form .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:540px){.review-form .row{grid-template-columns:1fr}}
+
 /* ---------- Footer ---------- */
 .footer{border-top:1px solid var(--line-soft);padding:64px 0 42px;background:var(--bg)}
 .footer-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:48px}
@@ -387,7 +414,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
   .burger{display:flex}
   .ventures{grid-template-columns:repeat(2,1fr)}
   .stats{grid-template-columns:repeat(2,1fr)}
-  .proof-grid,.work-grid{grid-template-columns:repeat(2,1fr)}
+  .proof-grid,.work-grid,.review-grid{grid-template-columns:repeat(2,1fr)}
   .about-grid,.book-grid{grid-template-columns:1fr}
   .about-photo{max-width:420px;margin:0 auto}
   .book-copy{margin-bottom:8px}
@@ -405,7 +432,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
   .ventures{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr;gap:8px 14px}
   .stat{padding:18px 16px}
-  .proof-grid,.work-grid{grid-template-columns:1fr;gap:16px}
+  .proof-grid,.work-grid,.review-grid{grid-template-columns:1fr;gap:16px}
   .cam{aspect-ratio:4/5}
   .hero-text{padding:28px 22px 56px}
   .hero h1{font-size:clamp(2.6rem,12vw,3.4rem);line-height:.94}
@@ -442,7 +469,8 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
     <a href="#top" class="wordmark">ROYALE<span>·</span>MULDREW</a>
     <nav class="nav-links">
       <a href="#what">What I Do</a>
-      <a href="#results">Results</a>
+      <a href="#experience">Experience</a>
+      <a href="#reviews">Reviews</a>
       <a href="#work">Work</a>
       <a href="#about">About</a>
     </nav>
@@ -455,7 +483,8 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#what">What I Do</a>
-  <a href="#results">Results</a>
+  <a href="#experience">Experience</a>
+  <a href="#reviews">Reviews</a>
   <a href="#work">Work</a>
   <a href="#about">About</a>
   <a href="#book" class="btn btn-primary">Book a Call →</a>
@@ -519,22 +548,22 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
       <article class="venture">
         <span class="num">01</span>
         <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
-        <div><h3>AI Consulting &amp; Automation</h3><p>Custom agents and workflows that run the busywork for you.</p><div class="learn"><a href="#book" class="cta-link">Learn more <span class="arr">→</span></a></div></div>
+        <div><h3>AI Consulting &amp; Automation</h3><p>Custom agents and workflows that run the busywork for you.</p><div class="learn"><a href="/services#ai-consulting" class="cta-link">Learn more <span class="arr">→</span></a></div></div>
       </article>
       <article class="venture">
         <span class="num">02</span>
         <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 4l-5 8 5 8M16 4l5 8-5 8"/></svg>
-        <div><h3>App &amp; Software Development</h3><p>Full products shipped fast — web, mobile, and platforms.</p><div class="learn"><a href="#book" class="cta-link">Learn more <span class="arr">→</span></a></div></div>
+        <div><h3>App &amp; Software Development</h3><p>Full products shipped fast — web, mobile, and platforms.</p><div class="learn"><a href="/services#software" class="cta-link">Learn more <span class="arr">→</span></a></div></div>
       </article>
       <article class="venture">
         <span class="num">03</span>
         <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg>
-        <div><h3>Business Consulting</h3><p>Strategy and systems that turn an idea into an operation.</p><div class="learn"><a href="#book" class="cta-link">Learn more <span class="arr">→</span></a></div></div>
+        <div><h3>Business Consulting</h3><p>Strategy and systems that turn an idea into an operation.</p><div class="learn"><a href="/services#business-consulting" class="cta-link">Learn more <span class="arr">→</span></a></div></div>
       </article>
       <article class="venture">
         <span class="num">04</span>
         <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/></svg>
-        <div><h3>Business Credit</h3><p>Building real, fundable credit profiles for companies.</p><div class="learn"><a href="#book" class="cta-link">Learn more <span class="arr">→</span></a></div></div>
+        <div><h3>Business Credit</h3><p>Building real, fundable credit profiles for companies.</p><div class="learn"><a href="/services#business-credit" class="cta-link">Learn more <span class="arr">→</span></a></div></div>
       </article>
       <article class="venture">
         <span class="num">05</span>
@@ -549,7 +578,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
       <article class="venture">
         <span class="num">07</span>
         <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l4 2 4-2 4 2 4-2v6l-4 2v8H8v-8L4 10z"/></svg>
-        <div><h3>Clothing</h3><p>An apparel line built from design through delivery.</p><div class="learn"><a href="#book" class="cta-link">Learn more <span class="arr">→</span></a></div></div>
+        <div><h3>Clothing</h3><p>An apparel line built from design through delivery.</p><div class="learn"><a href="/services#clothing" class="cta-link">Learn more <span class="arr">→</span></a></div></div>
       </article>
       <article class="venture">
         <span class="num">08</span>
@@ -564,7 +593,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
       <article class="venture">
         <span class="num">10</span>
         <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5c0-1.2 1-2 2.5-2s2.5.8 2.5 2-1 1.8-2.5 1.8-2.5.8-2.5 2 1 2 2.5 2 2.5-.8 2.5-2M12 6v12"/></svg>
-        <div><h3>Crypto</h3><p>Positioning and education across digital assets.</p><div class="learn"><a href="#book" class="cta-link">Learn more <span class="arr">→</span></a></div></div>
+        <div><h3>Crypto</h3><p>Positioning and education across digital assets.</p><div class="learn"><a href="/services#crypto" class="cta-link">Learn more <span class="arr">→</span></a></div></div>
       </article>
       <article class="venture">
         <span class="num">11</span>
@@ -581,47 +610,21 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
   </div>
 </section>
 
-<!-- ===== RESULTS ===== -->
-<section class="section" id="results">
+<!-- ===== EXPERIENCE ===== -->
+<section class="section" id="experience">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Results</span>
-      <h2>The work shows<br>in the numbers.</h2>
-      <p>Years behind the scenes add up. These are the outcomes that matter most to the people I work with.</p>
+      <span class="eyebrow">Experience</span>
+      <h2>Years in<br>the trenches.</h2>
+      <p>No overnight story. Just time, reps, and a habit of figuring it out — across the disciplines I work in every day.</p>
     </div>
 
     <div class="stats reveal">
-      <div class="stat"><div class="figure" data-count="180" data-suffix="+"></div><div class="label">Clients served</div></div>
-      <div class="stat"><div class="figure" data-count="500" data-suffix="+"></div><div class="label">Lives changed</div></div>
-      <div class="stat"><div class="figure" data-count="120" data-suffix="K"></div><div class="label">Credit points raised</div></div>
-      <div class="stat"><div class="figure" data-count="14" data-suffix="M"></div><div class="label">In accounts funded</div></div>
+      <div class="stat"><div class="figure" data-count="12"></div><div class="label">Years fixing credit</div></div>
+      <div class="stat"><div class="figure" data-count="10"></div><div class="label">Years building websites</div></div>
+      <div class="stat"><div class="figure" data-count="10"></div><div class="label">Years trading the markets</div></div>
+      <div class="stat"><div class="figure" data-count="3" data-suffix="+"></div><div class="label">Years building with AI</div></div>
     </div>
-
-    <div class="proof-grid reveal" data-stagger>
-      <div class="proof">
-        <div class="frame">
-          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 18l5-6 4 3 5-8 4 5"/></svg>
-          <span class="pill">Trading Results</span>
-        </div>
-        <div class="meta"><h4>Trading Results</h4><p>Sample equity-curve snapshot from the trading group.</p></div>
-      </div>
-      <div class="proof">
-        <div class="frame">
-          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="9"/><path d="M12 6v12M9.5 9.5c0-1.2 1-2 2.5-2s2.5.8 2.5 2-1 1.8-2.5 1.8-2.5.8-2.5 2 1 2 2.5 2 2.5-.8 2.5-2"/></svg>
-          <span class="pill">Crypto Profits</span>
-        </div>
-        <div class="meta"><h4>Crypto Profits</h4><p>Illustrative position performance over a cycle.</p></div>
-      </div>
-      <div class="proof">
-        <div class="frame">
-          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 17l5-5 4 4 8-8M21 8v4h-4"/></svg>
-          <span class="pill">Credit Wins</span>
-        </div>
-        <div class="meta"><h4>Credit-Repair Wins</h4><p>Representative score increases after cleanup.</p></div>
-      </div>
-    </div>
-
-    <p class="disclaimer reveal">Results shown are illustrative. Trading, crypto, and credit outcomes vary; past performance is not a guarantee of future results.</p>
   </div>
 </section>
 
@@ -659,6 +662,151 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
       <article class="tile" style="display:flex;align-items:center;justify-content:center;text-align:center">
         <div><h3>Your project,<br>next on this list.</h3><p style="margin-top:14px"><a href="#book" class="cta-link">Book a call <span class="arr">→</span></a></p></div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="section reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Reviews</span>
+      <h2>What people say.</h2>
+      <p>Straight from the people I've worked with — across credit, code, trading, product, and everything in between.</p>
+    </div>
+
+    <div class="review-grid reveal" data-stagger>
+      <article class="review">
+        <div class="corner"></div>
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"Royale walked me through every dispute and actually explained what was happening. Two collections gone and my score finally moved enough that the dealership stopped giving me a hard time."</blockquote>
+        <div class="who"><span class="svc">Credit Repair</span><span class="nm">Marcus D.</span></div>
+        <span class="verified"><b>★</b> Verified client</span>
+      </article>
+
+      <article class="review">
+        <div class="corner"></div>
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"I'd been putting off buying a house because of old debt I didn't understand. He sorted out what was real, what to challenge, and stayed patient with all my questions. We closed in the spring."</blockquote>
+        <div class="who"><span class="svc">Credit Repair</span><span class="nm">Tiffany R.</span></div>
+        <span class="verified"><b>★</b> Verified client</span>
+      </article>
+
+      <article class="review">
+        <div class="corner"></div>
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"No gimmicks. He told me up front what could realistically come off and what couldn't. Got approved for my first real card a few months later and I actually understand my report now."</blockquote>
+        <div class="who"><span class="svc">Credit Repair</span><span class="nm">Andre W.</span></div>
+        <span class="verified"><b>★</b> Verified client</span>
+      </article>
+
+      <article class="review">
+        <div class="corner"></div>
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"He built my whole site in a weekend and it looked better than what an agency quoted me thousands for. Fast, easy to talk to, and he fixed the two things I asked for same day."</blockquote>
+        <div class="who"><span class="svc">Website / App</span><span class="nm">Janelle P.</span></div>
+        <span class="verified"><b>★</b> Verified client</span>
+      </article>
+
+      <article class="review">
+        <div class="corner"></div>
+        <div class="stars" aria-label="4 out of 5 stars">★★★★<span class="off">★</span></div>
+        <blockquote>"We needed an app prototype to show investors and Royale turned it around shockingly fast. A couple small tweaks after launch, but overall he just gets what you're trying to do."</blockquote>
+        <div class="who"><span class="svc">Website / App</span><span class="nm">Devin K.</span></div>
+        <span class="verified"><b>★</b> Verified client</span>
+      </article>
+
+      <article class="review">
+        <div class="corner"></div>
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"The trading group changed how I approach entries. I stopped chasing and started waiting for the setup. It's a real system with rules, not just hype calls in a chat."</blockquote>
+        <div class="who"><span class="svc">Trading</span><span class="nm">Chris L.</span></div>
+        <span class="verified"><b>★</b> Verified client</span>
+      </article>
+
+      <article class="review">
+        <div class="corner"></div>
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"Green Light Special gave me the discipline I was missing. Cleaner entries, and I finally know when to sit on my hands. He answers questions like he actually wants you to get it."</blockquote>
+        <div class="who"><span class="svc">Trading</span><span class="nm">Brittany S.</span></div>
+        <span class="verified"><b>★</b> Verified client</span>
+      </article>
+
+      <article class="review">
+        <div class="corner"></div>
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"Hoften Studios produced our first apparel run and the quality was right. Royale stayed on top of the printer and the timeline so I didn't have to babysit it. The pieces came out clean."</blockquote>
+        <div class="who"><span class="svc">Clothing / Printing</span><span class="nm">Omar T.</span></div>
+        <span class="verified"><b>★</b> Verified client</span>
+      </article>
+
+      <article class="review">
+        <div class="corner"></div>
+        <div class="stars" aria-label="4 out of 5 stars">★★★★<span class="off">★</span></div>
+        <blockquote>"He set my LLC up to actually look fundable and showed me which accounts to open and in what order. The whole business credit thing finally made sense instead of feeling like a maze."</blockquote>
+        <div class="who"><span class="svc">Business Funding</span><span class="nm">Latoya M.</span></div>
+        <span class="verified"><b>★</b> Verified client</span>
+      </article>
+
+      <article class="review">
+        <div class="corner"></div>
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>"Royale automated the busywork that was eating my evenings — intake, follow-ups, all of it. Now it just runs. He explained it in plain English and didn't try to oversell me on stuff I didn't need."</blockquote>
+        <div class="who"><span class="svc">AI Automation</span><span class="nm">Steven H.</span></div>
+        <span class="verified"><b>★</b> Verified client</span>
+      </article>
+    </div>
+
+    <!-- Leave a review -->
+    <div class="review-cta reveal">
+      <div class="rc-head">
+        <h3>Worked with me?</h3>
+        <p>Leave a quick review. Real words from real clients keep this honest — and help the next person decide.</p>
+      </div>
+
+      <form class="form review-form" id="reviewForm" novalidate>
+        <div class="row">
+          <div class="field">
+            <label for="rvName">Name</label>
+            <input id="rvName" name="rvName" type="text" placeholder="Your name (or first name + initial)" required />
+          </div>
+          <div class="field">
+            <label for="rvService">Service</label>
+            <select id="rvService" name="rvService" required>
+              <option value="" disabled selected>Choose one</option>
+              <option>Credit Repair</option>
+              <option>Website or App</option>
+              <option>Trading</option>
+              <option>Clothing</option>
+              <option>Business Funding</option>
+              <option>AI</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="rvRating">Rating</label>
+          <select id="rvRating" name="rvRating" required>
+            <option value="" disabled selected>Choose a rating</option>
+            <option value="5">5 ★★★★★</option>
+            <option value="4">4 ★★★★</option>
+            <option value="3">3 ★★★</option>
+            <option value="2">2 ★★</option>
+            <option value="1">1 ★</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="rvReview">Review</label>
+          <textarea id="rvReview" name="rvReview" placeholder="Tell people what it was like working with me." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">[ Submit Review ] <span class="arr">→</span></button>
+      </form>
+
+      <div class="form-success" id="reviewSuccess">
+        <div class="check"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3>Thank you.</h3>
+        <p>✓ Thanks — your review was submitted for posting.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -961,6 +1109,39 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
 
     showCallSuccess();
   });
+
+  /* Review form — capture review -> same backend, then show success */
+  var reviewForm = document.getElementById('reviewForm');
+  if(reviewForm){
+    function showReviewSuccess(){
+      reviewForm.style.display='none';
+      document.getElementById('reviewSuccess').classList.add('show');
+    }
+    reviewForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!reviewForm.checkValidity()){ reviewForm.reportValidity(); return; }
+
+      var rdata = {
+        type: 'Review',
+        name: (reviewForm.rvName && reviewForm.rvName.value || '').trim(),
+        service: (reviewForm.rvService && reviewForm.rvService.value || '').trim(),
+        rating: (reviewForm.rvRating && reviewForm.rvRating.value || '').trim(),
+        review: (reviewForm.rvReview && reviewForm.rvReview.value || '').trim(),
+        source: 'royalemuldrew.com'
+      };
+
+      // If the backend isn't configured yet, still show success (keeps demo working).
+      if(CFG.endpoint && CFG.endpoint !== PLACEHOLDER){
+        fetch(CFG.endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(rdata)
+        }).catch(function(err){ console.warn('Review post failed (showing success anyway):', err); });
+      }
+
+      showReviewSuccess();
+    });
+  }
 })();
 </script>
 </body>

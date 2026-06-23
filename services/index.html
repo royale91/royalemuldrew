@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Services — Royale Muldrew</title>
+<meta name="description" content="What Royale Muldrew does, in detail — AI consulting & automation, app & software development, business consulting, business credit, clothing, and crypto. One operator, every discipline, powered by AI." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --bg:#060807;
+  --bg-2:#0a0d0b;
+  --panel:#0c100e;
+  --panel-hi:#10150f;
+  --ink:#f4f7f5;
+  --ink-soft:#aeb8b2;
+  --ink-mute:#717c76;
+  --green:#45f08a;
+  --green-deep:#36c977;
+  --green-glow:rgba(69,240,138,.18);
+  --line:rgba(69,240,138,.16);
+  --line-soft:rgba(255,255,255,.07);
+  --line-hair:rgba(255,255,255,.12);
+  --maxw:1320px;
+  --r-sm:8px;
+  --r-md:12px;
+  --r-lg:14px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --ease-out:cubic-bezier(.16,.84,.44,1);
+  --t-fast:.28s;
+  --t-mid:.45s;
+  --display:"Chakra Petch",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --body:"Hanken Grotesk",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+  font-family:var(--body);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--green);color:#03130a}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
+a:focus-visible,.btn:focus-visible{outline-offset:4px}
+
+/* subtle grain overlay */
+body::before{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
+}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:.7rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--green);display:inline-flex;align-items:center;gap:.7em;
+}
+.eyebrow::before{content:"";width:24px;height:1px;background:linear-gradient(90deg,var(--green),transparent)}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spacing:-.01em;text-wrap:balance}
+
+/* ---------- Buttons ---------- */
+.btn{
+  font-family:var(--mono);font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.6em;
+  padding:14px 24px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;
+  transition:transform var(--t-mid) var(--ease),background var(--t-mid) var(--ease),color var(--t-mid) var(--ease),box-shadow var(--t-mid) var(--ease),border-color var(--t-mid) var(--ease);
+  position:relative;white-space:nowrap;will-change:transform;
+}
+.btn .arr{transition:transform var(--t-mid) var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+.btn:active{transform:translateY(0) scale(.985);transition-duration:.1s}
+.btn-primary{background:var(--green);color:#03130a;box-shadow:0 0 0 0 var(--green-glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 42px -12px rgba(69,240,138,.55)}
+.btn-primary:active{box-shadow:0 6px 18px -8px rgba(69,240,138,.5)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-hair)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px);background:rgba(69,240,138,.05)}
+.cta-link{color:var(--green);font-family:var(--mono);font-weight:600;font-size:.85rem;letter-spacing:.04em;display:inline-flex;align-items:center;gap:.45em;transition:gap var(--t-fast) var(--ease)}
+.cta-link .arr{transition:transform var(--t-fast) var(--ease)}
+.cta-link:hover .arr{transform:translateX(4px)}
+
+/* ---------- Nav ---------- */
+.nav{
+  position:sticky;top:0;left:0;right:0;z-index:1000;
+  background:rgba(6,8,7,.82);backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid var(--line-soft);
+}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.wordmark{font-family:var(--display);font-weight:700;font-size:1rem;letter-spacing:.16em;color:var(--ink);transition:opacity var(--t-fast) var(--ease)}
+.wordmark:hover{opacity:.82}
+.wordmark span{color:var(--green)}
+.nav-mid{display:flex;align-items:center;gap:28px}
+.nav-back{font-family:var(--mono);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);font-weight:500;position:relative;transition:color var(--t-fast) var(--ease)}
+.nav-back::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1.5px;border-radius:2px;background:var(--green);transition:width var(--t-fast) var(--ease)}
+.nav-back:hover{color:var(--ink)}
+.nav-back:hover::after{width:100%}
+.nav-cta .btn{padding:10px 18px;font-size:.74rem}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;padding:clamp(60px,9vw,108px) 0 clamp(40px,5vw,64px);overflow:hidden;
+  background-image:linear-gradient(rgba(69,240,138,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(69,240,138,.03) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.hero .glow{position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:80vw;height:60vw;max-width:900px;max-height:700px;background:radial-gradient(circle,var(--green-glow),transparent 62%);pointer-events:none}
+.hero .wrap{position:relative}
+.hero h1{font-family:var(--display);font-size:clamp(2.8rem,7vw,5rem);font-weight:700;letter-spacing:-.02em;line-height:.94;text-transform:uppercase;margin:20px 0 20px}
+.hero p{color:var(--ink-soft);font-weight:300;font-size:clamp(1.04rem,1.6vw,1.22rem);line-height:1.62;max-width:58ch;text-wrap:pretty}
+
+/* index chips */
+.svc-index{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.svc-index a{
+  font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-soft);border:1px solid var(--line-soft);border-radius:var(--r-sm);padding:9px 14px;
+  transition:color var(--t-fast) var(--ease),border-color var(--t-fast) var(--ease),background var(--t-fast) var(--ease),transform var(--t-fast) var(--ease);
+}
+.svc-index a:hover{color:var(--green);border-color:var(--green);background:rgba(69,240,138,.05);transform:translateY(-2px)}
+
+/* ---------- Service sections ---------- */
+.services{padding:clamp(40px,6vw,72px) 0 clamp(60px,8vw,100px);background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%)}
+.svc{
+  border:1px solid var(--line-soft);border-radius:var(--r-lg);background:var(--panel);
+  padding:clamp(28px,4vw,52px);margin-bottom:22px;position:relative;overflow:hidden;scroll-margin-top:96px;
+  transition:border-color var(--t-mid) var(--ease),background var(--t-mid) var(--ease);
+}
+.svc::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 110% at 0% 0%,var(--green-glow),transparent 55%);opacity:0;transition:opacity var(--t-mid) var(--ease);pointer-events:none}
+.svc:hover{border-color:var(--line);background:var(--panel-hi)}
+.svc:hover::after{opacity:1}
+.svc-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,56px);align-items:start}
+.svc-num{font-family:var(--mono);font-size:.72rem;color:var(--green);letter-spacing:.18em;font-weight:600}
+.svc h2{font-size:clamp(1.7rem,3.6vw,2.5rem);line-height:1.04;text-transform:uppercase;margin:14px 0 18px}
+.svc-lede{color:var(--ink-soft);font-weight:300;font-size:clamp(1rem,1.4vw,1.1rem);line-height:1.62;margin-bottom:18px;text-wrap:pretty}
+.svc-lede strong{color:var(--ink);font-weight:500}
+.svc-lede a{color:var(--green);font-weight:500;border-bottom:1px solid var(--line);transition:opacity var(--t-fast) var(--ease)}
+.svc-lede a:hover{opacity:.78}
+.svc .meta-label{font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:14px;display:flex;align-items:center;gap:.7em}
+.svc .meta-label::before{content:"";width:18px;height:1px;background:linear-gradient(90deg,var(--green),transparent)}
+.gets{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:26px}
+.gets li{display:flex;gap:13px;align-items:flex-start;color:var(--ink-soft);font-weight:300;line-height:1.5}
+.gets li svg{flex:none;color:var(--green);margin-top:3px}
+.gets li b{color:var(--ink);font-weight:500}
+.svc-for{border-top:1px solid var(--line-soft);padding-top:18px;margin-bottom:24px}
+.svc-for .who-label{font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:7px}
+.svc-for p{color:var(--ink-soft);font-weight:300;line-height:1.55}
+.svc-note{color:var(--ink-mute);font-weight:300;font-size:.92rem;font-style:italic;line-height:1.55;margin-bottom:22px}
+.svc-aside{
+  border:1px solid var(--line-soft);border-radius:var(--r-md);background:var(--bg);padding:clamp(22px,2.6vw,30px);
+  position:sticky;top:96px;
+}
+
+/* ---------- Closing CTA ---------- */
+.cta-band{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg-2),#05130c);padding:clamp(70px,10vw,120px) 0;text-align:center}
+.cta-band .glow{position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:80vw;height:80vw;max-width:780px;max-height:780px;background:radial-gradient(circle,var(--green-glow),transparent 60%);pointer-events:none}
+.cta-band .wrap{position:relative;max-width:760px}
+.cta-band .eyebrow{justify-content:center}
+.cta-band .eyebrow::before{display:none}
+.cta-band h2{font-size:clamp(2rem,5.2vw,3.6rem);font-weight:700;letter-spacing:-.02em;margin:22px auto 18px;line-height:1.04;max-width:16ch;text-transform:uppercase}
+.cta-band p{color:var(--ink-soft);font-weight:300;font-size:clamp(1.02rem,1.5vw,1.16rem);line-height:1.62;max-width:50ch;margin:0 auto 32px;text-wrap:pretty}
+
+/* ---------- Footer ---------- */
+.footer{border-top:1px solid var(--line-soft);padding:54px 0 42px;background:var(--bg)}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:40px}
+.footer-brand .wordmark{font-size:1.35rem;margin-bottom:14px;display:block}
+.footer-brand p{color:var(--ink-soft);font-weight:300;line-height:1.6;max-width:34ch}
+.footer-brand a.mail{color:var(--green);font-family:var(--mono);font-size:1rem;font-weight:500;display:inline-block;margin-top:14px;transition:opacity var(--t-fast) var(--ease)}
+.footer-brand a.mail:hover{opacity:.78}
+.footer-links{display:flex;gap:26px;flex-wrap:wrap}
+.footer-links a{font-family:var(--mono);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);font-weight:500;transition:color var(--t-fast) var(--ease)}
+.footer-links a:hover{color:var(--green)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:26px;border-top:1px solid var(--line-soft);color:var(--ink-mute);font-size:.82rem;font-weight:300;font-family:var(--mono)}
+.footer-bottom .tag{color:var(--green);letter-spacing:.04em}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  .svc-grid{grid-template-columns:1fr;gap:8px}
+  .svc-aside{position:static;margin-top:4px}
+}
+@media(max-width:640px){
+  .wrap{padding:0 22px}
+  .nav-mid{gap:16px}
+  .nav-inner{flex-wrap:wrap}
+  .hero{padding-top:64px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="wordmark">ROYALE<span>·</span>MULDREW</a>
+    <div class="nav-mid">
+      <a href="/" class="nav-back">← Back to site</a>
+    </div>
+    <div class="nav-cta">
+      <a href="/#book" class="btn btn-primary">[ Book a Call ] <span class="arr">→</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="glow"></div>
+  <div class="wrap">
+    <span class="eyebrow">What I Do // In Detail</span>
+    <h1>Services</h1>
+    <p>One operator, every discipline, amplified by AI. Here's exactly what I build for the people I work with — and who each of these is for.</p>
+    <nav class="svc-index" aria-label="Services index">
+      <a href="#ai-consulting">AI Consulting &amp; Automation</a>
+      <a href="#software">App &amp; Software Development</a>
+      <a href="#business-consulting">Business Consulting</a>
+      <a href="#business-credit">Business Credit</a>
+      <a href="#clothing">Clothing</a>
+      <a href="#crypto">Crypto</a>
+    </nav>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<main class="services">
+  <div class="wrap">
+
+    <!-- 1. AI Consulting & Automation -->
+    <section class="svc reveal" id="ai-consulting">
+      <div class="svc-grid">
+        <div>
+          <span class="svc-num">SERVICE 01</span>
+          <h2>AI Consulting &amp; Automation</h2>
+          <p class="svc-lede">I build custom AI agents and automations that quietly take the busywork off your plate — lead capture, content, follow-up, reporting, and the day-to-day ops that eat your week. We start by mapping where your time actually goes, then I deploy systems that do it for you, on their own. The goal isn't a flashy demo; it's a business that runs leaner the day after I leave.</p>
+          <div class="svc-for">
+            <div class="who-label">Who it's for</div>
+            <p>Businesses drowning in manual work — owners and teams spending hours on tasks a well-built agent should be handling.</p>
+          </div>
+          <a href="/#book" class="cta-link">Book a Call <span class="arr">→</span></a>
+        </div>
+        <div class="svc-aside">
+          <div class="meta-label">What you get</div>
+          <ul class="gets">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Audit</b> — a clear map of every task worth automating, ranked by hours saved.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Build</b> — custom agents and workflows wired into the tools you already use.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Deploy</b> — live, monitored, and handed over so it keeps running without me.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. App & Software Development -->
+    <section class="svc reveal" id="software">
+      <div class="svc-grid">
+        <div>
+          <span class="svc-num">SERVICE 02</span>
+          <h2>App &amp; Software Development</h2>
+          <p class="svc-lede">I ship full products fast — websites, web apps, mobile apps, and internal tools — built by me alongside AI so you get the output of a full team without the overhead of one. You bring the idea; I handle design, build, and launch end to end. Most founders are surprised how quickly a real, working product goes from conversation to live.</p>
+          <div class="svc-for">
+            <div class="who-label">Who it's for</div>
+            <p>Founders who need to ship — people with a clear idea who want it built and live, not stuck in a six-month agency queue.</p>
+          </div>
+          <a href="/#book" class="cta-link">Book a Call <span class="arr">→</span></a>
+        </div>
+        <div class="svc-aside">
+          <div class="meta-label">What you get</div>
+          <ul class="gets">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Design</b> — interface and flows mapped around how people actually use it.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Build</b> — production code for web, mobile, or internal tools, built fast.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Launch</b> — deployed, tested, and ready for real users on day one.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Business Consulting -->
+    <section class="svc reveal" id="business-consulting">
+      <div class="svc-grid">
+        <div>
+          <span class="svc-num">SERVICE 03</span>
+          <h2>Business Consulting</h2>
+          <p class="svc-lede">I help turn an idea into a real operation — the strategy and the systems behind it. We sharpen your offer, set pricing that holds up, build the funnel that brings people in, and put the ops in place so the whole thing runs without you holding it together by hand. Practical moves you can act on, not a binder that sits on a shelf.</p>
+          <div class="svc-for">
+            <div class="who-label">Who it's for</div>
+            <p>New and scaling owners — people starting from zero who need a path, and operators who've outgrown how they've been doing it.</p>
+          </div>
+          <a href="/#book" class="cta-link">Book a Call <span class="arr">→</span></a>
+        </div>
+        <div class="svc-aside">
+          <div class="meta-label">What you get</div>
+          <ul class="gets">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Offer &amp; pricing</b> — a clear value proposition priced to actually make money.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Funnels</b> — a repeatable way to bring in and convert the right customers.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Operations</b> — systems and processes so the business runs without you.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Business Credit -->
+    <section class="svc reveal" id="business-credit">
+      <div class="svc-grid">
+        <div>
+          <span class="svc-num">SERVICE 04</span>
+          <h2>Business Credit</h2>
+          <p class="svc-lede">I build real, fundable business credit profiles that stand completely apart from your personal credit — so the company can borrow on its own name and strength. That means setting up the foundation correctly, establishing the right tradelines and reporting, and growing the profile until lenders see a business worth funding. The point is capital you can access without putting your personal assets on the line.</p>
+          <div class="svc-for">
+            <div class="who-label">Who it's for</div>
+            <p>Entrepreneurs who want capital without risking personal assets — owners who'd rather their company carry the debt, not them.</p>
+          </div>
+          <p class="svc-note">Want to know if your business is set up to build credit the right way? Book a call and I'll walk you through where you stand.</p>
+          <a href="/#book" class="cta-link">Book a Call <span class="arr">→</span></a>
+        </div>
+        <div class="svc-aside">
+          <div class="meta-label">What you get</div>
+          <ul class="gets">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Foundation</b> — the entity, registrations, and setup lenders look for.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Tradelines</b> — the right reporting accounts to build a real profile.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Fundability</b> — a profile strong enough to borrow on its own name.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Clothing -->
+    <section class="svc reveal" id="clothing">
+      <div class="svc-grid">
+        <div>
+          <span class="svc-num">SERVICE 05</span>
+          <h2>Clothing</h2>
+          <p class="svc-lede">I take apparel from design all the way through delivery — tech pack, production, and the drop — powered by the in-house manufacturing arm at <a href="https://hoftenstudios.com" target="_blank" rel="noopener">Hoften Studios</a>. That means you don't have to stitch together a dozen vendors to get a line made; the design and the factory live under one roof. From first sketch to product in customers' hands, it's one coordinated build.</p>
+          <div class="svc-for">
+            <div class="who-label">Who it's for</div>
+            <p>Brands launching a line — founders who want quality apparel produced and dropped without managing the manufacturing themselves.</p>
+          </div>
+          <a href="/#book" class="cta-link">Book a Call <span class="arr">→</span></a>
+        </div>
+        <div class="svc-aside">
+          <div class="meta-label">What you get</div>
+          <ul class="gets">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Tech pack</b> — production-ready specs so the factory makes it right.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Production</b> — manufacturing through the Hoften Studios arm.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Drop</b> — finished pieces packaged and delivered, ready to sell.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Crypto -->
+    <section class="svc reveal" id="crypto">
+      <div class="svc-grid">
+        <div>
+          <span class="svc-num">SERVICE 06</span>
+          <h2>Crypto</h2>
+          <p class="svc-lede">I help with positioning and education across digital assets — how to actually think about crypto, not chase the hype. We cover the fundamentals, how to weigh risk, and how to build a position that fits your goals instead of someone else's timeline. No tips, no moonshots; a grounded framework so you understand what you're holding and why.</p>
+          <div class="svc-for">
+            <div class="who-label">Who it's for</div>
+            <p>People who want a grounded entry into crypto — anyone who'd rather understand the space than gamble in it.</p>
+          </div>
+          <a href="/#book" class="cta-link">Book a Call <span class="arr">→</span></a>
+        </div>
+        <div class="svc-aside">
+          <div class="meta-label">What you get</div>
+          <ul class="gets">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Fundamentals</b> — how digital assets work, in plain language.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Framework</b> — how to think about risk and positioning, not hype.</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><b>Confidence</b> — a grounded entry so you know what you hold and why.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ===== CLOSING CTA ===== -->
+<section class="cta-band">
+  <div class="glow"></div>
+  <div class="wrap reveal">
+    <span class="eyebrow">Let's Talk</span>
+    <h2>Not sure which you need?</h2>
+    <p>Tell me what you're working on. If I can move the needle, I'll tell you exactly how — on a real call, no pitch theater.</p>
+    <a href="/#book" class="btn btn-primary">[ Book a Call ] <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="wordmark">ROYALE<span>·</span>MULDREW</a>
+        <p>One mind. Every business. Powered by AI. Building quietly from Los Angeles.</p>
+        <a class="mail" href="mailto:hello@royalemuldrew.com">hello@royalemuldrew.com</a>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/links/">Links</a>
+        <a href="/#book">Book a Call</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Royale Muldrew. All rights reserved.</span>
+      <span class="tag">One mind. Every business. Powered by AI.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var y = document.getElementById('year');
+  if(y) y.textContent = new Date().getFullYear();
+
+  if(reduce || !('IntersectionObserver' in window)){
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{rootMargin:'0px 0px -10% 0px',threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+
+</body>
+</html>
