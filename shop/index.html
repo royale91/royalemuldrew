@@ -130,6 +130,17 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 .footer{border-top:1px solid var(--line-soft);padding:34px 0;text-align:center;font-family:var(--mono);font-size:.72rem;color:var(--ink-mute);letter-spacing:.1em}
 .footer a{color:var(--green)}
 
+/* examples gallery */
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.shot{border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;background:var(--panel);transition:transform var(--t-mid) var(--ease),border-color var(--t-mid) var(--ease)}
+.shot:hover{transform:translateY(-3px);border-color:var(--green);box-shadow:0 24px 60px -34px var(--green)}
+.shot.wide{grid-column:1/-1}
+.shot img{width:100%;display:block;object-fit:cover;background:#04070a}
+.shot.wide img{max-height:540px}
+.shot figcaption{font-family:var(--mono);font-size:.72rem;color:var(--ink-mute);letter-spacing:.04em;padding:13px 16px;border-top:1px solid var(--line-soft)}
+.shot figcaption b{color:var(--green);font-weight:600}
+@media(max-width:680px){.shots{grid-template-columns:1fr}}
+
 @media(max-width:880px){
   .hero-grid{grid-template-columns:1fr}
   .chart{min-height:260px;order:-1}
@@ -141,6 +152,27 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   .nav-right a.back{display:none}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* training application form */
+.apply{max-width:620px;margin:0 auto;background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:clamp(26px,4vw,40px)}
+.apply .field{margin-bottom:18px}
+.apply label{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:9px}
+.apply input,.apply select,.apply textarea{width:100%;background:var(--bg);border:1px solid var(--line-soft);border-radius:var(--r-sm);
+  padding:14px 16px;color:var(--ink);font-family:var(--body);font-size:1rem;
+  transition:border-color var(--t-fast) var(--ease),box-shadow var(--t-fast) var(--ease)}
+.apply input::placeholder,.apply textarea::placeholder{color:var(--ink-mute)}
+.apply input:focus,.apply select:focus,.apply textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px var(--green-glow)}
+.apply textarea{resize:vertical;min-height:104px}
+.apply select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%2345f08a' stroke-width='2'%3E%3Cpath d='M3 5l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.apply .btn{width:100%;justify-content:center;margin-top:4px}
+.apply-success{display:none;text-align:center;padding:28px 10px}
+.apply-success.show{display:block}
+.apply-success .check{width:60px;height:60px;border-radius:50%;background:var(--green-glow);border:1px solid var(--green);display:grid;place-items:center;margin:0 auto 16px;color:var(--green)}
+.apply-success .check svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:2.4}
+.apply-success h3{font-family:var(--display);font-size:1.4rem;text-transform:uppercase;margin-bottom:8px}
+.apply-success p{color:var(--ink-soft);font-weight:300}
+.fieldrow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.fieldrow{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -153,9 +185,9 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 
 <!-- nav -->
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="index.html">ROYALE<span>_</span>MULDREW</a>
+  <a class="brand" href="/">ROYALE<span>_</span>MULDREW</a>
   <div class="nav-right">
-    <a class="back" href="index.html">← Back to site</a>
+    <a class="back" href="/">← Back to site</a>
     <a class="btn btn-primary" href="#pricing">Get Access <span class="arr">→</span></a>
   </div>
 </div></nav>
@@ -177,10 +209,9 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
     </div>
   </div>
   <div class="chart">
-    <div class="hud"><span>MGC1! · 5M</span><span class="live">SYSTEM GO</span></div>
-    <!-- drop a real TradingView screenshot at assets/chart.png to replace the placeholder graph -->
-    <img src="assets/chart.png" alt="Green Light Special on the chart" onerror="this.style.display='none'" />
-    <svg class="spark" viewBox="0 0 400 300" preserveAspectRatio="none">
+    <div class="hud"><span>NQ1! · 60M</span><span class="live">SYSTEM GO</span></div>
+    <img src="/assets/chart.png" alt="Green Light Special on the chart" onerror="this.style.display='none'" onload="var s=document.getElementById('heroSpark');if(s)s.style.display='none';" />
+    <svg id="heroSpark" class="spark" viewBox="0 0 400 300" preserveAspectRatio="none">
       <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(69,240,138,.35)"/><stop offset="1" stop-color="rgba(69,240,138,0)"/></linearGradient></defs>
       <path d="M0,210 L40,200 L80,215 L120,180 L160,190 L200,150 L240,165 L280,110 L320,130 L360,80 L400,95" fill="none" stroke="#45f08a" stroke-width="2.5"/>
       <path d="M0,210 L40,200 L80,215 L120,180 L160,190 L200,150 L240,165 L280,110 L320,130 L360,80 L400,95 L400,300 L0,300 Z" fill="url(#g)"/>
@@ -195,51 +226,51 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   <div class="section-head">
     <span class="eyebrow" style="justify-content:center">Get Access</span>
     <h2>Pick Your Level</h2>
-    <p>One-time for the tool, or roll with the group for live setups and accountability. Prices below are placeholders — confirm and I'll lock them in.</p>
+    <p>Month-to-month. Run the indicator solo, trade live with the team, or go one-on-one. Cancel anytime.</p>
   </div>
   <div class="tiers">
 
     <div class="tier">
-      <div class="tname">The Indicator</div>
-      <div class="price">$300<small> one-time</small></div>
-      <div class="ptag">Lifetime access to the tool. Best for self-directed traders.</div>
+      <div class="tname">Green Light Special</div>
+      <div class="price">$100<small> / month</small></div>
+      <div class="ptag">The indicator on your charts. Best for self-directed traders.</div>
       <ul>
         <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Green Light Special indicator (TradingView)</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Buy / sell signals + trend filter</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Entry, stop & target zones</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Setup guide + free course</li>
-        <li class="off"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg> Private group + live calls</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Cancel anytime</li>
       </ul>
       <a class="btn btn-ghost" href="#" data-checkout="indicator">Get the Indicator</a>
     </div>
 
     <div class="tier featured" id="group">
       <div class="badge">Most Popular</div>
-      <div class="tname">Indicator + Group</div>
-      <div class="price">$497<small> one-time</small></div>
-      <div class="ptag">Everything, plus the room where the trades get called.</div>
+      <div class="tname">Trade With the Team</div>
+      <div class="price">$100<small> / month</small></div>
+      <div class="ptag">Live trading room with Royale &amp; Steve — real-time calls + setups.</div>
       <ul>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Everything in The Indicator</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Private trading group access</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Live room with Royale &amp; Steve</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Real-time trade calls + setups</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Live sessions + trade alerts</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Direct Q&amp;A with Royale</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Lifetime updates</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Daily bias + watchlists</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Cancel anytime</li>
       </ul>
-      <a class="btn btn-primary" href="#" data-checkout="bundle">Get Indicator + Group <span class="arr">→</span></a>
+      <a class="btn btn-primary" href="#" data-checkout="team">Trade With the Team <span class="arr">→</span></a>
     </div>
 
     <div class="tier">
-      <div class="tname">The Group</div>
-      <div class="price">$97<small> / month</small></div>
-      <div class="ptag">Community + live calls. Bring your own tools.</div>
+      <div class="tname">1-on-1 Training</div>
+      <div class="price">Apply<small> · custom</small></div>
+      <div class="ptag">Personal mentorship, built around you.</div>
       <ul>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Private trading group access</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Live sessions + trade alerts</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Watchlists &amp; daily bias</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Cancel anytime</li>
-        <li class="off"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg> The indicator</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Private 1-on-1 sessions</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Personalized trading plan</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Direct access to Royale</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Trade &amp; screen reviews</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Limited spots</li>
       </ul>
-      <a class="btn btn-ghost" href="#" data-checkout="group">Join the Group</a>
+      <a class="btn btn-ghost" href="#training">Apply Now</a>
     </div>
 
   </div>
@@ -274,6 +305,59 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   </div>
 </div></section>
 
+<!-- 1-on-1 training application -->
+<section class="section" id="training"><div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow" style="justify-content:center">1-on-1 Training</span>
+    <h2>Apply for Mentorship</h2>
+    <p>Private, built around you. Tell me where you are and what you trade — if it's a fit, I'll reach out personally. Spots are limited.</p>
+  </div>
+
+  <form class="apply" id="trainingForm" novalidate>
+    <div class="fieldrow">
+      <div class="field">
+        <label for="t_name">Name</label>
+        <input id="t_name" name="name" type="text" placeholder="Your full name" required />
+      </div>
+      <div class="field">
+        <label for="t_email">Email</label>
+        <input id="t_email" name="email" type="email" placeholder="you@email.com" required />
+      </div>
+    </div>
+    <div class="fieldrow">
+      <div class="field">
+        <label for="t_phone">Phone <span style="text-transform:none;color:var(--ink-mute)">(optional)</span></label>
+        <input id="t_phone" name="phone" type="tel" placeholder="(optional)" />
+      </div>
+      <div class="field">
+        <label for="t_exp">Experience</label>
+        <select id="t_exp" name="experience" required>
+          <option value="" disabled selected>Choose one</option>
+          <option>Brand new</option>
+          <option>Less than 1 year</option>
+          <option>1–3 years</option>
+          <option>3+ years</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label for="t_markets">Markets you trade</label>
+      <input id="t_markets" name="markets" type="text" placeholder="e.g. ES / NQ futures, BTC, forex" />
+    </div>
+    <div class="field">
+      <label for="t_goals">Your goals</label>
+      <textarea id="t_goals" name="goals" placeholder="What do you want to fix or achieve in your trading?" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Application <span class="arr">→</span></button>
+  </form>
+
+  <div class="apply-success" id="trainingSuccess">
+    <div class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+    <h3>Application received.</h3>
+    <p>Thanks — I'll personally review it and reach out if it's a fit. Talk soon.</p>
+  </div>
+</div></section>
+
 <!-- final cta -->
 <section class="section"><div class="wrap">
   <div class="final">
@@ -286,17 +370,61 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 </div></section>
 
 <footer class="footer"><div class="wrap">
-  © <span id="yr"></span> Royale Muldrew · Green Light Special &nbsp;·&nbsp; <a href="index.html">royalemuldrew.com</a> &nbsp;·&nbsp; <a href="links.html">all links</a>
+  © <span id="yr"></span> Royale Muldrew · Green Light Special &nbsp;·&nbsp; <a href="/">royalemuldrew.com</a> &nbsp;·&nbsp; <a href="/links/">all links</a>
 </div></footer>
 
+<script src="/assets/config.js"></script>
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
   // checkout buttons — point these to your Stripe/Whop links
-  var CHECKOUT = { indicator:"#", bundle:"#", group:"#" }; // <-- replace with real URLs
+  var CHECKOUT = {
+    indicator:"https://whop.com/green-light-special/green-light-special-indicator",
+    team:"#",   // <-- paste the Whop "Trade With the Team" link
+    group:"#"
+  };
   document.querySelectorAll('[data-checkout]').forEach(function(a){
     var url = CHECKOUT[a.getAttribute('data-checkout')];
     if(url && url!=="#"){ a.href = url; a.target="_blank"; a.rel="noopener"; }
   });
+
+  // ---- 1-on-1 Training application -> Apps Script backend (free) ----
+  (function(){
+    var form = document.getElementById('trainingForm');
+    if(!form) return;
+    var CFG = window.RM_CONFIG || {};
+    var PLACEHOLDER = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL';
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!form.checkValidity()){ form.reportValidity(); return; }
+
+      var f = form.elements;
+      var msg = [];
+      if(f.experience && f.experience.value) msg.push('Experience: '+f.experience.value);
+      if(f.markets && f.markets.value) msg.push('Markets: '+f.markets.value);
+      if(f.goals && f.goals.value) msg.push('Goals: '+f.goals.value);
+
+      var data = {
+        type: 'Training',
+        name: (f.name.value||'').trim(),
+        email: (f.email.value||'').trim(),
+        phone: (f.phone && f.phone.value || '').trim(),
+        message: msg.join(' | '),
+        source: 'greenlight'
+      };
+
+      if(CFG.endpoint && CFG.endpoint !== PLACEHOLDER){
+        fetch(CFG.endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(data)
+        }).catch(function(err){ console.warn('Training lead post failed (showing success anyway):', err); });
+      }
+
+      form.style.display='none';
+      document.getElementById('trainingSuccess').classList.add('show');
+    });
+  })();
 </script>
 </body>
 </html>

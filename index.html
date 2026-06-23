@@ -486,10 +486,10 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
 
   <div class="hero-cam">
     <div class="cam" id="cam">
-      <video id="heroVideo" autoplay muted loop playsinline poster="assets/hero.png">
-        <source src="assets/hero.mp4" type="video/mp4" />
+      <video id="heroVideo" autoplay muted loop playsinline poster="/assets/hero.png">
+        <source src="/assets/hero.mp4" type="video/mp4" />
       </video>
-      <img class="cam-poster" src="assets/hero.png" alt="Portrait of Royale Muldrew, operator camera feed"
+      <img class="cam-poster" src="/assets/hero.png" alt="Portrait of Royale Muldrew, operator camera feed"
            onerror="this.style.display='none';this.parentElement.style.background='radial-gradient(120% 90% at 60% 25%,#0e2419,#07120d)';" />
       <div class="tint"></div>
       <div class="scan"></div>
@@ -668,7 +668,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
   <div class="wrap">
     <div class="about-grid">
       <div class="about-photo reveal">
-        <img src="assets/hero.png" alt="Royale Muldrew" onerror="this.parentElement.style.background='radial-gradient(120% 90% at 60% 25%,#0e2419,#07120d)';this.style.display='none';" />
+        <img src="/assets/hero.png" alt="Royale Muldrew" onerror="this.parentElement.style.background='radial-gradient(120% 90% at 60% 25%,#0e2419,#07120d)';this.style.display='none';" />
         <span class="tag-float">Los Angeles, CA</span>
       </div>
       <div class="about-copy reveal">
@@ -766,6 +766,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
 </footer>
 
 <!-- ===== SCRIPTS ===== -->
+<script src="/assets/config.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
 <script>
 (function(){
@@ -925,13 +926,40 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
   var statsEl = document.querySelector('.stats');
   if(statsEl) statsObs.observe(statsEl);
 
-  /* Form */
+  /* Form — capture lead -> Apps Script backend (free), then show success */
   var form = document.getElementById('callForm');
+  var CFG = window.RM_CONFIG || {};
+  var PLACEHOLDER = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL';
+
+  function showCallSuccess(){
+    form.style.display='none';
+    document.getElementById('formSuccess').classList.add('show');
+  }
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     if(!form.checkValidity()){ form.reportValidity(); return; }
-    form.style.display='none';
-    document.getElementById('formSuccess').classList.add('show');
+
+    var data = {
+      type: 'Booking',
+      name: (form.name && form.name.value || '').trim(),
+      email: (form.email && form.email.value || '').trim(),
+      phone: '',
+      message: ((form.need && form.need.value ? '['+form.need.value+'] ' : '') +
+                (form.message && form.message.value || '')).trim(),
+      source: 'royalemuldrew.com'
+    };
+
+    // If the backend isn't configured yet, still show success (keeps demo working).
+    if(CFG.endpoint && CFG.endpoint !== PLACEHOLDER){
+      fetch(CFG.endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data)
+      }).catch(function(err){ console.warn('Lead post failed (showing success anyway):', err); });
+    }
+
+    showCallSuccess();
   });
 })();
 </script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1600px;height:900px;overflow:hidden}
+.b{width:1600px;height:900px;position:relative;background:#060807;overflow:hidden;font-family:"Chakra Petch",sans-serif}
+.bg{position:absolute;inset:0;background:url("../chart.png") center/cover no-repeat;filter:saturate(1.1) contrast(1.05)}
+.ov{position:absolute;inset:0;background:
+  linear-gradient(90deg,rgba(6,8,7,.97) 28%,rgba(6,8,7,.65) 58%,rgba(6,8,7,.45) 100%),
+  linear-gradient(0deg,rgba(6,8,7,.9),transparent 45%),
+  radial-gradient(60% 80% at 12% 50%,rgba(69,240,138,.14),transparent 60%)}
+.grid{position:absolute;inset:0;opacity:.25;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:54px 54px;-webkit-mask-image:linear-gradient(90deg,#000,transparent 70%)}
+.content{position:absolute;left:90px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;z-index:3;max-width:1000px}
+.kick{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:24px;letter-spacing:.3em;text-transform:uppercase;color:#45f08a;display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.kick .dot{width:14px;height:14px;border-radius:50%;background:#45f08a;box-shadow:0 0 22px #45f08a}
+.title{font-weight:700;font-size:118px;line-height:.9;letter-spacing:-.02em;text-transform:uppercase;color:#f4f7f5;text-shadow:0 0 60px rgba(0,0,0,.6)}
+.title b{color:#45f08a}
+.sub{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:27px;color:#cfe0d7;margin-top:26px;letter-spacing:.01em;max-width:760px;line-height:1.5}
+.sub b{color:#fff;font-weight:600}
+.chips{display:flex;gap:14px;margin-top:34px}
+.chip{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:18px;letter-spacing:.1em;text-transform:uppercase;color:#cfe9da;border:1.5px solid rgba(69,240,138,.45);background:rgba(69,240,138,.08);border-radius:100px;padding:11px 22px}
+.br{position:absolute;width:46px;height:46px;border:3px solid rgba(69,240,138,.55);z-index:3}
+.br.tl{top:40px;left:40px;border-right:0;border-bottom:0}
+.br.brr{bottom:40px;right:40px;border-left:0;border-top:0}
+.live{position:absolute;top:46px;right:54px;font-family:"JetBrains Mono",monospace;font-size:18px;letter-spacing:.2em;color:#717c76;z-index:3;text-align:right}
+.live b{color:#45f08a}
+</style></head>
+<body><div class="b">
+  <div class="bg"></div><div class="ov"></div><div class="grid"></div>
+  <div class="br tl"></div><div class="br brr"></div>
+  <div class="live"><b>● LIVE</b><br>NQ1! · 60M</div>
+  <div class="content">
+    <div class="kick"><span class="dot"></span> System Go · Take It</div>
+    <div class="title">GREEN LIGHT<br><b>SPECIAL</b></div>
+    <div class="sub">The indicator. <b>Trend + Momentum + Setup</b> = the only green light to go. Non-repainting signals with exact entry, stop &amp; targets.</div>
+    <div class="chips"><span class="chip">3 Lights</span><span class="chip">Non-Repainting</span><span class="chip">Any Market</span></div>
+  </div>
+</div></body></html>
