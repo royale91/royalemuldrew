@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Green Light Special — Trading Indicator + Group | Royale Muldrew</title>
+<meta name="description" content="The Green Light Special trading indicator and private trading group. Clean signals, calculated decisions, real direction. Built and traded live by Royale Muldrew." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --bg:#060807; --bg-2:#0a0d0b; --panel:#0c100e; --panel-hi:#10150f;
+  --ink:#f4f7f5; --ink-soft:#aeb8b2; --ink-mute:#717c76;
+  --green:#45f08a; --green-deep:#36c977; --green-glow:rgba(69,240,138,.18);
+  --red:#ff5d6c;
+  --line:rgba(69,240,138,.16); --line-soft:rgba(255,255,255,.08); --line-hair:rgba(255,255,255,.12);
+  --maxw:1180px; --r-sm:8px; --r-md:12px; --r-lg:16px;
+  --ease:cubic-bezier(.2,.7,.2,1); --ease-out:cubic-bezier(.16,.84,.44,1);
+  --t-fast:.28s; --t-mid:.45s;
+  --display:"Chakra Petch",sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace; --body:"Hanken Grotesk",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:var(--green);color:#03130a}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px}
+body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--green);display:inline-flex;align-items:center;gap:.7em}
+.eyebrow::before{content:"";width:24px;height:1px;background:linear-gradient(90deg,var(--green),transparent)}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
+
+/* ticker */
+.ticker{border-bottom:1px solid var(--line-soft);background:rgba(8,11,9,.6);overflow:hidden;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+.ticker .row{display:inline-flex;gap:42px;padding:9px 0;white-space:nowrap;animation:marq 26s linear infinite}
+.ticker .row span{color:var(--ink-mute)}.ticker .row b{color:var(--green);font-weight:600}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(6,8,7,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--line-soft)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.brand{font-family:var(--display);font-weight:700;letter-spacing:.12em;font-size:.98rem}
+.brand span{color:var(--green)}
+.nav-right{display:flex;align-items:center;gap:22px;font-family:var(--mono);font-size:.78rem}
+.nav-right a.back{color:var(--ink-soft)}.nav-right a.back:hover{color:var(--green)}
+
+.btn{font-family:var(--display);font-weight:600;font-size:.92rem;display:inline-flex;align-items:center;gap:.55em;
+  padding:13px 24px;border-radius:100px;cursor:pointer;border:1px solid transparent;white-space:nowrap;
+  transition:transform var(--t-fast) var(--ease),box-shadow var(--t-fast) var(--ease),background var(--t-fast) var(--ease),color var(--t-fast) var(--ease),border-color var(--t-fast) var(--ease)}
+.btn .arr{transition:transform var(--t-fast) var(--ease)}.btn:hover .arr{transform:translateX(3px)}
+.btn-primary{background:var(--green);color:#04140b;box-shadow:0 12px 36px -16px var(--green)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 46px -14px var(--green)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green);background:rgba(69,240,138,.05)}
+
+/* hero */
+.hero{padding:clamp(56px,9vw,104px) 0 clamp(30px,5vw,56px);position:relative}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,60px);align-items:center}
+.hero h1{font-size:clamp(2.5rem,6.4vw,4.7rem);text-transform:uppercase;margin:18px 0 16px}
+.hero h1 em{color:var(--green);font-style:normal}
+.hero p.lead{color:var(--ink-soft);font-size:clamp(1.04rem,1.6vw,1.22rem);font-weight:300;max-width:52ch}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.hero-meta{display:flex;gap:26px;margin-top:30px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--ink-mute);flex-wrap:wrap}
+.hero-meta b{color:var(--ink);display:block;font-size:1.4rem;font-family:var(--display);letter-spacing:0}
+
+/* chart panel */
+.chart{position:relative;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:linear-gradient(160deg,#0b1410,#070b09);min-height:330px;box-shadow:0 40px 90px -50px #000}
+.chart .hud{position:absolute;top:12px;left:14px;right:14px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);z-index:2}
+.chart .hud .live{color:var(--green);display:inline-flex;align-items:center;gap:.5em}
+.chart .hud .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);animation:bl 1.6s infinite}
+@keyframes bl{50%{opacity:.25}}
+.chart img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9}
+.chart svg.spark{position:absolute;inset:0;width:100%;height:100%}
+.chart .tagline{position:absolute;left:14px;bottom:12px;font-family:var(--mono);font-size:.68rem;color:var(--green);z-index:2;background:rgba(0,0,0,.4);padding:6px 10px;border:1px solid var(--line);border-radius:6px}
+
+/* sections */
+.section{padding:clamp(56px,8vw,96px) 0;border-top:1px solid var(--line-soft)}
+.section-head{text-align:center;max-width:680px;margin:0 auto clamp(36px,5vw,56px)}
+.section-head h2{font-size:clamp(1.9rem,4.4vw,3rem);text-transform:uppercase;margin:16px 0 14px}
+.section-head p{color:var(--ink-soft);font-weight:300}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.tier{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:30px 26px;position:relative;transition:transform var(--t-mid) var(--ease),border-color var(--t-mid) var(--ease)}
+.tier:hover{transform:translateY(-4px);border-color:var(--line)}
+.tier.featured{border-color:var(--green);background:linear-gradient(180deg,rgba(69,240,138,.06),var(--panel))}
+.tier .badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--green);color:#04140b;font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+.tier .tname{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green)}
+.tier .price{font-family:var(--display);font-weight:700;font-size:2.9rem;margin:14px 0 2px;letter-spacing:-.02em}
+.tier .price small{font-size:.9rem;color:var(--ink-mute);font-weight:400;font-family:var(--mono);letter-spacing:0}
+.tier .ptag{color:var(--ink-mute);font-size:.86rem;min-height:42px}
+.tier ul{list-style:none;margin:20px 0 26px;display:flex;flex-direction:column;gap:11px}
+.tier li{display:flex;gap:10px;font-size:.92rem;color:var(--ink-soft)}
+.tier li svg{flex:0 0 18px;width:18px;height:18px;stroke:var(--green);fill:none;stroke-width:2;margin-top:2px}
+.tier li.off{color:var(--ink-mute);opacity:.6}.tier li.off svg{stroke:var(--ink-mute)}
+.tier .btn{width:100%;justify-content:center;margin-top:auto}
+
+/* features */
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden}
+.feat{background:var(--panel);padding:28px 24px;transition:background var(--t-mid) var(--ease)}
+.feat:hover{background:var(--panel-hi)}
+.feat .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:rgba(69,240,138,.07);border:1px solid var(--line);color:var(--green);margin-bottom:16px}
+.feat .ic svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7}
+.feat h3{font-size:1.06rem;margin-bottom:8px}
+.feat p{color:var(--ink-mute);font-size:.9rem}
+
+/* faq */
+.faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.qa{border:1px solid var(--line-soft);border-radius:var(--r-md);background:var(--panel);overflow:hidden}
+.qa summary{cursor:pointer;list-style:none;padding:18px 22px;font-family:var(--display);font-weight:600;font-size:1.02rem;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary .pl{color:var(--green);transition:transform var(--t-fast) var(--ease);font-family:var(--mono)}
+.qa[open] summary .pl{transform:rotate(45deg)}
+.qa .a{padding:0 22px 20px;color:var(--ink-soft);font-size:.94rem;font-weight:300}
+
+/* final cta */
+.final{text-align:center;border:1px solid var(--line);border-radius:var(--r-lg);background:linear-gradient(180deg,rgba(69,240,138,.07),var(--panel));padding:clamp(40px,6vw,72px) 24px}
+.final h2{font-size:clamp(1.9rem,4.6vw,3.1rem);text-transform:uppercase;margin-bottom:14px}
+.final p{color:var(--ink-soft);font-weight:300;max-width:50ch;margin:0 auto 28px}
+
+.disclaimer{margin-top:30px;font-family:var(--mono);font-size:.72rem;color:var(--ink-mute);text-align:center;max-width:740px;margin-left:auto;margin-right:auto;line-height:1.7}
+
+.footer{border-top:1px solid var(--line-soft);padding:34px 0;text-align:center;font-family:var(--mono);font-size:.72rem;color:var(--ink-mute);letter-spacing:.1em}
+.footer a{color:var(--green)}
+
+@media(max-width:880px){
+  .hero-grid{grid-template-columns:1fr}
+  .chart{min-height:260px;order:-1}
+  .tiers{grid-template-columns:1fr;max-width:440px;margin:0 auto}
+  .feats{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .feats{grid-template-columns:1fr}
+  .nav-right a.back{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ticker -->
+<div class="ticker"><div class="row">
+  <span>SYSTEM <b>GO</b></span><span><b>CLEAN</b> ENTRIES</span><span>TREND <b>FILTER</b></span><span><b>LIVE</b> CALLS</span><span>BREAK + <b>RETEST</b></span><span><b>FVG</b> ZONES</span><span>ANY MARKET <b>·</b> ANY TIMEFRAME</span>
+  <span>SYSTEM <b>GO</b></span><span><b>CLEAN</b> ENTRIES</span><span>TREND <b>FILTER</b></span><span><b>LIVE</b> CALLS</span><span>BREAK + <b>RETEST</b></span><span><b>FVG</b> ZONES</span><span>ANY MARKET <b>·</b> ANY TIMEFRAME</span>
+</div></div>
+
+<!-- nav -->
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="index.html">ROYALE<span>_</span>MULDREW</a>
+  <div class="nav-right">
+    <a class="back" href="index.html">← Back to site</a>
+    <a class="btn btn-primary" href="#pricing">Get Access <span class="arr">→</span></a>
+  </div>
+</div></nav>
+
+<!-- hero -->
+<header class="hero"><div class="wrap"><div class="hero-grid">
+  <div>
+    <span class="eyebrow">Trading // The Indicator</span>
+    <h1>Green Light <em>Special</em></h1>
+    <p class="lead">The indicator and trading group built on one rule: clean moves and calculated decisions on direction. No noise — just the green light to take the trade, and the discipline to wait when it's red.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#pricing">Get the Indicator <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="#group">Join the Group</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>1-Click</b>TradingView setup</div>
+      <div><b>Any</b>market · timeframe</div>
+      <div><b>Live</b>group + alerts</div>
+    </div>
+  </div>
+  <div class="chart">
+    <div class="hud"><span>MGC1! · 5M</span><span class="live">SYSTEM GO</span></div>
+    <!-- drop a real TradingView screenshot at assets/chart.png to replace the placeholder graph -->
+    <img src="assets/chart.png" alt="Green Light Special on the chart" onerror="this.style.display='none'" />
+    <svg class="spark" viewBox="0 0 400 300" preserveAspectRatio="none">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(69,240,138,.35)"/><stop offset="1" stop-color="rgba(69,240,138,0)"/></linearGradient></defs>
+      <path d="M0,210 L40,200 L80,215 L120,180 L160,190 L200,150 L240,165 L280,110 L320,130 L360,80 L400,95" fill="none" stroke="#45f08a" stroke-width="2.5"/>
+      <path d="M0,210 L40,200 L80,215 L120,180 L160,190 L200,150 L240,165 L280,110 L320,130 L360,80 L400,95 L400,300 L0,300 Z" fill="url(#g)"/>
+      <circle cx="200" cy="150" r="5" fill="#45f08a"/><circle cx="280" cy="110" r="5" fill="#45f08a"/><circle cx="360" cy="80" r="5" fill="#45f08a"/>
+    </svg>
+    <div class="tagline">▲ LONG · break + retest confirmed</div>
+  </div>
+</div></div></header>
+
+<!-- pricing -->
+<section class="section" id="pricing"><div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow" style="justify-content:center">Get Access</span>
+    <h2>Pick Your Level</h2>
+    <p>One-time for the tool, or roll with the group for live setups and accountability. Prices below are placeholders — confirm and I'll lock them in.</p>
+  </div>
+  <div class="tiers">
+
+    <div class="tier">
+      <div class="tname">The Indicator</div>
+      <div class="price">$300<small> one-time</small></div>
+      <div class="ptag">Lifetime access to the tool. Best for self-directed traders.</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Green Light Special indicator (TradingView)</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Buy / sell signals + trend filter</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Entry, stop & target zones</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Setup guide + free course</li>
+        <li class="off"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg> Private group + live calls</li>
+      </ul>
+      <a class="btn btn-ghost" href="#" data-checkout="indicator">Get the Indicator</a>
+    </div>
+
+    <div class="tier featured" id="group">
+      <div class="badge">Most Popular</div>
+      <div class="tname">Indicator + Group</div>
+      <div class="price">$497<small> one-time</small></div>
+      <div class="ptag">Everything, plus the room where the trades get called.</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Everything in The Indicator</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Private trading group access</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Live sessions + trade alerts</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Direct Q&amp;A with Royale</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Lifetime updates</li>
+      </ul>
+      <a class="btn btn-primary" href="#" data-checkout="bundle">Get Indicator + Group <span class="arr">→</span></a>
+    </div>
+
+    <div class="tier">
+      <div class="tname">The Group</div>
+      <div class="price">$97<small> / month</small></div>
+      <div class="ptag">Community + live calls. Bring your own tools.</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Private trading group access</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Live sessions + trade alerts</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Watchlists &amp; daily bias</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Cancel anytime</li>
+        <li class="off"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg> The indicator</li>
+      </ul>
+      <a class="btn btn-ghost" href="#" data-checkout="group">Join the Group</a>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- features -->
+<section class="section"><div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow" style="justify-content:center">What You Get</span>
+    <h2>A System, Not Signals</h2>
+    <p>It tells you the direction, the zone, and when to stand down. The rest is discipline.</p>
+  </div>
+  <div class="feats">
+    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-9"/><path d="M21 7v5h-5"/></svg></div><h3>Clear Direction</h3><p>One green light to go long, red to go short — the trend filter keeps you on the right side.</p></div>
+    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 12h6"/></svg></div><h3>Break + Retest / FVG</h3><p>Marks the structure breaks, retests and fair-value gaps so you stop chasing the move.</p></div>
+    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Entry / Stop / Target</h3><p>Every setup ships with a defined entry, stop and target — risk is decided before you click.</p></div>
+    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Any Market, Any TF</h3><p>Futures, forex, crypto, stocks — the logic travels. Trade your timeframe, your schedule.</p></div>
+    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 8h14M5 12h14M5 16h9"/></svg></div><h3>Live Group + Alerts</h3><p>Real setups called in real time, plus the playbook on how each one is traded.</p></div>
+    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/></svg></div><h3>Built &amp; Traded Live</h3><p>Not theory. The same tool Royale runs on his own funded account.</p></div>
+  </div>
+</div></section>
+
+<!-- faq -->
+<section class="section"><div class="wrap">
+  <div class="section-head"><span class="eyebrow" style="justify-content:center">FAQ</span><h2>Before You Buy</h2></div>
+  <div class="faq">
+    <details class="qa"><summary>How do I get access after I buy? <span class="pl">+</span></summary><div class="a">You'll get the TradingView indicator added to your account and an invite to the private group (for bundle/group plans). Setup takes a couple minutes — the included guide walks you through it.</div></details>
+    <details class="qa"><summary>Do I need a TradingView account? <span class="pl">+</span></summary><div class="a">Yes — a free TradingView account works. Send your username after checkout and the indicator gets granted to it.</div></details>
+    <details class="qa"><summary>What markets and timeframes does it work on? <span class="pl">+</span></summary><div class="a">Any market on TradingView — futures, forex, crypto, indices, stocks — on any timeframe. Most traders run it on the 5m / 15m.</div></details>
+    <details class="qa"><summary>Is this financial advice? <span class="pl">+</span></summary><div class="a">No. It's a tool and an education community. You make your own trading decisions and manage your own risk.</div></details>
+    <details class="qa"><summary>Refund policy? <span class="pl">+</span></summary><div class="a">Because access is granted immediately, sales are final — but the group is here to make sure you actually learn the system. (Confirm your final policy and I'll update this.)</div></details>
+  </div>
+</div></section>
+
+<!-- final cta -->
+<section class="section"><div class="wrap">
+  <div class="final">
+    <span class="eyebrow" style="justify-content:center">Ready</span>
+    <h2>Stop Guessing Direction</h2>
+    <p>Get the green light, trade the clean move, and join the room that holds you to it.</p>
+    <a class="btn btn-primary" href="#pricing">Get Access Now <span class="arr">→</span></a>
+  </div>
+  <p class="disclaimer">Risk disclaimer: Trading futures, forex, crypto and equities involves substantial risk of loss and is not suitable for every investor. The Green Light Special indicator and group are educational tools, not financial advice. Past performance is not indicative of future results. Only trade with capital you can afford to lose.</p>
+</div></section>
+
+<footer class="footer"><div class="wrap">
+  © <span id="yr"></span> Royale Muldrew · Green Light Special &nbsp;·&nbsp; <a href="index.html">royalemuldrew.com</a> &nbsp;·&nbsp; <a href="links.html">all links</a>
+</div></footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // checkout buttons — point these to your Stripe/Whop links
+  var CHECKOUT = { indicator:"#", bundle:"#", group:"#" }; // <-- replace with real URLs
+  document.querySelectorAll('[data-checkout]').forEach(function(a){
+    var url = CHECKOUT[a.getAttribute('data-checkout')];
+    if(url && url!=="#"){ a.href = url; a.target="_blank"; a.rel="noopener"; }
+  });
+</script>
+</body>
+</html>

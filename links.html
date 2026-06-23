@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Royale Muldrew — Links</title>
+<meta name="description" content="Royale Muldrew — one mind, every business. Book a call, work with me, follow along." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --bg:#060807; --bg-2:#0a0d0b; --panel:#0c100e; --panel-hi:#10150f;
+  --ink:#f4f7f5; --ink-soft:#aeb8b2; --ink-mute:#717c76;
+  --green:#45f08a; --green-deep:#36c977; --green-glow:rgba(69,240,138,.18);
+  --line:rgba(69,240,138,.16); --line-soft:rgba(255,255,255,.08); --line-hair:rgba(255,255,255,.12);
+  --r-sm:8px; --r-md:12px; --r-lg:14px;
+  --ease:cubic-bezier(.2,.7,.2,1); --ease-out:cubic-bezier(.16,.84,.44,1);
+  --t-fast:.28s; --t-mid:.45s;
+  --display:"Chakra Petch",sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace; --body:"Hanken Grotesk",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  min-height:100svh;overflow-x:hidden;
+  display:flex;flex-direction:column;align-items:center;
+  padding:clamp(40px,8vh,72px) 20px 48px;
+}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--green);color:#03130a}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px}
+
+/* ambient background: faint grid + green wash + grain */
+.bg{position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(90% 60% at 50% -10%,rgba(69,240,138,.10),transparent 60%),
+    linear-gradient(180deg,var(--bg-2),var(--bg));
+}
+.bg::after{content:"";position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+  background-size:46px 46px;-webkit-mask-image:radial-gradient(80% 60% at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(80% 60% at 50% 0%,#000,transparent 75%);
+}
+body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+.shell{width:100%;max-width:480px;display:flex;flex-direction:column;align-items:center}
+
+/* ---- header / avatar ---- */
+.status{font-family:var(--mono);font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-mute);
+  display:inline-flex;align-items:center;gap:.6em;margin-bottom:22px}
+.status .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 var(--green-glow);animation:pulse 2.4s var(--ease) infinite}
+.status b{color:var(--green);font-weight:600}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(69,240,138,.5)}70%{box-shadow:0 0 0 9px rgba(69,240,138,0)}100%{box-shadow:0 0 0 0 rgba(69,240,138,0)}}
+
+.avatar{position:relative;width:118px;height:118px;border-radius:50%;overflow:hidden;
+  border:1px solid var(--line);box-shadow:0 0 0 6px rgba(69,240,138,.06),0 24px 60px -20px rgba(0,0,0,.8);margin-bottom:20px}
+.avatar video,.avatar img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.05)}
+.avatar::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 40px rgba(69,240,138,.12);pointer-events:none}
+.avatar .ring{position:absolute;inset:-3px;border-radius:50%;border:1px dashed rgba(69,240,138,.4);animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.name{font-family:var(--display);font-weight:700;font-size:1.72rem;letter-spacing:.01em;text-transform:uppercase;text-align:center}
+.handle{font-family:var(--mono);font-size:.82rem;color:var(--green);margin-top:2px}
+.tagline{font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);text-align:center;margin-top:12px;letter-spacing:.02em}
+.meta{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);margin-top:10px}
+
+/* ---- groups + links ---- */
+.group{width:100%;margin-top:30px}
+.group-label{font-family:var(--mono);font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-mute);
+  display:flex;align-items:center;gap:.8em;margin:0 4px 12px}
+.group-label::after{content:"";flex:1;height:1px;background:var(--line-soft)}
+
+.link{position:relative;display:flex;align-items:center;gap:14px;width:100%;
+  background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r-md);
+  padding:15px 16px;margin-bottom:11px;overflow:hidden;
+  transition:transform var(--t-fast) var(--ease),border-color var(--t-fast) var(--ease),background var(--t-fast) var(--ease),box-shadow var(--t-fast) var(--ease)}
+.link:hover{transform:translateY(-2px);border-color:var(--green);background:var(--panel-hi);box-shadow:0 16px 36px -22px rgba(69,240,138,.5)}
+.link:active{transform:translateY(0) scale(.99)}
+.link .ic{flex:0 0 38px;height:38px;border-radius:9px;display:grid;place-items:center;
+  background:rgba(69,240,138,.07);border:1px solid var(--line);color:var(--green)}
+.link .ic svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.7}
+.link .txt{flex:1;min-width:0}
+.link .t{font-family:var(--display);font-weight:600;font-size:.98rem;letter-spacing:.005em}
+.link .s{font-family:var(--mono);font-size:.68rem;color:var(--ink-mute);letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.link .go{flex:0 0 auto;color:var(--ink-mute);transition:transform var(--t-fast) var(--ease),color var(--t-fast) var(--ease)}
+.link:hover .go{color:var(--green);transform:translateX(3px)}
+.link .go svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8}
+
+/* primary highlighted */
+.link.primary{background:var(--green);border-color:var(--green)}
+.link.primary .t,.link.primary .s{color:#04140b}
+.link.primary .s{opacity:.7}
+.link.primary .ic{background:rgba(0,0,0,.14);border-color:rgba(0,0,0,.18);color:#04140b}
+.link.primary .go{color:#04140b}
+.link.primary:hover{box-shadow:0 18px 44px -16px rgba(69,240,138,.7)}
+
+/* socials row */
+.socials{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:6px}
+.soc{width:46px;height:46px;border-radius:11px;display:grid;place-items:center;
+  background:var(--panel);border:1px solid var(--line-soft);color:var(--ink-soft);
+  transition:transform var(--t-fast) var(--ease),border-color var(--t-fast) var(--ease),color var(--t-fast) var(--ease),background var(--t-fast) var(--ease)}
+.soc:hover{transform:translateY(-2px);border-color:var(--green);color:var(--green);background:var(--panel-hi)}
+.soc svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7}
+
+.foot{margin-top:34px;text-align:center;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--ink-mute)}
+.foot a{color:var(--green)}
+.foot .div{margin:0 .6em;opacity:.5}
+
+/* entrance */
+.reveal{opacity:0;transform:translateY(14px)}
+.shell.in .reveal{opacity:1;transform:none;transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+.shell.in .reveal:nth-child(2){transition-delay:.05s}
+.shell.in .reveal:nth-child(3){transition-delay:.1s}
+.shell.in .reveal:nth-child(4){transition-delay:.15s}
+.shell.in .reveal:nth-child(5){transition-delay:.2s}
+.shell.in .reveal:nth-child(6){transition-delay:.25s}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
+@media(max-width:420px){
+  .name{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<main class="shell" id="shell">
+
+  <!-- ===== HEADER ===== -->
+  <div class="reveal" style="display:flex;flex-direction:column;align-items:center">
+    <span class="status"><span class="dot"></span> <b>OPERATIONAL</b> &nbsp;·&nbsp; LOS ANGELES</span>
+    <div class="avatar">
+      <span class="ring"></span>
+      <video id="av" autoplay muted loop playsinline poster="assets/hero.png">
+        <source src="assets/hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <h1 class="name">Royale Muldrew</h1>
+    <div class="handle">@NNewworldtycoon</div>
+    <p class="tagline">One mind. Every business. Powered by AI.</p>
+    <div class="meta">Operator // Builder // Trader</div>
+  </div>
+
+  <!-- ===== WORK WITH ME ===== -->
+  <section class="group reveal">
+    <div class="group-label">Work With Me</div>
+
+    <!-- PRIMARY: replace href with your Calendly/booking link -->
+    <a class="link primary" href="index.html#book">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 9h18M7 3v4M17 3v4M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/></svg></span>
+      <span class="txt"><div class="t">Book a Call</div><div class="s">Let's build something →</div></span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="link" href="index.html">
+      <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg></span>
+      <span class="txt"><div class="t">Full Website</div><div class="s">royalemuldrew.com</div></span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+    </a>
+  </section>
+
+  <!-- ===== OFFERS ===== (replace each href="#" with the real link) -->
+  <section class="group reveal">
+    <div class="group-label">What I Do</div>
+
+    <!-- pre-filled from your records — confirm/replace -->
+    <a class="link" href="https://accessconnectcredit.com" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></span>
+      <span class="txt"><div class="t">Credit Repair</div><div class="s">fix &amp; build your credit</div></span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+    </a>
+
+    <a class="link" href="shop.html">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-9"/><path d="M21 7v5h-5"/></svg></span>
+      <span class="txt"><div class="t">Green Light Special</div><div class="s">the trading indicator</div></span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="link" href="index.html#book">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 6l-2 12"/></svg></span>
+      <span class="txt"><div class="t">Need a Website or App?</div><div class="s">custom development</div></span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="link" href="shop.html#group">
+      <span class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0112 0M14 20a5 5 0 017-4.6"/></svg></span>
+      <span class="txt"><div class="t">Trade With the Team</div><div class="s">live calls + setups</div></span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="link" href="#">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-9"/><circle cx="12" cy="13" r="1.4" fill="currentColor" stroke="none"/></svg></span>
+      <span class="txt"><div class="t">Get Funding — Trading</div><div class="s">prop firm / funded accounts · add link →</div></span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <a class="link" href="#">
+      <span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span>
+      <span class="txt"><div class="t">Get Business Funding</div><div class="s">capital for your company · add link →</div></span>
+      <span class="go"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </section>
+
+  <!-- ===== FOLLOW ===== (replace href="#" with your handles) -->
+  <section class="group reveal">
+    <div class="group-label">Follow</div>
+    <div class="socials">
+      <a class="soc" href="https://instagram.com/NNewworldtycoon" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a class="soc" href="#" aria-label="X / Twitter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+      <a class="soc" href="#" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M11 9l4 3-4 3z" fill="currentColor" stroke="none"/></svg></a>
+      <a class="soc" href="#" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 4v9.5a3.5 3.5 0 11-3-3.46"/><path d="M14 7a5 5 0 005 4"/></svg></a>
+      <a class="soc" href="#" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4"/></svg></a>
+      <a class="soc" href="mailto:hello@royalemuldrew.com" aria-label="Email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></a>
+    </div>
+  </section>
+
+  <div class="foot reveal">
+    © <span id="yr"></span> Royale Muldrew <span class="div">·</span> <a href="index.html">royalemuldrew.com</a>
+  </div>
+
+</main>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // reveal
+  requestAnimationFrame(()=>document.getElementById('shell').classList.add('in'));
+  // graceful video fallback (show poster if hero.mp4 missing)
+  (function(){
+    var v=document.getElementById('av');
+    function fb(){var img=document.createElement('img');img.src='assets/hero.png';img.alt='Royale Muldrew';v.replaceWith(img);}
+    v.addEventListener('error',fb,true);
+    setTimeout(function(){ if(v.networkState===3 || (v.readyState===0 && !v.currentSrc)) fb(); },1400);
+  })();
+</script>
+</body>
+</html>
