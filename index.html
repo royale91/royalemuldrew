@@ -335,7 +335,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
 .about-sign{font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--ink);margin-top:32px;letter-spacing:.005em;text-transform:uppercase}
 .about-sign span{color:var(--green)}
 
-/* ---------- Book a Call ---------- */
+/* ---------- Shoot a Text ---------- */
 .book{background:linear-gradient(180deg,var(--bg-2),#05130c)}
 .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,90px);align-items:start}
 .book-copy h2{font-size:clamp(2.2rem,5.4vw,3.9rem);line-height:1.02;margin:20px 0 24px;text-transform:uppercase}
@@ -475,7 +475,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
       <a href="#about">About</a>
     </nav>
     <div class="nav-cta">
-      <a href="#book" class="btn btn-primary">Book a Call <span class="arr">→</span></a>
+      <a href="#book" class="btn btn-primary">Shoot a Text <span class="arr">→</span></a>
       <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -487,7 +487,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
   <a href="#reviews">Reviews</a>
   <a href="#work">Work</a>
   <a href="#about">About</a>
-  <a href="#book" class="btn btn-primary">Book a Call →</a>
+  <a href="#book" class="btn btn-primary">Shoot a Text →</a>
 </div>
 
 <!-- ===== HERO ===== -->
@@ -503,7 +503,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
     <p class="hero-type h-anim d3"><span id="typeLine"></span><span class="car"></span></p>
     <p class="hero-sub h-anim d3">A self-taught problem solver who builds, trades, and grows businesses for the people behind them — quietly, for years.</p>
     <div class="hero-actions h-anim d4">
-      <a href="#book" class="btn btn-primary">[ Book a Call ] <span class="arr">→</span></a>
+      <a href="#book" class="btn btn-primary">[ Shoot a Text ] <span class="arr">→</span></a>
       <a href="#what" class="btn btn-ghost">[ See What I Do ]</a>
     </div>
     <div class="hero-status h-anim d4">
@@ -540,7 +540,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">What I Do</span>
-      <h2>Eleven ventures.<br>One operator.</h2>
+      <h2>Twelve ventures.<br>One operator.</h2>
       <p>Across consulting, capital, product, and creative — the same mind, applied end to end and amplified by AI.</p>
     </div>
 
@@ -592,11 +592,16 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
       </article>
       <article class="venture">
         <span class="num">10</span>
+        <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h3l2-7 4 14 2-7h7"/></svg>
+        <div><h3>Day Trader Signals — with Steve</h3><p>Real-time futures calls &amp; setups, traded live with the team.</p><div class="learn"><a href="https://whop.com/checkout/plan_w46rmcQOAsXxP?a=newworldtycoon" target="_blank" rel="noopener" class="cta-link">Trade with the team <span class="arr">→</span></a></div></div>
+      </article>
+      <article class="venture">
+        <span class="num">11</span>
         <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5c0-1.2 1-2 2.5-2s2.5.8 2.5 2-1 1.8-2.5 1.8-2.5.8-2.5 2 1 2 2.5 2 2.5-.8 2.5-2M12 6v12"/></svg>
         <div><h3>Crypto</h3><p>Positioning and education across digital assets.</p><div class="learn"><a href="/services#crypto" class="cta-link">Learn more <span class="arr">→</span></a></div></div>
       </article>
       <article class="venture">
-        <span class="num">11</span>
+        <span class="num">12</span>
         <svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5a3 3 0 013-3h13v17H6a3 3 0 00-3 3z"/><path d="M3 5v17"/></svg>
         <div><h3>Author — Crypto Cory</h3><p>"The Adventures of Crypto Cory" — a children's book teaching kids about crypto, investing, and building wealth early.</p><div class="learn"><a href="https://www.amazon.com/Adventures-Crypto-Cory-Royale-Muldrew-ebook/dp/B09NZ516NH" target="_blank" rel="noopener" class="cta-link">Read on Amazon <span class="arr">→</span></a></div></div>
       </article>
@@ -831,60 +836,68 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
   </div>
 </section>
 
-<!-- ===== BOOK A CALL ===== -->
+<!-- ===== SHOOT A TEXT ===== -->
 <section class="section book" id="book">
   <div class="wrap">
-    <div class="book-grid">
-      <div class="book-copy reveal">
-        <span class="eyebrow">Book a Call</span>
-        <h2>Let's build<br>your next move.</h2>
-        <p>Tell me what you're working on. If I can move the needle, I'll tell you exactly how — on a real call, no pitch theater.</p>
-        <ul class="book-points">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Straight answers on whether I'm the right fit.</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> A clear first step you can act on either way.</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> One operator, every discipline, powered by AI.</li>
-        </ul>
-      </div>
-
-      <div class="reveal">
-        <!-- CALENDLY EMBED SLOT: paste your <div class="calendly-inline-widget" data-url="..."></div> + script here to enable live scheduling -->
-        <form class="form" id="callForm" novalidate>
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your full name" required />
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@email.com" required />
-          </div>
-          <div class="field">
-            <label for="need">What do you need?</label>
-            <select id="need" name="need" required>
-              <option value="" disabled selected>Choose one</option>
-              <option>AI Consulting &amp; Automation</option>
-              <option>App / Software Development</option>
-              <option>Business Consulting</option>
-              <option>Business Credit</option>
-              <option>Credit Repair</option>
-              <option>Manufacturing / Clothing</option>
-              <option>Trading / Crypto</option>
-              <option>Creative / Media (Hoften Studios)</option>
-              <option>Something else</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="A few lines on where you are and where you want to go."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">[ Book a Call ] <span class="arr">→</span></button>
-        </form>
-
-        <div class="form-success" id="formSuccess">
-          <div class="check"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></div>
-          <h3>Request received.</h3>
-          <p>Thanks — I'll personally review this and reach out to lock in a time. Talk soon.</p>
-        </div>
-      </div>
+    <style>
+      .talk-head{text-align:center;max-width:680px;margin:0 auto clamp(30px,5vw,46px)}
+      .talk-head .eyebrow{justify-content:center}
+      .talk-head h2{margin:16px 0 14px}
+      .talk-head p{color:var(--ink-soft)}
+      .talk-num{font-family:var(--mono);font-size:.82rem;color:var(--green);margin-top:12px}
+      .talk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:940px;margin:0 auto}
+      .talk-box{display:flex;align-items:center;gap:13px;background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r-md);padding:18px;transition:transform .28s var(--ease),border-color .28s var(--ease),background .28s var(--ease),box-shadow .28s var(--ease)}
+      .talk-box:hover{transform:translateY(-3px);border-color:var(--green);background:var(--panel-hi);box-shadow:0 18px 40px -24px var(--green)}
+      .talk-box .ic{flex:0 0 42px;height:42px;border-radius:10px;display:grid;place-items:center;background:rgba(69,240,138,.08);border:1px solid var(--line);color:var(--green)}
+      .talk-box .ic svg{width:20px;height:20px}
+      .talk-box .l{font-family:var(--display);font-weight:600;font-size:1.02rem;line-height:1.15;color:var(--ink)}
+      .talk-box .l span{display:block;font-family:var(--mono);font-weight:400;font-size:.68rem;color:var(--ink-mute);margin-top:4px;letter-spacing:.02em}
+      @media(max-width:760px){.talk-grid{grid-template-columns:1fr 1fr}}
+      @media(max-width:460px){.talk-grid{grid-template-columns:1fr}}
+    </style>
+    <div class="talk-head reveal">
+      <span class="eyebrow">Let's Talk</span>
+      <h2>Let's build something.</h2>
+      <p>From your credit to your business — tap what you want to talk about and it opens a text to me, already filled in, so I know exactly how to help.</p>
+      <div class="talk-num">↓ goes straight to my phone · (213) 263-5389</div>
+    </div>
+    <div class="talk-grid reveal">
+      <a class="talk-box" href="sms:+12132635389?&body=Hi%20Royale%2C%20I%20want%20to%20talk%20about%20Credit%20Repair.">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <span class="l">Credit Repair<span>fix &amp; build your scores</span></span>
+      </a>
+      <a class="talk-box" href="sms:+12132635389?&body=Hi%20Royale%2C%20I%20want%20to%20talk%20about%20Business%20Credit.">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg></span>
+        <span class="l">Business Credit<span>fund your company</span></span>
+      </a>
+      <a class="talk-box" href="sms:+12132635389?&body=Hi%20Royale%2C%20I%20want%20to%20talk%20about%20Business%20Funding.">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5c0-1.2 1-2 2.5-2s2.5.8 2.5 2-1 1.8-2.5 1.8-2.5.8-2.5 2 1 2 2.5 2 2.5-.8 2.5-2M12 6v12"/></svg></span>
+        <span class="l">Business Funding<span>capital to grow</span></span>
+      </a>
+      <a class="talk-box" href="sms:+12132635389?&body=Hi%20Royale%2C%20I%20want%20to%20talk%20about%20building%20a%20Website%20or%20App.">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 6l-2 12"/></svg></span>
+        <span class="l">Website / App<span>get it built</span></span>
+      </a>
+      <a class="talk-box" href="sms:+12132635389?&body=Hi%20Royale%2C%20I%20want%20to%20talk%20about%20Trading%20with%20the%20team.">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l5-5 4 4 8-9"/><path d="M21 7v5h-5"/></svg></span>
+        <span class="l">Trading<span>join the team</span></span>
+      </a>
+      <a class="talk-box" href="sms:+12132635389?&body=Hi%20Royale%2C%20I%20want%20to%20talk%20about%20Business%20Consulting.">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
+        <span class="l">Business Consulting<span>strategy &amp; systems</span></span>
+      </a>
+      <a class="talk-box" href="sms:+12132635389?&body=Hi%20Royale%2C%20I%20want%20to%20talk%20about%20AI%20%26%20Automation.">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
+        <span class="l">AI &amp; Automation<span>automate the busywork</span></span>
+      </a>
+      <a class="talk-box" href="sms:+12132635389?&body=Hi%20Royale%2C%20I%20want%20to%20talk%20about%20Clothing%20%2F%20Manufacturing.">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V10l6-3v3l6-3v3l6-3v11z"/><path d="M3 21h18"/></svg></span>
+        <span class="l">Clothing / Mfg<span>design → drop</span></span>
+      </a>
+      <a class="talk-box" href="sms:+12132635389?&body=Hi%20Royale%2C%20I%20have%20a%20question.">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 01-12 7.6L3 21l1.9-6A8.4 8.4 0 1121 11.5z"/></svg></span>
+        <span class="l">Something Else<span>just say hey</span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -1079,9 +1092,10 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
   var CFG = window.RM_CONFIG || {};
   var PLACEHOLDER = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL';
 
+  if(form){
   function showCallSuccess(){
     form.style.display='none';
-    document.getElementById('formSuccess').classList.add('show');
+    var fs=document.getElementById('formSuccess'); if(fs) fs.classList.add('show');
   }
 
   form.addEventListener('submit', function(e){
@@ -1108,6 +1122,19 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.04;letter-spac
     }
 
     showCallSuccess();
+  });
+  }
+
+  /* Make the venture cards fully clickable -> their Learn more destination */
+  document.querySelectorAll('.venture').forEach(function(card){
+    var link = card.querySelector('a.cta-link, a');
+    if(!link) return;
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(e){
+      if(e.target.closest('a')) return; // let real link clicks behave normally
+      if(link.target === '_blank'){ window.open(link.href, '_blank'); }
+      else { window.location.href = link.href; }
+    });
   });
 
   /* Review form — capture review -> same backend, then show success */
