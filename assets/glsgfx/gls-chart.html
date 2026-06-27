@@ -1,0 +1,195 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060807;--panel:#0c100e;--green:#45f08a;--green-deep:#36c977;
+  --red:#ff5d6c;--amber:#ffcf5c;--cyan:#5ee0ff;
+  --ink:#f4f7f5;--mute:#8a978f;--line:rgba(255,255,255,.08);
+  --display:"Chakra Petch",sans-serif;--mono:"JetBrains Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg)}
+.stage{width:1320px;height:860px;background:
+  radial-gradient(120% 90% at 80% -10%,rgba(69,240,138,.08),transparent 55%),var(--bg);
+  display:flex;align-items:center;justify-content:center;font-family:var(--display);color:var(--ink)}
+.card{width:1216px;height:760px;background:linear-gradient(180deg,#0c110e,#090d0b);
+  border:1px solid var(--line);border-radius:22px;overflow:hidden;position:relative;
+  box-shadow:0 60px 120px -60px #000,inset 0 1px 0 rgba(255,255,255,.03);display:flex;flex-direction:column}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:18px 26px;border-bottom:1px solid var(--line)}
+.lhs{display:flex;align-items:center;gap:14px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 12px 3px rgba(69,240,138,.7)}
+.sym{font-weight:700;letter-spacing:.06em;font-size:17px}
+.sym b{color:var(--green)}
+.pill{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--mute);
+  border:1px solid var(--line);border-radius:7px;padding:6px 11px;text-transform:uppercase}
+.rhs{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px}
+.leg{display:flex;align-items:center;gap:6px;color:var(--mute);letter-spacing:.04em}
+.leg i{width:14px;height:3px;border-radius:2px;display:inline-block}
+.chartwrap{flex:1;position:relative}
+svg{display:block;width:100%;height:100%}
+.chip{position:absolute;left:26px;bottom:118px;display:flex;align-items:center;gap:10px;
+  background:linear-gradient(90deg,rgba(69,240,138,.16),rgba(69,240,138,.03));
+  border:1px solid rgba(69,240,138,.4);border-radius:11px;padding:11px 18px;
+  font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:#eafff2;
+  box-shadow:0 0 40px -16px rgba(69,240,138,.5)}
+.chip b{color:var(--green);font-weight:600}
+.chip .cd{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px 2px rgba(69,240,138,.8)}
+</style></head>
+<body>
+<div class="stage">
+  <div class="card">
+    <div class="bar">
+      <div class="lhs">
+        <span class="dot"></span>
+        <span class="sym"><b>NQ1!</b> · Nasdaq 100 Futures</span>
+        <span class="pill">10m</span>
+        <span class="pill">RTH</span>
+      </div>
+      <div class="rhs">
+        <span class="leg"><i style="background:#5ee0ff"></i>ORB</span>
+        <span class="leg"><i style="background:#ffcf5c"></i>EMA</span>
+        <span class="leg"><i style="background:#45f08a"></i>LONG</span>
+        <span class="leg"><i style="background:rgba(255,255,255,.4)"></i>LEVELS</span>
+      </div>
+    </div>
+
+    <div class="chartwrap">
+      <div class="chip"><span class="cd"></span>Break + retest confirmed · <b>▲ LONG</b></div>
+      <svg viewBox="0 0 1216 690" preserveAspectRatio="none" id="svg"></svg>
+    </div>
+  </div>
+</div>
+
+<script>
+const W=1216,H=690;
+const priceTop=560, priceBot=60;           // chart price band (y up = lower y)
+const oscTop=600, oscBot=672;              // oscillator strip
+const yMin=18.0, yMax=124.0;               // arbitrary price scale
+const Y = p => priceBot + (priceTop-priceBot)*(yMax-p)/(yMax-yMin);
+
+// ---- generate believable candle data, gentle uptrend with ORB then break+retest ----
+const candles=[];
+let price=58;
+const n=42;
+// phases: 0-9 ranging (ORB), 10-12 break up, 13-16 retest pullback, 17+ trend up
+for(let i=0;i<n;i++){
+  let drift;
+  if(i<10) drift=(Math.sin(i*1.4)*1.3)+ (i*0.05);      // range
+  else if(i<13) drift=2.6;                               // breakout impulse
+  else if(i<17) drift=-1.3;                              // retest
+  else drift=1.7 + Math.sin(i*0.9)*0.7;                 // trend up
+  const open=price;
+  const close=open+drift+(Math.cos(i*2.1)*0.6);
+  const hi=Math.max(open,close)+0.6+Math.abs(Math.sin(i*3))*0.9;
+  const lo=Math.min(open,close)-0.6-Math.abs(Math.cos(i*2))*0.9;
+  candles.push({open,close,hi,lo});
+  price=close;
+}
+const padL=70,padR=160;
+const cw=(W-padL-padR)/n;
+const bodyW=cw*0.56;
+const cx = i => padL + cw*i + cw/2;
+
+let s='';
+// ---- horizontal dashed level lines ----
+const levels=[
+  {p:115, lbl:'PDH', c:'rgba(255,255,255,.34)'},
+  {p:88,  lbl:'MID-OPEN', c:'rgba(94,224,255,.45)'},
+  {p:38,  lbl:'PDL', c:'rgba(255,255,255,.34)'},
+];
+levels.forEach(L=>{
+  const y=Y(L.p);
+  s+=`<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="${L.c}" stroke-width="1.2" stroke-dasharray="6 7"/>`;
+  s+=`<rect x="${W-padR+8}" y="${y-12}" width="92" height="24" rx="5" fill="rgba(8,12,10,.9)" stroke="${L.c}" stroke-width="1"/>`;
+  s+=`<text x="${W-padR+54}" y="${y+1}" fill="#cfd8d2" font-family="JetBrains Mono" font-size="11" letter-spacing="1" text-anchor="middle" dominant-baseline="middle">${L.lbl}</text>`;
+});
+
+// ---- ORB range box (first 10 candles) ----
+const orbHi=Math.max(...candles.slice(0,10).map(c=>c.hi));
+const orbLo=Math.min(...candles.slice(0,10).map(c=>c.lo));
+const orbX=cx(0)-bodyW/2-4, orbX2=cx(9)+bodyW/2+4;
+s+=`<rect x="${orbX}" y="${Y(orbHi)}" width="${orbX2-orbX}" height="${Y(orbLo)-Y(orbHi)}" fill="rgba(94,224,255,.07)" stroke="rgba(94,224,255,.55)" stroke-width="1.3" rx="3"/>`;
+s+=`<text x="${orbX+8}" y="${Y(orbHi)-9}" fill="#8fdcf2" font-family="JetBrains Mono" font-size="11" letter-spacing="1.5">ORB RANGE</text>`;
+
+// ---- EMA line ----
+let ema=candles[0].close, k=2/(9+1), pts=[];
+candles.forEach((c,i)=>{ema=c.close*k+ema*(1-k);pts.push([cx(i),Y(ema)]);});
+let path='M'+pts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' L');
+s+=`<path d="${path}" fill="none" stroke="#ffcf5c" stroke-width="2.2" opacity=".85" stroke-linejoin="round" stroke-linecap="round"/>`;
+
+// ---- candles ----
+candles.forEach((c,i)=>{
+  const up=c.close>=c.open;
+  const col=up?'#45f08a':'#ff5d6c';
+  const x=cx(i);
+  const yh=Y(c.hi),yl=Y(c.lo);
+  const yo=Y(c.open),yc=Y(c.close);
+  const top=Math.min(yo,yc),h=Math.max(2,Math.abs(yc-yo));
+  s+=`<line x1="${x}" y1="${yh}" x2="${x}" y2="${yl}" stroke="${col}" stroke-width="1.6"/>`;
+  s+=`<rect x="${x-bodyW/2}" y="${top}" width="${bodyW}" height="${h}" rx="1.5" fill="${col}" opacity="${up?0.95:0.92}"/>`;
+});
+
+// ---- BOS tags (break of structure) ----
+function bos(i,yp){
+  const x=cx(i),y=Y(yp);
+  s+=`<g>
+    <rect x="${x-26}" y="${y-30}" width="52" height="19" rx="4" fill="rgba(69,240,138,.14)" stroke="rgba(69,240,138,.55)" stroke-width="1"/>
+    <text x="${x}" y="${y-20}" fill="#45f08a" font-family="JetBrains Mono" font-size="10.5" letter-spacing=".5" text-anchor="middle" dominant-baseline="middle">BOS ↑</text>
+  </g>`;
+}
+bos(11, candles[11].hi+5);
+bos(19, candles[19].hi+5);
+
+// ---- LONG flag marker at breakout candle ----
+(function(){
+  const i=12,x=cx(i),y=Y(candles[i].lo)+34;
+  s+=`<g>
+    <line x1="${x}" y1="${y}" x2="${x}" y2="${y-30}" stroke="#45f08a" stroke-width="2"/>
+    <path d="M${x} ${y-30} L${x+34} ${y-24} L${x} ${y-18} Z" fill="#45f08a"/>
+    <text x="${x+17}" y="${y-23.5}" fill="#04140b" font-family="JetBrains Mono" font-size="9.5" font-weight="700" text-anchor="middle" dominant-baseline="middle">LONG</text>
+    <circle cx="${x}" cy="${y}" r="4" fill="#45f08a"/>
+  </g>`;
+})();
+
+// ---- yellow diamond (retest hold) ----
+(function(){
+  const i=16,x=cx(i),y=Y(candles[i].lo)-16;
+  s+=`<path d="M${x} ${y-9} L${x+8} ${y} L${x} ${y+9} L${x-8} ${y} Z" fill="#ffcf5c" stroke="#0a0d0b" stroke-width="1"/>`;
+})();
+
+// ---- star A1 marker (high-grade signal) ----
+(function(){
+  const i=20,x=cx(i),y=Y(candles[i].lo)-30;
+  let star='';const sp=[];
+  for(let a=0;a<10;a++){const r=a%2?4.5:10;const ang=-Math.PI/2+a*Math.PI/5;sp.push([x+Math.cos(ang)*r,y+Math.sin(ang)*r]);}
+  star='M'+sp.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' L')+' Z';
+  s+=`<path d="${star}" fill="#ffcf5c" stroke="#0a0d0b" stroke-width=".8"/>`;
+  s+=`<text x="${x}" y="${y+24}" fill="#ffcf5c" font-family="JetBrains Mono" font-size="11" font-weight="700" text-anchor="middle">A1</text>`;
+})();
+
+// ---- live price tag on last close ----
+(function(){
+  const i=n-1,y=Y(candles[i].close);
+  s+=`<line x1="${cx(i)}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="rgba(69,240,138,.35)" stroke-width="1" stroke-dasharray="3 4"/>`;
+  s+=`<rect x="${W-padR+8}" y="${y-12}" width="92" height="24" rx="5" fill="rgba(69,240,138,.16)" stroke="rgba(69,240,138,.6)" stroke-width="1"/>`;
+  s+=`<text x="${W-padR+54}" y="${y+1}" fill="#45f08a" font-family="JetBrains Mono" font-size="11.5" font-weight="600" text-anchor="middle" dominant-baseline="middle">+0.84%</text>`;
+})();
+
+// ---- oscillator strip ----
+s+=`<line x1="${padL}" y1="${(oscTop+oscBot)/2}" x2="${W-padR}" y2="${(oscTop+oscBot)/2}" stroke="rgba(255,255,255,.12)" stroke-width="1"/>`;
+s+=`<rect x="${padL}" y="${oscTop}" width="${W-padR-padL}" height="${oscBot-oscTop}" fill="rgba(255,255,255,.012)" stroke="var(--line)" stroke-width="0"/>`;
+let opath='', osc=[];
+for(let i=0;i<n;i++){const v=Math.sin(i*0.55)*0.7+Math.sin(i*0.22)*0.3;osc.push(v);}
+osc.forEach((v,i)=>{const x=cx(i);const y=(oscTop+oscBot)/2 - v*((oscBot-oscTop)/2-6);opath+=(i?' L':'M')+x.toFixed(1)+','+y.toFixed(1);});
+s+=`<path d="${opath}" fill="none" stroke="#45f08a" stroke-width="1.8" opacity=".8"/>`;
+// exit-bell dots (amber) where momentum tops
+[14,30].forEach(i=>{const x=cx(i);const y=(oscTop+oscBot)/2 - osc[i]*((oscBot-oscTop)/2-6);
+  s+=`<circle cx="${x}" cy="${y}" r="5" fill="#ffcf5c" stroke="#0a0d0b" stroke-width="1.2"/>`;
+  s+=`<text x="${x}" y="${y-10}" fill="#ffcf5c" font-family="JetBrains Mono" font-size="9" text-anchor="middle">⌁</text>`;
+});
+s+=`<text x="${padL}" y="${oscTop-6}" fill="#717c76" font-family="JetBrains Mono" font-size="10" letter-spacing="1.5">MOMENTUM · EXIT BELLS</text>`;
+
+document.getElementById('svg').innerHTML=s;
+</script>
+</body></html>

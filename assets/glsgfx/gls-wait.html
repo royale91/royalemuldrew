@@ -1,0 +1,105 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060807;--panel:#0c100e;--panel-hi:#10150f;
+  --green:#45f08a;--green-deep:#36c977;--red:#ff5d6c;--amber:#ffcf5c;
+  --ink:#f4f7f5;--mute:#8a978f;--line:rgba(255,255,255,.08);
+  --display:"Chakra Petch",sans-serif;--mono:"JetBrains Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg)}
+.stage{width:1200px;height:820px;background:
+  radial-gradient(120% 90% at 78% -10%,rgba(255,207,92,.10),transparent 55%),
+  radial-gradient(90% 70% at 10% 110%,rgba(255,207,92,.05),transparent 60%),
+  var(--bg);
+  display:flex;align-items:center;justify-content:center;font-family:var(--display);color:var(--ink)}
+.panel{width:1040px;background:linear-gradient(180deg,#0d120f,#0a0e0c);
+  border:1px solid var(--line);border-radius:24px;padding:34px 38px 38px;
+  box-shadow:0 60px 120px -60px #000,0 0 0 1px rgba(255,207,92,.05),inset 0 1px 0 rgba(255,255,255,.03);position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;inset:0;border-radius:24px;pointer-events:none;
+  box-shadow:inset 0 0 120px -40px rgba(255,207,92,.14)}
+.hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.16em;font-size:18px}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--amber);box-shadow:0 0 14px 3px rgba(255,207,92,.6)}
+.brand .sub{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--mute);font-weight:500}
+.instr{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--mute);
+  background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:8px;padding:8px 14px}
+.instr b{color:var(--amber);font-weight:600}
+.banner{display:flex;align-items:center;gap:16px;margin-bottom:28px;
+  background:linear-gradient(90deg,rgba(255,207,92,.16),rgba(255,207,92,.03));
+  border:1px solid rgba(255,207,92,.4);border-radius:14px;padding:20px 26px;
+  box-shadow:0 0 50px -18px rgba(255,207,92,.45),inset 0 1px 0 rgba(255,255,255,.05)}
+.banner .bdot{width:16px;height:16px;border-radius:50%;background:var(--amber);box-shadow:0 0 18px 4px rgba(255,207,92,.7)}
+.banner .txt{font-weight:700;font-size:27px;letter-spacing:.03em;color:#fff6e2}
+.banner .txt em{color:var(--amber);font-style:normal;text-shadow:0 0 24px rgba(255,207,92,.45)}
+.grid{display:grid;grid-template-columns:300px 1fr;gap:26px}
+.card{background:rgba(255,255,255,.018);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.card .ttl{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--mute);text-transform:uppercase;margin-bottom:16px}
+.dir-head{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.dir-head .arrows{color:var(--amber);font-size:24px;letter-spacing:-1px;text-shadow:0 0 14px rgba(255,207,92,.5)}
+.dir-head .label{font-weight:700;font-size:19px;color:var(--amber);letter-spacing:.02em}
+.tf{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:15px}
+.tf:last-child{border-bottom:none}
+.tf .name{color:var(--mute);letter-spacing:.08em}
+.tf .val{font-weight:600;display:flex;align-items:center;gap:7px}
+.tf .val.g{color:var(--green)} .tf .val.a{color:var(--amber)} .tf .val .ar{font-size:16px}
+.row{display:flex;align-items:center;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:none}
+.row .lhs{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:16px;color:#dfe7e2;letter-spacing:.04em}
+.row .lhs .ix{color:var(--mute);font-size:15px;width:20px}
+.light{width:13px;height:13px;border-radius:50%}
+.light.on{background:var(--green);box-shadow:0 0 14px 3px rgba(69,240,138,.7)}
+.light.off{background:transparent;border:2px solid rgba(255,255,255,.45)}
+.row .rhs{font-family:var(--mono);font-size:15px;color:var(--mute);font-weight:500;letter-spacing:.06em}
+.row .rhs b{color:var(--ink)}
+.row .rhs .a{color:var(--amber)}
+.bias{margin-top:22px;display:flex;align-items:center;justify-content:space-between;
+  background:linear-gradient(90deg,rgba(255,207,92,.13),rgba(255,207,92,.02));
+  border:1px solid rgba(255,207,92,.35);border-radius:12px;padding:16px 22px}
+.bias .l{font-family:var(--mono);font-size:13px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase}
+.bias .v{font-weight:700;font-size:19px;color:var(--amber);display:flex;align-items:center;gap:9px;text-shadow:0 0 18px rgba(255,207,92,.35)}
+.foot{margin-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--mute);text-align:center;text-transform:uppercase}
+.foot b{color:var(--amber)}
+</style></head>
+<body>
+<div class="stage">
+  <div class="panel">
+    <div class="hdr">
+      <div class="brand"><span class="dot"></span>GLS<span class="sub">GREEN LIGHT SPECIAL</span></div>
+      <div class="instr">NQ1!&nbsp; <b>·</b> &nbsp;10m</div>
+    </div>
+
+    <div class="banner">
+      <span class="bdot"></span>
+      <span class="txt"><em>● WAIT</em> — NOT A SYSTEM TRADE YET</span>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="ttl">Direction</div>
+        <div class="dir-head"><span class="arrows">▲</span><span class="label">MIXED / EARLY</span></div>
+        <div class="tf"><span class="name">DAY</span><span class="val g"><span class="ar">▲</span>UP</span></div>
+        <div class="tf"><span class="name">4H</span><span class="val g"><span class="ar">▲</span>UP</span></div>
+        <div class="tf"><span class="name">15M</span><span class="val a"><span class="ar">▲</span>UP</span></div>
+        <div class="tf"><span class="name">5M</span><span class="val a"><span class="ar">–</span>FLAT</span></div>
+      </div>
+
+      <div class="card">
+        <div class="ttl">System Checklist</div>
+        <div class="row"><span class="lhs"><span class="ix">①</span>Trend</span><span class="light on"></span></div>
+        <div class="row"><span class="lhs"><span class="ix">②</span>Momentum</span><span class="light on"></span></div>
+        <div class="row"><span class="lhs"><span class="ix">③</span>Setup</span><span class="light off"></span></div>
+        <div class="row"><span class="lhs"><span class="ix">💵</span>Day P/L</span><span class="rhs"><b>$0</b> &nbsp;(0)</span></div>
+        <div class="row"><span class="lhs"><span class="ix">📊</span>Win%</span><span class="rhs"><span class="a">stand down</span></span></div>
+        <div class="bias">
+          <span class="l">15m bias</span>
+          <span class="v">▲ LONG · UNCONFIRMED</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot">ONLY TRADE WHEN <b>ALL THREE ARE GREEN</b> &nbsp;·&nbsp; NO SETUP, NO TRADE</div>
+  </div>
+</div>
+</body></html>
