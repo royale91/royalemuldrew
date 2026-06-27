@@ -383,11 +383,6 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
         <img src="/assets/examples/gls-2.png" alt="Zoomed LONG signals with FVG zones and GLS panel" loading="lazy" /></div>
       <figcaption>Zoomed in — <b>LONG signals</b> firing into fresh fair-value-gap zones with the GLS panel reading GO.</figcaption>
     </figure>
-    <figure class="shot">
-      <div class="imgwrap"><span class="tag">3-Step ORB</span>
-        <img src="/assets/examples/gls-strat.png" alt="The 3-step opening range breakout infographic" loading="lazy" /></div>
-      <figcaption>The <b>3-Step ORB</b> at a glance — mark the range, wait for the break, confirm on the retest.</figcaption>
-    </figure>
   </div>
 
   <!-- the system, live — clean HUD graphics -->
@@ -427,10 +422,47 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
       <div class="ostep"><div class="num">2</div><div><h3>Wait for the breakout</h3><p>A body close beyond the range, in the trend direction. No close, no trade — you're not guessing the break.</p></div></div>
       <div class="ostep"><div class="num">3</div><div><h3>Retest → confirm → GO</h3><p>Price returns, holds, and closes back in trend = the <span class="go">GO</span>. A close back inside prints <span class="fake">FAKE</span> — don't chase.</p></div></div>
     </div>
-    <figure class="orb-img">
-      <img src="/assets/examples/gls-strat.png" alt="The 3-step ORB infographic" loading="lazy" />
-      <figcaption>The 3-Step ORB — break, retest, confirm.</figcaption>
-    </figure>
+  </div>
+</div></section>
+
+<!-- OSOB + Yellow Man -->
+<section class="section" id="osob"><div class="wrap">
+  <style>
+    .osob-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:980px;margin:0 auto}
+    .osob-card{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:30px 28px}
+    .osob-card .ohd{font-family:var(--mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--green)}
+    .osob-card .ohd.amber{color:var(--amber)}
+    .osob-card h3{font-size:1.25rem;margin:12px 0 10px}
+    .osob-card p{color:var(--ink-soft);font-weight:300}
+    .osob-card ul{list-style:none;margin:18px 0 0;display:flex;flex-direction:column;gap:11px}
+    .osob-card li{display:flex;align-items:flex-start;gap:11px;font-size:.9rem;color:var(--ink-soft);font-family:var(--mono);line-height:1.4}
+    .osob-card .d{width:11px;height:11px;border-radius:50%;background:var(--ink-mute);flex:0 0 11px;margin-top:4px}
+    .osob-card .d.red{background:var(--red)}.osob-card .d.green{background:var(--green)}.osob-card .d.gold{background:var(--amber)}
+    @media(max-width:760px){.osob-grid{grid-template-columns:1fr}}
+  </style>
+  <div class="section-head">
+    <span class="eyebrow" style="justify-content:center">Read the Tank</span>
+    <h2>The OSOB &amp; the Yellow Man</h2>
+    <p>Two tools that tell you when a move is running out of gas — so you bank profit and stand aside instead of giving it all back.</p>
+  </div>
+  <div class="osob-grid">
+    <div class="osob-card">
+      <span class="ohd">GLS OSOB</span>
+      <h3>The OSOB Tank</h3>
+      <p>The lower pane reads how stretched momentum is. Spike into the red top and the move is overbought — start scaling out of longs. Flush into the green bottom and it's oversold — scale out of shorts. It keeps you taking money out at the extremes instead of round-tripping a winner.</p>
+      <ul>
+        <li><span class="d red"></span> Red top — overbought · trim &amp; take profit on longs</li>
+        <li><span class="d green"></span> Green bottom — oversold · trim &amp; take profit on shorts</li>
+        <li><span class="d gold"></span> Gold dots = the EXIT BELL — momentum is spent, the ride is over</li>
+        <li><span class="d"></span> ▲▼ — a momentum flip; the tide is turning</li>
+      </ul>
+    </div>
+    <div class="osob-card">
+      <span class="ohd amber">⚠ Yellow Man</span>
+      <h3>The Yellow Man Warning</h3>
+      <p>The Yellow Man candle is your early-warning light — it fires the instant the trend starts to turn. It's a heads-up to tighten your stop and get ready, <b style="color:var(--ink)">never a trade by itself</b>.</p>
+      <p style="margin-top:14px">When the Yellow Man lights up <em>and</em> the OSOB rings the exit bell, the move is done — protect the profit and wait for the next clean setup. Discipline over hope, every time.</p>
+    </div>
   </div>
 </div></section>
 
