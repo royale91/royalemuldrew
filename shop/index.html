@@ -412,75 +412,52 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 <!-- signals from the team -->
 <section class="section reveal" id="signals"><div class="wrap">
   <style>
-    .sig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    @media(max-width:900px){.sig-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:560px){.sig-grid{grid-template-columns:1fr}}
-    .sigcard{position:relative;display:flex;flex-direction:column;gap:13px;background:var(--panel);
-      border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:20px 20px 18px;overflow:hidden;
-      transition:transform var(--t-mid) var(--ease),border-color var(--t-mid) var(--ease),box-shadow var(--t-mid) var(--ease)}
-    .sigcard:hover{transform:translateY(-4px);border-color:var(--green);box-shadow:0 26px 64px -36px var(--green)}
-    .sigcard::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
-      background:linear-gradient(90deg,transparent,var(--line),transparent);opacity:.7}
-    .sigcard .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .sig-inst{font-family:var(--display);font-weight:700;font-size:.92rem;letter-spacing:.04em;color:var(--ink);
-      display:inline-flex;align-items:center;gap:.55em;background:rgba(255,255,255,.04);
-      border:1px solid var(--line-soft);border-radius:8px;padding:6px 11px}
-    .sig-inst .spark{width:14px;height:14px;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
-    .sig-inst .spark.up{stroke:var(--green)}.sig-inst .spark.down{stroke:var(--red)}
-    .sig-pill{font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-      padding:6px 12px;border-radius:100px;display:inline-flex;align-items:center;gap:.45em;white-space:nowrap}
-    .sig-pill.buy{color:var(--green);background:rgba(69,240,138,.10);border:1px solid var(--line)}
-    .sig-pill.sell{color:var(--red);background:rgba(255,93,108,.10);border:1px solid rgba(255,93,108,.28)}
-    .sig-pill .dot{width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor}
-    .sig-type{font-family:var(--body);font-size:1.04rem;font-weight:500;color:var(--ink);line-height:1.3}
-    .sig-type .q{color:var(--ink-soft);font-weight:400;font-style:italic}
-    .sig-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
-      padding-top:13px;border-top:1px solid var(--line-soft)}
-    .sig-date{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--ink-mute)}
-    .sig-result{font-family:var(--mono);font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-      color:var(--green);background:rgba(69,240,138,.10);border:1px solid var(--line);border-radius:100px;padding:5px 11px;
-      display:inline-flex;align-items:center;gap:.45em}
-    /* featured win card */
-    .sigcard.win{grid-column:span 1;border-color:var(--green);
-      background:linear-gradient(165deg,rgba(69,240,138,.12),var(--panel) 62%);
-      box-shadow:0 0 0 1px rgba(69,240,138,.18),0 30px 80px -46px var(--green)}
-    .sigcard.win::before{background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:.9;height:2px}
-    .sigcard.win .feat-flag{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;
-      color:var(--green);display:inline-flex;align-items:center;gap:.5em}
-    .sigcard.win .feat-flag .blip{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px 2px var(--green);animation:bl 1.6s infinite}
-    .sig-big{font-family:var(--display);font-weight:700;line-height:1;letter-spacing:-.01em;
-      font-size:clamp(2.2rem,4.5vw,2.9rem);color:var(--green);text-shadow:0 0 30px rgba(69,240,138,.4)}
-    .sig-big small{display:block;font-family:var(--mono);font-size:.66rem;font-weight:600;letter-spacing:.18em;
-      text-transform:uppercase;color:var(--ink-soft);text-shadow:none;margin-top:8px}
-    /* join cta */
-    .sig-cta{margin-top:clamp(34px,4vw,46px);text-align:center}
-    .sig-cta p{font-family:var(--body);color:var(--ink-soft);font-weight:300;font-size:1rem;margin-bottom:18px}
-    .sig-cta p b{color:var(--ink);font-weight:600}
     .sig-disc{margin-top:18px;font-size:.78rem;font-style:italic;color:var(--ink-mute);font-weight:300}
-    /* ===== BANKED wins row ===== */
-    .wins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:clamp(30px,4vw,42px)}
-    @media(max-width:900px){.wins-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:520px){.wins-grid{grid-template-columns:1fr}}
-    .wincard{position:relative;display:flex;flex-direction:column;gap:14px;border:1px solid var(--green);border-radius:var(--r-lg);
-      padding:22px 22px 20px;overflow:hidden;background:linear-gradient(165deg,rgba(69,240,138,.13),var(--panel) 64%);
-      box-shadow:0 0 0 1px rgba(69,240,138,.16),0 30px 80px -48px var(--green);
-      transition:transform var(--t-mid) var(--ease),box-shadow var(--t-mid) var(--ease)}
-    .wincard:hover{transform:translateY(-4px);box-shadow:0 0 0 1px rgba(69,240,138,.3),0 36px 90px -42px var(--green)}
-    .wincard::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
-      background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:.9}
-    .wincard .wtop{display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .wincard .flag{font-family:var(--mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--green);
-      display:inline-flex;align-items:center;gap:.5em}
-    .wincard .flag .blip{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px 2px var(--green);animation:bl 1.6s infinite}
-    .win-big{font-family:var(--display);font-weight:700;line-height:.95;letter-spacing:-.015em;
-      font-size:clamp(2.5rem,6vw,3.4rem);color:var(--green);text-shadow:0 0 34px rgba(69,240,138,.45)}
-    .win-meta{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
-      padding-top:14px;border-top:1px solid var(--line)}
-    .win-inst{font-family:var(--display);font-weight:700;font-size:.92rem;letter-spacing:.03em;color:var(--ink);
-      display:inline-flex;align-items:center;gap:.5em}
-    .win-inst .spark{width:14px;height:14px;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
-    .win-inst .spark.up{stroke:var(--green)}.win-inst .spark.down{stroke:var(--red)}
-    .win-tag{font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+    /* ===== REAL WINS GALLERY ===== */
+    .wins-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:clamp(26px,3vw,34px)}
+    @media(max-width:980px){.wins-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:680px){.wins-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:420px){.wins-grid{grid-template-columns:1fr}}
+    .winshot{position:relative;display:block;border:1px solid var(--line-hair);border-radius:var(--r-lg);overflow:hidden;
+      background:var(--panel);padding:10px;box-shadow:0 22px 56px -38px #000,0 0 0 1px rgba(255,255,255,.02);
+      transition:transform var(--t-mid) var(--ease),border-color var(--t-mid) var(--ease),box-shadow var(--t-mid) var(--ease)}
+    .winshot:hover{transform:translateY(-5px);border-color:var(--green);box-shadow:0 0 0 1px rgba(69,240,138,.28),0 30px 70px -38px var(--green)}
+    .winshot .frame{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:#04070a;
+      border-radius:var(--r-md);border:1px solid var(--line-soft)}
+    .winshot .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+      transition:transform var(--t-mid) var(--ease)}
+    .winshot:hover .frame img{transform:scale(1.035)}
+    .winshot .frame::after{content:"";position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(to top,rgba(4,7,6,.78) 0%,rgba(4,7,6,.12) 34%,transparent 60%)}
+    /* result chip — bottom-left green pill */
+    .winshot .chip{position:absolute;left:18px;bottom:18px;right:18px;z-index:2;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+    .winshot .result{font-family:var(--display);font-weight:700;font-size:.92rem;letter-spacing:.01em;color:#04140b;
+      background:var(--green);padding:6px 12px;border-radius:100px;line-height:1.1;
+      box-shadow:0 8px 24px -10px var(--green),0 0 0 1px rgba(69,240,138,.4)}
+    .winshot .result .inst{display:block;font-family:var(--mono);font-size:.56rem;font-weight:700;letter-spacing:.14em;
+      text-transform:uppercase;color:rgba(4,20,11,.7);margin-bottom:1px}
+    .winshot .by{font-family:var(--mono);font-size:.54rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--green);background:rgba(0,0,0,.55);border:1px solid var(--line);padding:3px 8px;border-radius:6px}
+    /* top-right BANKED flag */
+    .winshot .flag{position:absolute;top:17px;right:17px;z-index:2;font-family:var(--mono);font-size:.54rem;font-weight:700;
+      letter-spacing:.2em;text-transform:uppercase;color:var(--green);background:rgba(0,0,0,.55);border:1px solid var(--line);
+      padding:4px 9px;border-radius:100px;display:inline-flex;align-items:center;gap:.45em}
+    .winshot .flag .blip{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px 1px var(--green);animation:bl 1.6s infinite}
+    /* featured tile — spans 2x2 */
+    .winshot.feature{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column;border-color:var(--green);
+      box-shadow:0 0 0 1px rgba(69,240,138,.2),0 34px 84px -44px var(--green)}
+    .winshot.feature .frame{aspect-ratio:auto;flex:1 1 auto;min-height:0}
+    .winshot.feature .result{font-size:clamp(1.05rem,2vw,1.5rem);padding:9px 16px}
+    .winshot.feature .result .inst{font-size:.62rem;margin-bottom:2px}
+    @media(max-width:680px){.winshot.feature{grid-column:span 2;grid-row:auto}.winshot.feature .frame{aspect-ratio:4/5}}
+    @media(max-width:420px){.winshot.feature{grid-column:span 1}}
+    /* JOIN cta */
+    .wins-join{margin:clamp(30px,4vw,44px) auto clamp(8px,2vw,14px);text-align:center;max-width:620px}
+    .wins-join p.lead{font-family:var(--body);font-weight:300;font-size:clamp(1rem,2vw,1.12rem);
+      line-height:1.55;margin-bottom:22px;color:var(--ink-soft)}
+    .wins-join .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .wins-join .btn{font-size:1.02rem;padding:15px 34px}
+    @media(max-width:480px){.wins-join .cta-row{flex-direction:column}.wins-join .cta-row .btn{width:100%;justify-content:center}}
   </style>
   <div class="section-head">
     <span class="eyebrow">From the Room — Banked</span>
@@ -488,125 +465,96 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
     <p>We call clean signals — and the Green Light Special indicator gives you the visual to see the exact setup on your own charts. <b style="color:var(--ink);font-weight:600">Signals to follow, the indicator to understand.</b></p>
   </div>
 
-  <!-- BANKED wins — the hero row -->
+  <!-- REAL WIN SCREENSHOTS — straight from the $IGNALS BY $TEVE room -->
   <div class="wins-grid">
-    <article class="wincard">
-      <div class="wtop"><span class="flag"><span class="blip"></span> Banked</span><span class="win-tag">Full TP Hit</span></div>
-      <div class="win-big">+396 pts</div>
-      <div class="win-meta"><span class="win-inst"><svg class="spark down" viewBox="0 0 24 24"><path d="M4 7l5 5 4-4 7 8"/><path d="M20 16h-4v-4"/></svg>NAS100</span><span class="win-tag" style="color:var(--red)">Sell</span></div>
-    </article>
-    <article class="wincard">
-      <div class="wtop"><span class="flag"><span class="blip"></span> Banked</span><span class="win-tag">TP Hit</span></div>
-      <div class="win-big">+389 pts</div>
-      <div class="win-meta"><span class="win-inst"><svg class="spark up" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M20 8h-4v4"/></svg>US30</span><span class="win-tag" style="color:var(--green)">Buy</span></div>
-    </article>
-    <article class="wincard">
-      <div class="wtop"><span class="flag"><span class="blip"></span> Banked</span><span class="win-tag">TP1 · LFG</span></div>
-      <div class="win-big">+1258 pips</div>
-      <div class="win-meta"><span class="win-inst"><svg class="spark up" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M20 8h-4v4"/></svg>XAUUSD Gold</span><span class="win-tag" style="color:var(--green)">Buy</span></div>
-    </article>
-    <article class="wincard">
-      <div class="wtop"><span class="flag"><span class="blip"></span> Banked</span><span class="win-tag">TP1 Hit</span></div>
-      <div class="win-big">+350 pips</div>
-      <div class="win-meta"><span class="win-inst"><svg class="spark up" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M20 8h-4v4"/></svg>XAUUSD Gold</span><span class="win-tag" style="color:var(--green)">Buy</span></div>
-    </article>
-    <article class="wincard">
-      <div class="wtop"><span class="flag"><span class="blip"></span> Banked</span><span class="win-tag">Full TP · Re-entry</span></div>
-      <div class="win-big">+289 pts</div>
-      <div class="win-meta"><span class="win-inst"><svg class="spark up" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M20 8h-4v4"/></svg>NAS100</span><span class="win-tag" style="color:var(--green)">Buy</span></div>
-    </article>
-    <article class="wincard">
-      <div class="wtop"><span class="flag"><span class="blip"></span> Banked</span><span class="win-tag">Risk-Free</span></div>
-      <div class="win-big">TP1 SMASHED</div>
-      <div class="win-meta"><span class="win-inst"><svg class="spark up" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M20 8h-4v4"/></svg>US30</span><span class="win-tag" style="color:var(--green)">Buy · Stops to BE</span></div>
-    </article>
-  </div>
 
-  <p class="sig-disc" style="text-align:center;margin:0 auto clamp(30px,4vw,40px);max-width:680px">For education only. Results shown are individual outcomes from our room and are not typical or guaranteed. Trading involves substantial risk of loss.</p>
+    <!-- FEATURED: biggest win, spans 2x2 -->
+    <a class="winshot feature" href="/assets/wins/win-10.png" target="_blank" rel="noopener" aria-label="Gold +3,370 pips, full take profit">
+      <span class="flag"><span class="blip"></span> Banked</span>
+      <div class="frame"><img src="/assets/wins/win-10.png" alt="Real Gold trade screenshot — +3,370 pips, full TP" loading="lazy" /></div>
+      <div class="chip">
+        <span class="by">$IGNALS BY $TEVE</span>
+        <span class="result"><span class="inst">Gold · Full TP</span>+3,370 pips</span>
+      </div>
+    </a>
 
-  <div class="sub-head" style="margin-top:0">
-    <span class="eyebrow">The Live Feed</span>
-    <p>Every call posted in real time in our private <b style="color:var(--green);font-weight:600">$IGNALS BY $TEVE</b> room — Gold, Nasdaq, US30, GBPJPY.</p>
-  </div>
-  <div class="sig-grid">
+    <a class="winshot" href="/assets/wins/win-12.png" target="_blank" rel="noopener" aria-label="Gold +2,500 pips, full take profit">
+      <span class="flag"><span class="blip"></span> Banked</span>
+      <div class="frame"><img src="/assets/wins/win-12.png" alt="Real Gold trade screenshot — +2,500 pips, full TP" loading="lazy" /></div>
+      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · Full TP</span>+2,500 pips</span></div>
+    </a>
 
-    <article class="sigcard">
-      <div class="top"><span class="sig-inst"><svg class="spark down" viewBox="0 0 24 24"><path d="M4 7l5 5 4-4 7 8"/><path d="M20 16h-4v-4"/></svg>XAUUSD</span><span class="sig-pill sell"><span class="dot"></span>Sell</span></div>
-      <div class="sig-type">Gold Sell</div>
-      <div class="sig-foot"><span class="sig-date">Jun 14</span></div>
-    </article>
+    <a class="winshot" href="/assets/wins/win-03.png" target="_blank" rel="noopener" aria-label="Gold +1,600 pips, full take profit">
+      <span class="flag"><span class="blip"></span> Banked</span>
+      <div class="frame"><img src="/assets/wins/win-03.png" alt="Real Gold trade screenshot — +1,600 pips, full TP" loading="lazy" /></div>
+      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · Full TP</span>+1,600 pips</span></div>
+    </a>
 
-    <article class="sigcard">
-      <div class="top"><span class="sig-inst"><svg class="spark up" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M20 8h-4v4"/></svg>US30</span><span class="sig-pill buy"><span class="dot"></span>Buy</span></div>
-      <div class="sig-type">Buy Limit</div>
-      <div class="sig-foot"><span class="sig-date">Jun 15</span></div>
-    </article>
+    <a class="winshot" href="/assets/wins/win-01.png" target="_blank" rel="noopener" aria-label="Gold +1,258 pips, TP1">
+      <span class="flag"><span class="blip"></span> Banked</span>
+      <div class="frame"><img src="/assets/wins/win-01.png" alt="Real Gold trade screenshot — +1,258 pips, TP1" loading="lazy" /></div>
+      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · TP1</span>+1,258 pips</span></div>
+    </a>
 
-    <article class="sigcard">
-      <div class="top"><span class="sig-inst"><svg class="spark up" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M20 8h-4v4"/></svg>GBPJPY</span><span class="sig-pill buy"><span class="dot"></span>Buy</span></div>
-      <div class="sig-type">Buy</div>
-      <div class="sig-foot"><span class="sig-date">Jun 18</span></div>
-    </article>
+    <a class="winshot" href="/assets/wins/win-04.png" target="_blank" rel="noopener" aria-label="Gold +1,149 pips, full take profit">
+      <span class="flag"><span class="blip"></span> Banked</span>
+      <div class="frame"><img src="/assets/wins/win-04.png" alt="Real Gold trade screenshot — +1,149 pips, full TP" loading="lazy" /></div>
+      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · Full TP</span>+1,149 pips</span></div>
+    </a>
 
-    <article class="sigcard">
-      <div class="top"><span class="sig-inst"><svg class="spark down" viewBox="0 0 24 24"><path d="M4 7l5 5 4-4 7 8"/><path d="M20 16h-4v-4"/></svg>NAS100</span><span class="sig-pill sell"><span class="dot"></span>Sell</span></div>
-      <div class="sig-type">Sell Limit</div>
-      <div class="sig-foot"><span class="sig-date">Jun</span></div>
-    </article>
+    <a class="winshot" href="/assets/wins/win-18.png" target="_blank" rel="noopener" aria-label="Gold +622 pips, full take profit">
+      <span class="flag"><span class="blip"></span> Banked</span>
+      <div class="frame"><img src="/assets/wins/win-18.png" alt="Real Gold trade screenshot — +622 pips, full TP" loading="lazy" /></div>
+      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · Full TP</span>+622 pips</span></div>
+    </a>
 
-    <article class="sigcard">
-      <div class="top"><span class="sig-inst"><svg class="spark up" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M20 8h-4v4"/></svg>NAS100</span><span class="sig-pill buy"><span class="dot"></span>Buy</span></div>
-      <div class="sig-type">Buy</div>
-      <div class="sig-foot"><span class="sig-date">Jun 2</span></div>
-    </article>
+    <a class="winshot" href="/assets/wins/win-14.png" target="_blank" rel="noopener" aria-label="Gold +575 pips, full take profit">
+      <span class="flag"><span class="blip"></span> Banked</span>
+      <div class="frame"><img src="/assets/wins/win-14.png" alt="Real Gold trade screenshot — +575 pips, full TP" loading="lazy" /></div>
+      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · Full TP</span>+575 pips</span></div>
+    </a>
 
-    <article class="sigcard">
-      <div class="top"><span class="sig-inst"><svg class="spark up" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M20 8h-4v4"/></svg>GBPJPY</span><span class="sig-pill buy"><span class="dot"></span>Buy</span></div>
-      <div class="sig-type">Buy</div>
-      <div class="sig-foot"><span class="sig-date">Jun 4</span></div>
-    </article>
+    <a class="winshot" href="/assets/wins/win-13.png" target="_blank" rel="noopener" aria-label="Gold +385 pips, TP1">
+      <span class="flag"><span class="blip"></span> Banked</span>
+      <div class="frame"><img src="/assets/wins/win-13.png" alt="Real Gold trade screenshot — +385 pips, TP1" loading="lazy" /></div>
+      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · TP1</span>+385 pips</span></div>
+    </a>
 
-    <article class="sigcard">
-      <div class="top"><span class="sig-inst"><svg class="spark down" viewBox="0 0 24 24"><path d="M4 7l5 5 4-4 7 8"/><path d="M20 16h-4v-4"/></svg>XAUUSD</span><span class="sig-pill sell"><span class="dot"></span>Sell</span></div>
-      <div class="sig-type"><span class="q">Another Gold Sell</span></div>
-      <div class="sig-foot"><span class="sig-date">May 20</span></div>
-    </article>
+    <a class="winshot" href="/assets/wins/win-16.png" target="_blank" rel="noopener" aria-label="Gold +321 pips, TP1">
+      <span class="flag"><span class="blip"></span> Banked</span>
+      <div class="frame"><img src="/assets/wins/win-16.png" alt="Real Gold trade screenshot — +321 pips, TP1" loading="lazy" /></div>
+      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · TP1</span>+321 pips</span></div>
+    </a>
 
-    <article class="sigcard">
-      <div class="top"><span class="sig-inst"><svg class="spark up" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M20 8h-4v4"/></svg>NAS100</span><span class="sig-pill buy"><span class="dot"></span>Buy</span></div>
-      <div class="sig-type">Buy</div>
-      <div class="sig-foot"><span class="sig-date">May 19</span></div>
-    </article>
+    <a class="winshot" href="/assets/wins/win-17.png" target="_blank" rel="noopener" aria-label="NAS100 full take profit">
+      <span class="flag"><span class="blip"></span> Banked</span>
+      <div class="frame"><img src="/assets/wins/win-17.png" alt="Real NAS100 trade screenshot — full TP" loading="lazy" /></div>
+      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">NAS100</span>Full TP</span></div>
+    </a>
 
-    <article class="sigcard">
-      <div class="top"><span class="sig-inst"><svg class="spark down" viewBox="0 0 24 24"><path d="M4 7l5 5 4-4 7 8"/><path d="M20 16h-4v-4"/></svg>XAUUSD</span><span class="sig-pill sell"><span class="dot"></span>Sell</span></div>
-      <div class="sig-type">Sell</div>
-      <div class="sig-foot"><span class="sig-date">May 18</span></div>
-    </article>
+    <a class="winshot" href="/assets/wins/win-07.png" target="_blank" rel="noopener" aria-label="NAS100 TP smashed">
+      <span class="flag"><span class="blip"></span> Banked</span>
+      <div class="frame"><img src="/assets/wins/win-07.png" alt="Real NAS100 trade screenshot — TP smashed" loading="lazy" /></div>
+      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">NAS100</span>TP Smashed</span></div>
+    </a>
 
-    <article class="sigcard">
-      <div class="top"><span class="sig-inst"><svg class="spark down" viewBox="0 0 24 24"><path d="M4 7l5 5 4-4 7 8"/><path d="M20 16h-4v-4"/></svg>XAUUSD</span><span class="sig-pill sell"><span class="dot"></span>Sell</span></div>
-      <div class="sig-type"><span class="q">Extending the gold trade</span></div>
-      <div class="sig-foot"><span class="sig-date">May 15</span></div>
-    </article>
-
-    <article class="sigcard">
-      <div class="top"><span class="sig-inst"><svg class="spark up" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M20 8h-4v4"/></svg>XAUUSD</span><span class="sig-pill buy"><span class="dot"></span>Buy</span></div>
-      <div class="sig-type"><span class="q">Green line TP1</span></div>
-      <div class="sig-foot"><span class="sig-date">Apr 29</span><span class="sig-result">✓ TP1</span></div>
-    </article>
-
-    <article class="sigcard">
-      <div class="top"><span class="sig-inst"><svg class="spark up" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M20 8h-4v4"/></svg>NAS100</span><span class="sig-pill buy"><span class="dot"></span>Buy</span></div>
-      <div class="sig-type">Buy</div>
-      <div class="sig-foot"><span class="sig-date">Apr 28</span></div>
-    </article>
+    <a class="winshot" href="/assets/wins/win-06.png" target="_blank" rel="noopener" aria-label="US30 risked 41 for plus 275 points">
+      <span class="flag"><span class="blip"></span> Banked</span>
+      <div class="frame"><img src="/assets/wins/win-06.png" alt="Real US30 trade screenshot — risked 41 for +275 points" loading="lazy" /></div>
+      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">US30 · Risked 41</span>+275 pts</span></div>
+    </a>
 
   </div>
-  <div class="sig-cta">
-    <p>Calls posted live in the room. <b>Join Indicator + Team to trade them with us.</b></p>
-    <a class="btn btn-primary" href="https://whop.com/checkout/plan_w46rmcQOAsXxP?a=newworldtycoon" target="_blank" rel="noopener">Join Indicator + Team — $150 <span class="arr">→</span></a>
-    <p class="sig-disc">For education only. Results shown are individual outcomes from our room and are not typical or guaranteed. Trading involves substantial risk of loss.</p>
+
+  <!-- SINGLE BOTTOM CTA -->
+  <div class="wins-join">
+    <p class="lead">Want these calls in real time? Join the room — or grab the indicator and see the setups yourself.</p>
+    <div class="cta-row">
+      <!-- JOIN NOW LINK: replace with real group link when ready -->
+      <a class="btn btn-primary" href="/coming-soon/">Join Now <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="https://whop.com/green-light-special/green-light-special-indicator" target="_blank" rel="noopener">Get the Indicator</a>
+    </div>
+    <p class="sig-disc">For education only. Results shown are individual outcomes from our room — not typical and not guaranteed. Trading involves substantial risk of loss.</p>
   </div>
 </div></section>
 
@@ -808,7 +756,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
         <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Live room with Royale &amp; Steve — real-time calls + setups</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Daily bias, watchlists &amp; NY-open sessions · cancel anytime</li>
       </ul>
-      <a class="btn btn-primary" href="https://whop.com/checkout/plan_w46rmcQOAsXxP?a=newworldtycoon" target="_blank" rel="noopener">Get Indicator + Team <span class="arr">→</span></a>
+      <a class="btn btn-primary" href="/coming-soon/">Get Indicator + Team <span class="arr">→</span></a>
     </div>
 
     <div class="tier">

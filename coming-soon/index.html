@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trade With the Team — Coming Soon | Green Light Special</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#060807;--panel:#0c100e;--ink:#f4f7f5;--ink-soft:#aeb8b2;--ink-mute:#717c76;--green:#45f08a;--line:rgba(69,240,138,.16);--line-soft:rgba(255,255,255,.08);--display:"Chakra Petch",sans-serif;--mono:"JetBrains Mono",monospace;--body:"Hanken Grotesk",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 22px;overflow-x:hidden;position:relative}
+a{color:inherit;text-decoration:none}
+.aura{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60% 50% at 50% 30%,rgba(69,240,138,.12),transparent 70%)}
+.grid{position:fixed;inset:0;z-index:0;opacity:.4;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(70% 60% at 50% 40%,#000,transparent 80%);mask-image:radial-gradient(70% 60% at 50% 40%,#000,transparent 80%)}
+.wrap{position:relative;z-index:1;max-width:600px}
+.badge{font-family:var(--mono);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--green);display:inline-flex;align-items:center;gap:.6em;border:1px solid var(--line);border-radius:100px;padding:8px 16px;margin-bottom:30px}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px 2px var(--green);animation:bl 1.6s infinite}
+@keyframes bl{50%{opacity:.3}}
+h1{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(2.4rem,8vw,4.2rem);line-height:1;letter-spacing:-.01em}
+h1 span{color:var(--green)}
+.soon{font-family:var(--mono);font-size:clamp(1rem,3vw,1.3rem);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-top:18px}
+p.lead{color:var(--ink-soft);font-weight:300;font-size:1.05rem;line-height:1.6;margin:24px auto 0;max-width:46ch}
+.cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:38px}
+.btn{font-family:var(--display);font-weight:600;font-size:.95rem;display:inline-flex;align-items:center;gap:.5em;padding:14px 26px;border-radius:100px;border:1px solid transparent;transition:.28s}
+.btn-primary{background:var(--green);color:#04140b;box-shadow:0 14px 40px -16px var(--green)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green);background:rgba(69,240,138,.05)}
+.back{margin-top:34px;font-family:var(--mono);font-size:.8rem;color:var(--ink-mute)}
+.back a{color:var(--green)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="aura"></div><div class="grid"></div>
+<div class="wrap">
+  <span class="badge"><span class="dot"></span> Green Light Special</span>
+  <h1>Trade With <span>the Team</span></h1>
+  <div class="soon">Coming Soon</div>
+  <p class="lead">The live trading room is getting an upgrade. Want in the moment it opens? Grab the indicator now and text us to lock your spot on the list.</p>
+  <div class="cta">
+    <a class="btn btn-primary" href="https://whop.com/green-light-special/green-light-special-indicator" target="_blank" rel="noopener">Get the Indicator</a>
+    <a class="btn btn-ghost" href="sms:+12132635389?&body=Hi%20Royale%2C%20put%20me%20on%20the%20list%20for%20Trade%20With%20the%20Team.">Text to get notified</a>
+  </div>
+  <div class="back">← <a href="/shop/">Back to Green Light Special</a></div>
+</div>
+</body>
+</html>
