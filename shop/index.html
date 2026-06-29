@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Green Light Special — The Trading System | Royale Muldrew</title>
-<meta name="description" content="Green Light Special: a mechanical trading system. Clean moves, calculated decisions on direction. 3 Lights + 3-Step ORB + a daily firewall. Built and traded live by Royale Muldrew." />
+<title>Green Light Special — Two Indicators, One System | Royale Muldrew</title>
+<meta name="description" content="Green Light Special: an invite-only TradingView bundle of two indicators — Green Light Special (when to get in) + GLS OSOB (when to get out). Intraday futures MES · MNQ · MGC · MYM on the 5m & 15m. When it's green, you go." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,33 +41,6 @@ body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;
 .eyebrow{font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--green);display:inline-flex;align-items:center;gap:.7em}
 .eyebrow::before{content:"";width:24px;height:1px;background:linear-gradient(90deg,var(--green),transparent)}
 h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
-
-/* ===== COMING SOON COUNTDOWN BANNER ===== */
-.coming{position:relative;z-index:60;display:block;background:
-  linear-gradient(90deg,rgba(69,240,138,.10),rgba(69,240,138,.03) 40%,rgba(69,240,138,.10));
-  border-bottom:1px solid var(--line);overflow:hidden;transition:background var(--t-fast) var(--ease)}
-.coming:hover{background:linear-gradient(90deg,rgba(69,240,138,.18),rgba(69,240,138,.06) 40%,rgba(69,240,138,.18))}
-.coming::after{content:"";position:absolute;inset:0;pointer-events:none;
-  box-shadow:inset 0 -1px 0 rgba(69,240,138,.35),inset 0 18px 40px -30px rgba(69,240,138,.5)}
-.coming .wrap{display:flex;align-items:center;justify-content:center;gap:18px 26px;flex-wrap:wrap;padding-top:11px;padding-bottom:11px}
-.coming .lead-txt{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--ink);display:inline-flex;align-items:center;gap:.6em}
-.coming .lead-txt .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px 2px var(--green);animation:bl 1.6s infinite}
-.coming .lead-txt b{color:var(--green);font-weight:700;letter-spacing:.1em}
-.coming .soon{color:var(--ink-soft)}
-.coming .soon u{color:var(--green);text-decoration:none;text-underline-offset:3px;border-bottom:1px dotted var(--green)}
-.cd{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono)}
-.cd .unit{display:flex;flex-direction:column;align-items:center;gap:3px;
-  background:rgba(0,0,0,.45);border:1px solid var(--line);border-radius:8px;padding:5px 9px;min-width:46px;
-  box-shadow:0 0 18px -8px var(--green)}
-.cd .unit b{font-size:1.15rem;font-weight:700;color:var(--green);line-height:1;letter-spacing:.04em;text-shadow:0 0 14px rgba(69,240,138,.5);font-variant-numeric:tabular-nums}
-.cd .unit span{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mute)}
-.cd .sep{color:var(--green);font-weight:700;opacity:.5;margin-top:-10px}
-.coming .go-pill{font-family:var(--display);font-weight:600;font-size:.82rem;color:#04140b;background:var(--green);
-  padding:7px 15px;border-radius:100px;display:inline-flex;align-items:center;gap:.5em;
-  box-shadow:0 8px 26px -12px var(--green);transition:transform var(--t-fast) var(--ease)}
-.coming:hover .go-pill{transform:translateY(-1px)}
-.coming.launched{animation:launchpulse 1.4s ease-in-out infinite}
-@keyframes launchpulse{50%{background:linear-gradient(90deg,rgba(69,240,138,.28),rgba(69,240,138,.12) 40%,rgba(69,240,138,.28))}}
 
 /* ticker */
 .ticker{border-bottom:1px solid var(--line-soft);background:rgba(8,11,9,.6);overflow:hidden;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
@@ -126,6 +99,22 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 .sub-head .eyebrow{justify-content:center;margin-bottom:12px}
 .sub-head p{color:var(--ink-soft);font-weight:300;font-size:.96rem}
 
+/* two indicators / bundle cards */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.duo-card{position:relative;background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:30px 28px;overflow:hidden;transition:transform var(--t-mid) var(--ease),border-color var(--t-mid) var(--ease),box-shadow var(--t-mid) var(--ease)}
+.duo-card:hover{transform:translateY(-4px);border-color:var(--green);box-shadow:0 28px 70px -44px var(--green)}
+.duo-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:.6}
+.duo-card .kpill{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:#04140b;background:var(--green);padding:5px 12px;border-radius:100px;display:inline-block;margin-bottom:16px;font-weight:700}
+.duo-card .role{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+.duo-card h3{font-size:1.35rem;margin-bottom:10px}
+.duo-card h3 em{color:var(--green);font-style:normal}
+.duo-card p{color:var(--ink-soft);font-weight:300;font-size:.95rem}
+.duo-card .verb{margin-top:16px;font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:.02em}
+.duo-card .verb.in{color:var(--green)}.duo-card .verb.out{color:var(--amber)}
+.duo-incl{margin-top:20px;text-align:center;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--ink-soft)}
+.duo-incl b{color:var(--green)}
+@media(max-width:760px){.duo{grid-template-columns:1fr}}
+
 /* honest edge strip */
 .edge{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden;margin-top:8px}
 .edge .cell{background:var(--panel);padding:26px 24px}
@@ -149,6 +138,98 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 .go-rule .wait{color:var(--amber);border:1px solid rgba(255,207,92,.35);padding:8px 16px;border-radius:100px;letter-spacing:.12em}
 .boss-note{margin-top:18px;text-align:center;color:var(--ink-mute);font-size:.9rem;font-weight:300}
 .boss-note b{color:var(--ink)}.boss-note .ym{color:var(--amber)}
+
+/* dashboard */
+.dash{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.dash-card{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:26px 24px}
+.dash-card .dh{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:.5em;margin-bottom:16px}
+.dash-card h3{font-size:1.12rem;margin-bottom:6px}
+.dash-card p.sub{color:var(--ink-mute);font-size:.88rem;font-weight:300;margin-bottom:16px}
+/* direction stack */
+.tfstack{display:flex;flex-direction:column;gap:8px}
+.tfrow{display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:.82rem;background:rgba(0,0,0,.3);border:1px solid var(--line-soft);border-radius:8px;padding:9px 13px}
+.tfrow .tf{color:var(--ink-soft);letter-spacing:.06em}
+.tfrow .st{font-weight:700;letter-spacing:.08em;display:inline-flex;align-items:center;gap:.5em}
+.tfrow .st .d{width:9px;height:9px;border-radius:50%}
+.tfrow .st.up{color:var(--green)}.tfrow .st.up .d{background:var(--green);box-shadow:0 0 8px var(--green)}
+.tfrow .st.dn{color:var(--red)}.tfrow .st.dn .d{background:var(--red);box-shadow:0 0 8px var(--red)}
+.dir-key{margin-top:14px;font-family:var(--mono);font-size:.72rem;color:var(--ink-mute);line-height:1.6}
+.dir-key b.g{color:var(--green)}.dir-key b.r{color:var(--red)}.dir-key b.a{color:var(--amber)}
+/* 3 green lights mini */
+.glmini{display:flex;flex-direction:column;gap:10px}
+.glrow{display:flex;align-items:flex-start;gap:12px}
+.glrow .gd{width:18px;height:18px;border-radius:50%;flex:0 0 18px;margin-top:2px;background:radial-gradient(circle at 35% 30%,var(--green),var(--green-deep));box-shadow:0 0 14px -2px var(--green)}
+.glrow .gt{font-family:var(--mono);font-size:.85rem;color:var(--ink-soft)}
+.glrow .gt b{color:var(--ink);font-family:var(--display);font-weight:600;display:block;font-size:.95rem}
+.gl-stats{margin-top:16px;display:flex;gap:10px}
+.gl-stats .s{flex:1;background:rgba(0,0,0,.3);border:1px solid var(--line-soft);border-radius:8px;padding:10px 12px;text-align:center}
+.gl-stats .s b{display:block;font-family:var(--display);font-weight:700;font-size:1.2rem;color:var(--green)}
+.gl-stats .s span{font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute)}
+/* status banner walkthrough */
+.statuses{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden}
+.stt{background:var(--panel);padding:20px 20px;transition:background var(--t-mid) var(--ease)}
+.stt:hover{background:var(--panel-hi)}
+.stt .badge2{font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:100px;display:inline-block;margin-bottom:10px}
+.stt .badge2.go{color:#04140b;background:var(--green)}
+.stt .badge2.ready{color:var(--amber);border:1px solid rgba(255,207,92,.4)}
+.stt .badge2.in{color:var(--green);border:1px solid var(--line)}
+.stt .badge2.stop{color:var(--red);border:1px solid rgba(255,93,108,.4)}
+.stt p{color:var(--ink-mute);font-size:.86rem;font-weight:300}
+@media(max-width:760px){.dash{grid-template-columns:1fr}.statuses{grid-template-columns:1fr}}
+
+/* signals grid */
+.sigs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden}
+.sigc{background:var(--panel);padding:22px 20px;transition:background var(--t-mid) var(--ease)}
+.sigc:hover{background:var(--panel-hi)}
+.sigc .si{font-size:1.3rem;line-height:1;margin-bottom:10px}
+.sigc h3{font-size:1rem;margin-bottom:6px}
+.sigc h3 .opt{font-family:var(--mono);font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);border:1px solid var(--line-soft);border-radius:5px;padding:2px 6px;margin-left:6px;vertical-align:2px}
+.sigc p{color:var(--ink-mute);font-size:.85rem;font-weight:300}
+.sig-dots{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto 26px;font-family:var(--mono);font-size:.78rem;color:var(--ink-soft);flex-wrap:wrap}
+.sig-dots .gdot,.sig-dots .rdot{width:13px;height:13px;border-radius:50%;display:inline-block;vertical-align:-2px;margin-right:6px}
+.sig-dots .gdot{background:var(--green);box-shadow:0 0 12px var(--green)}
+.sig-dots .rdot{background:var(--red);box-shadow:0 0 12px var(--red)}
+@media(max-width:860px){.sigs{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.sigs{grid-template-columns:1fr}}
+
+/* risk & discipline */
+.risk{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden}
+.riskc{background:var(--panel);padding:24px 22px;transition:background var(--t-mid) var(--ease)}
+.riskc:hover{background:var(--panel-hi)}
+.riskc .rk{font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.riskc h3{font-size:1.02rem;margin-bottom:7px}
+.riskc p{color:var(--ink-mute);font-size:.86rem;font-weight:300}
+@media(max-width:860px){.risk{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.risk{grid-template-columns:1fr}}
+
+/* method steps */
+.method{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:920px;margin:0 auto}
+.mstep{display:flex;gap:16px;background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r-md);padding:20px 22px;transition:border-color var(--t-mid) var(--ease),transform var(--t-mid) var(--ease)}
+.mstep:hover{border-color:var(--line);transform:translateX(4px)}
+.mstep .num{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:1.15rem;color:var(--green);background:rgba(69,240,138,.08);border:1px solid var(--line)}
+.mstep h3{font-size:1.02rem;margin-bottom:5px}
+.mstep p{color:var(--ink-mute);font-size:.88rem;font-weight:300}
+.rules{margin-top:24px;text-align:center;max-width:840px;margin-left:auto;margin-right:auto;font-family:var(--mono);font-size:.82rem;letter-spacing:.04em;color:var(--ink-soft);line-height:1.9}
+.rules b{color:var(--green);font-weight:600}
+@media(max-width:680px){.method{grid-template-columns:1fr}}
+
+/* validity badges */
+.valids{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.valids .vb{display:inline-flex;align-items:center;gap:.6em;background:var(--panel);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-family:var(--mono);font-size:.82rem;color:var(--ink-soft)}
+.valids .vb svg{width:16px;height:16px;stroke:var(--green);fill:none;stroke-width:2}
+.valids .vb b{color:var(--green);font-weight:600}
+
+/* access steps */
+.access{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.acc{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:26px 22px;position:relative;transition:border-color var(--t-mid) var(--ease),transform var(--t-mid) var(--ease)}
+.acc:hover{border-color:var(--line);transform:translateY(-3px)}
+.acc .anum{font-family:var(--display);font-weight:700;font-size:1.8rem;color:var(--green);line-height:1;margin-bottom:12px;text-shadow:0 0 20px rgba(69,240,138,.4)}
+.acc h3{font-size:1rem;margin-bottom:6px}
+.acc p{color:var(--ink-mute);font-size:.86rem;font-weight:300}
+.access-note{margin-top:22px;text-align:center;font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--ink-mute)}
+.access-note b{color:var(--green)}
+@media(max-width:900px){.access{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.access{grid-template-columns:1fr}}
 
 /* gallery */
 .shots{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -200,7 +281,10 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 .tier.featured{border-color:var(--green);background:linear-gradient(180deg,rgba(69,240,138,.07),var(--panel));box-shadow:0 40px 90px -54px var(--green)}
 .tier .badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--green);color:#04140b;font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px;border-radius:100px;box-shadow:0 8px 24px -10px var(--green)}
 .tier .tname{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green)}
+.tier .valueline{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--ink-mute);margin-top:14px}
+.tier .valueline .was{color:var(--ink-soft);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px;font-weight:600}
 .tier .price{font-family:var(--display);font-weight:700;font-size:2.9rem;margin:14px 0 2px;letter-spacing:-.02em}
+.tier.featured .price{margin-top:4px}
 .tier .price small{font-size:.9rem;color:var(--ink-mute);font-weight:400;font-family:var(--mono);letter-spacing:0}
 .tier .ptag{color:var(--ink-mute);font-size:.86rem;min-height:42px}
 .tier ul{list-style:none;margin:20px 0 26px;display:flex;flex-direction:column;gap:11px}
@@ -246,8 +330,6 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 @media(max-width:560px){
   .feats{grid-template-columns:1fr}
   .nav-right a.back{display:none}
-  .coming .lead-txt{font-size:.7rem}
-  .coming .go-pill{display:none}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -258,25 +340,10 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 <body>
 <div class="aura" aria-hidden="true"></div>
 
-<!-- ===== COMING SOON / 48-HOUR LAUNCH BANNER ===== -->
-<!-- EDITABLE LAUNCH TARGET is defined in JS below as `const LAUNCH` -->
-<a class="coming" id="comingBanner" href="#pricing" aria-label="Green Light Special is getting its own home soon — view pricing">
-  <div class="wrap">
-    <span class="lead-txt"><span class="dot"></span> TRADE <b>GREEN LIGHT SPECIAL</b> — <span class="soon">its own home is coming soon at <u>TradeGreenLightSpecial.com</u></span></span>
-    <div class="cd" id="countdown" aria-live="polite">
-      <span class="unit"><b id="cd-d">00</b><span>Days</span></span><span class="sep">:</span>
-      <span class="unit"><b id="cd-h">00</b><span>Hrs</span></span><span class="sep">:</span>
-      <span class="unit"><b id="cd-m">00</b><span>Min</span></span><span class="sep">:</span>
-      <span class="unit"><b id="cd-s">00</b><span>Sec</span></span>
-    </div>
-    <span class="go-pill" id="comingPill">Get Access →</span>
-  </div>
-</a>
-
 <!-- ticker -->
 <div class="ticker"><div class="row">
-  <span>SYSTEM <b>GO</b></span><span>3 <b>LIGHTS</b></span><span>TREND <b>FILTER</b></span><span><b>FVG</b> ZONES</span><span>BREAK + <b>RETEST</b></span><span>DAILY <b>FIREWALL</b></span><span>NON-<b>REPAINTING</b></span><span>ANY MARKET <b>·</b> ANY TIMEFRAME</span>
-  <span>SYSTEM <b>GO</b></span><span>3 <b>LIGHTS</b></span><span>TREND <b>FILTER</b></span><span><b>FVG</b> ZONES</span><span>BREAK + <b>RETEST</b></span><span>DAILY <b>FIREWALL</b></span><span>NON-<b>REPAINTING</b></span><span>ANY MARKET <b>·</b> ANY TIMEFRAME</span>
+  <span>TWO <b>INDICATORS</b></span><span>SYSTEM <b>GO</b></span><span>3 GREEN <b>LIGHTS</b></span><span><b>GLS OSOB</b> EXIT BELL</span><span><b>FVG</b> DETECTION</span><span><b>ORB</b> BREAK</span><span>DAILY <b>FIREWALL</b></span><span>NON-<b>REPAINTING</b></span><span><b>MES · MNQ · MGC · MYM</b></span><span>5M <b>·</b> 15M</span>
+  <span>TWO <b>INDICATORS</b></span><span>SYSTEM <b>GO</b></span><span>3 GREEN <b>LIGHTS</b></span><span><b>GLS OSOB</b> EXIT BELL</span><span><b>FVG</b> DETECTION</span><span><b>ORB</b> BREAK</span><span>DAILY <b>FIREWALL</b></span><span>NON-<b>REPAINTING</b></span><span><b>MES · MNQ · MGC · MYM</b></span><span>5M <b>·</b> 15M</span>
 </div></div>
 
 <!-- nav -->
@@ -284,6 +351,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   <a class="brand" href="#top"><span class="blip"></span>GREEN LIGHT <span>SPECIAL</span></a>
   <div class="nav-right">
     <a class="back" href="https://royalemuldrew.com">← royalemuldrew.com</a>
+    <a class="back" href="/course/">Free Course</a>
     <a class="btn btn-primary" href="#pricing">Get Access <span class="arr">→</span></a>
   </div>
 </div></nav>
@@ -291,17 +359,17 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 <!-- hero -->
 <header class="hero" id="top"><div class="wrap"><div class="hero-grid">
   <div>
-    <span class="eyebrow">The Trading System</span>
+    <span class="eyebrow">Two Indicators · One System</span>
     <h1>Green Light <em>Special</em></h1>
-    <p class="lead"><b>Clean moves. Calculated decisions on direction.</b> No indicator predicts the future — the edge is filtering, risk and discipline, made mechanical. You wait for the green light, take the clean move, and a daily firewall stops you before a bad day hurts the account.</p>
+    <p class="lead"><b>When it's green, you go.</b> An invite-only TradingView bundle of two indicators — <b>Green Light Special</b> tells you when to get in, <b>GLS OSOB</b> tells you when to get out. Built for intraday index &amp; commodity futures: <b>MES · MNQ · MGC · MYM</b> on the 5-minute and 15-minute.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#pricing">Get the Indicator <span class="arr">→</span></a>
+      <a class="btn btn-primary" href="#pricing">Get the Bundle <span class="arr">→</span></a>
       <a class="btn btn-ghost" href="#lights">See How It Works</a>
     </div>
     <div class="hero-meta">
-      <div><b>3</b>Lights to go</div>
-      <div><b>3-Step</b>ORB confirmation</div>
-      <div><b>1R</b>auto-breakeven + runner</div>
+      <div><b>2</b>indicators included</div>
+      <div><b>3</b>green lights to go</div>
+      <div><b>5m · 15m</b>MES · MNQ · MGC · MYM</div>
     </div>
   </div>
   <div class="chart">
@@ -317,6 +385,32 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   </div>
 </div></div></header>
 
+<!-- A) TWO INDICATORS, ONE SYSTEM -->
+<section class="section reveal" id="bundle"><div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Two Indicators, One System</span>
+    <h2>Get In, Then Get Out</h2>
+    <p>Green Light Special is a bundle of two TradingView indicators that work as one playbook — one gets you into the clean move, the other gets you out before you give it back. <b style="color:var(--ink);font-weight:600">Both are included.</b></p>
+  </div>
+  <div class="duo">
+    <div class="duo-card">
+      <span class="kpill">Included</span>
+      <div class="role">Indicator 01 · Main Chart</div>
+      <h3>Green Light <em>Special</em></h3>
+      <p>The main chart indicator — direction, signals, zones and risk all on price. It draws the entry, the stop, the target and the size, and only flashes SYSTEM GO when the read is clean.</p>
+      <div class="verb in">→ Tells you when to GET IN</div>
+    </div>
+    <div class="duo-card">
+      <span class="kpill">Included</span>
+      <div class="role">Indicator 02 · Exit Pane</div>
+      <h3>GLS <em>OSOB</em></h3>
+      <p>The companion pane that lives below price. Its one job is the exit — it shows when a long is getting tired, when a short is getting tired, and rings the EXIT BELL so you scale or tighten instead of round-tripping a winner.</p>
+      <div class="verb out">→ Tells you when to GET OUT</div>
+    </div>
+  </div>
+  <p class="duo-incl"><b>One purchase, two scripts.</b> Invite-only on TradingView — markets: MES · MNQ · MGC · MYM · timeframes: 5m &amp; 15m.</p>
+</div></section>
+
 <!-- the honest edge -->
 <section class="section reveal"><div class="wrap">
   <div class="section-head">
@@ -331,47 +425,130 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   </div>
 </div></section>
 
-<!-- the 3 lights -->
+<!-- B) THE DASHBOARD -->
 <section class="section reveal" id="lights"><div class="wrap">
   <div class="section-head">
-    <span class="eyebrow">The 3 Lights</span>
-    <h2>The Only Green Light to Go</h2>
-    <p>Three filters have to agree before the system says GO. Anything less, you wait. No exceptions.</p>
+    <span class="eyebrow">The Dashboard</span>
+    <h2>Always On Your Chart</h2>
+    <p>Green Light Special runs a live HUD on price — direction, the three green lights, and a plain-English status banner that walks you through the whole trade.</p>
   </div>
-  <div class="lights">
-    <div class="light">
-      <div class="orb"><b>1</b></div>
-      <div class="lname">Light 01</div>
-      <h3>Trend</h3>
-      <p>Price on the right side of a sticky direction, aligned with the higher-timeframe trend. You trade <strong>with</strong> the market — never against it.</p>
+
+  <div class="dash">
+    <!-- DIRECTION -->
+    <div class="dash-card">
+      <div class="dh">🎯 Direction Panel</div>
+      <h3>The Timeframe Stack</h3>
+      <p class="sub">Day · 4h · 15m · 5m, stacked. The whole stack has to line up.</p>
+      <div class="tfstack">
+        <div class="tfrow"><span class="tf">DAY</span><span class="st up"><span class="d"></span>LONG</span></div>
+        <div class="tfrow"><span class="tf">4H</span><span class="st up"><span class="d"></span>LONG</span></div>
+        <div class="tfrow"><span class="tf">15M</span><span class="st up"><span class="d"></span>LONG</span></div>
+        <div class="tfrow"><span class="tf">5M</span><span class="st up"><span class="d"></span>LONG</span></div>
+      </div>
+      <p class="dir-key">All <b class="g">green</b> = strong long · all <b class="r">red</b> = strong short · <b class="a">mixed</b> = wait.</p>
     </div>
-    <div class="light">
-      <div class="orb"><b>2</b></div>
-      <div class="lname">Light 02</div>
-      <h3>Momentum</h3>
-      <p>The move isn't exhausted — RSI still has room to run. You don't buy the top or sell the bottom into a stretched market.</p>
-    </div>
-    <div class="light">
-      <div class="orb"><b>3</b></div>
-      <div class="lname">Light 03</div>
-      <h3>Setup</h3>
-      <p>A real, fresh Fair Value Gap fills in your direction: a defined entry with a tight stop. A trade you can size and manage.</p>
+
+    <!-- 3 GREEN LIGHTS -->
+    <div class="dash-card">
+      <div class="dh">🟢 The 3 Green Lights</div>
+      <h3>All Three, or You Wait</h3>
+      <p class="sub">Three filters must agree before the system says GO.</p>
+      <div class="glmini">
+        <div class="glrow"><span class="gd"></span><span class="gt"><b>① Trend</b> A clean trend — not chop.</span></div>
+        <div class="glrow"><span class="gd"></span><span class="gt"><b>② Momentum</b> The move isn't exhausted.</span></div>
+        <div class="glrow"><span class="gd"></span><span class="gt"><b>③ Setup</b> A real entry is present.</span></div>
+      </div>
+      <div class="gl-stats">
+        <div class="s"><b>+ / –</b><span>Live Day P&amp;L</span></div>
+        <div class="s"><b>Win %</b><span>Session</span></div>
+      </div>
     </div>
   </div>
-  <div class="go-rule">
-    <span class="go">3 LIGHTS GREEN + IN SESSION = SYSTEM GO</span>
-    <span class="wait">ANYTHING ELSE = WAIT</span>
+
+  <!-- STATUS BANNER WALKTHROUGH -->
+  <div class="dh" style="font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);text-align:center;margin:6px 0 16px">🚦 The Status Banner — plain English, every step</div>
+  <div class="statuses">
+    <div class="stt"><span class="badge2 ready">Get Ready</span><p>Conditions are lining up — get your size and levels set.</p></div>
+    <div class="stt"><span class="badge2 go">System Go</span><p>All three lights green, in session. This is the entry.</p></div>
+    <div class="stt"><span class="badge2 in">In A Trade, Ride It</span><p>You're filled. Manage to the plan, don't touch it.</p></div>
+    <div class="stt"><span class="badge2 in">Runner, Let It Ride</span><p>First target banked, stop at breakeven — let the runner run.</p></div>
+    <div class="stt"><span class="badge2 ready">Chop — Stand Aside</span><p>No clean trend. The system makes you sit on your hands.</p></div>
+    <div class="stt"><span class="badge2 stop">Done / Closed / Stand Down</span><p>Daily goal or loss limit hit — the firewall stops new trades.</p></div>
   </div>
-  <p class="boss-note">The boss is the <b>15-minute bias</b> (LONG / SHORT). The <span class="ym">Yellow Man</span> candle warns you the instant the trend turns.</p>
+</div></section>
+
+<!-- C) THE SIGNALS -->
+<section class="section reveal" id="signals-grid"><div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">The Signals</span>
+    <h2>Clean Lights, No Noise</h2>
+    <p>Entries print as simple green / red light dots on price — no "buy / sell" text to lean on. A with-trend entry only confirms on bar close, backed by trend, momentum and above-average volume, in session.</p>
+  </div>
+  <div class="sig-dots">
+    <span><span class="gdot"></span> Green light = with-trend long</span>
+    <span><span class="rdot"></span> Red light = with-trend short</span>
+  </div>
+  <div class="sigs">
+    <div class="sigc"><div class="si">🟢🔴</div><h3>With-Trend Entry</h3><p>Green / red light dot, confirmed on close by trend + momentum + above-average volume, in session.</p></div>
+    <div class="sigc"><div class="si">💎</div><h3>STRONG (A+)</h3><p>The premium signal — all 4 timeframes agree. Highest-conviction setups only.</p></div>
+    <div class="sigc"><div class="si">⭐</div><h3>Golden Pocket</h3><p>Marks the 0.618–0.79 OTE zone — the deep-discount pullback area to enter from.</p></div>
+    <div class="sigc"><div class="si">🛡</div><h3>Strong Support / Resistance</h3><p>Levels tested 2+ times are flagged as the walls that hold.</p></div>
+    <div class="sigc"><div class="si">🚀</div><h3>ORB</h3><p>Volume-backed break of the opening range — the day's first real directional move.</p></div>
+    <div class="sigc"><div class="si">📦</div><h3>FVG Detection</h3><p>"Wait for fill" while the fair-value gap is open → "✅ FILLED — GET IN" the moment price tags it.</p></div>
+    <div class="sigc"><div class="si">↪</div><h3>Pullback Entries</h3><p>Continuation entries on the retrace into the trend, not at the highs.</p></div>
+    <div class="sigc"><div class="si">🔄</div><h3>Smart Reversal</h3><p>Flags exhaustion — used for exits and careful counter-trend, not blind fades.</p></div>
+    <div class="sigc"><div class="si">🟡</div><h3>Yellow Man</h3><p>The trend-flip warning candle. A heads-up to tighten up — never a trade by itself.</p></div>
+    <div class="sigc"><div class="si">🏛</div><h3>BOS / CHoCH <span class="opt">Optional</span></h3><p>Break of structure / change of character marked on price for structure reads.</p></div>
+    <div class="sigc"><div class="si">💧</div><h3>Liquidity Lines <span class="opt">Optional</span></h3><p>Prior-day high &amp; low (PDH / PDL) — the magnets price hunts.</p></div>
+    <div class="sigc"><div class="si">📊</div><h3>VWAP</h3><p>The session's volume-weighted average — the intraday fair-value anchor.</p></div>
+  </div>
 </div></section>
 
 <!-- on the charts gallery -->
 <section class="section reveal"><div class="wrap">
+  <style>
+    /* main-indicator framed tiles */
+    .mainshots{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:clamp(30px,4vw,42px)}
+    @media(max-width:760px){.mainshots{grid-template-columns:1fr}}
+    .mainshot{position:relative;display:block;border:1px solid var(--line-hair);border-radius:var(--r-lg);overflow:hidden;
+      background:var(--panel);padding:10px;box-shadow:0 22px 56px -38px #000,0 0 0 1px rgba(255,255,255,.02);
+      transition:transform var(--t-mid) var(--ease),border-color var(--t-mid) var(--ease),box-shadow var(--t-mid) var(--ease)}
+    .mainshot:hover{transform:translateY(-5px);border-color:var(--green);box-shadow:0 0 0 1px rgba(69,240,138,.28),0 30px 70px -38px var(--green)}
+    .mainshot .frame{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:#04070a;
+      border-radius:var(--r-md);border:1px solid var(--line-soft)}
+    .mainshot .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+      transition:transform var(--t-mid) var(--ease)}
+    .mainshot:hover .frame img{transform:scale(1.04)}
+    .mainshot .tag{position:absolute;top:18px;left:18px;z-index:2;font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--green);background:rgba(0,0,0,.6);border:1px solid var(--line);padding:4px 9px;border-radius:6px}
+    .mainshot figcaption{font-family:var(--mono);font-size:.74rem;color:var(--ink-mute);letter-spacing:.03em;padding:14px 8px 6px}
+    .mainshot figcaption b{color:var(--green);font-weight:600}
+  </style>
   <div class="section-head">
     <span class="eyebrow">On the Charts</span>
     <h2>Real Setups, Real Proof</h2>
     <p>The actual Green Light Special workspace — signals, FVG zones, the bias panel and the ORB playbook, live on the chart.</p>
   </div>
+
+  <!-- MAIN INDICATOR — clean full-quality screenshots -->
+  <div class="mainshots">
+    <figure class="mainshot">
+      <div class="frame"><span class="tag">Main · MNQ 15M</span>
+        <img src="/assets/gls/gls-main-01.png" alt="Green Light Special main indicator on MNQ — LONG and SHORT signals with the direction panel" loading="lazy" /></div>
+      <figcaption><b>LONG &amp; SHORT signals</b> — the full chart with the direction panel and lights reading live.</figcaption>
+    </figure>
+    <figure class="mainshot">
+      <div class="frame"><span class="tag">Signal · Up Close</span>
+        <img src="/assets/gls/gls-main-02.png" alt="Close-up of the Green Light Special LONG and SHORT signal tags on price" loading="lazy" /></div>
+      <figcaption><b>The signal up close</b> — LONG fires the trend, SHORT flips it at the exhaustion top.</figcaption>
+    </figure>
+    <figure class="mainshot">
+      <div class="frame"><span class="tag">Direction + Lights</span>
+        <img src="/assets/gls/gls-main-03.png" alt="Green Light Special LONG signal printing into the golden-pocket pullback zone" loading="lazy" /></div>
+      <figcaption><b>Direction panel + lights</b> — a clean LONG printing into the pullback, with-trend.</figcaption>
+    </figure>
+  </div>
+
   <div class="shots">
     <figure class="shot wide">
       <div class="imgwrap"><span class="tag">NQ Futures · Full Workspace</span>
@@ -424,11 +601,11 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
     .winshot:hover{transform:translateY(-5px);border-color:var(--green);box-shadow:0 0 0 1px rgba(69,240,138,.28),0 30px 70px -38px var(--green)}
     .winshot .frame{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:#04070a;
       border-radius:var(--r-md);border:1px solid var(--line-soft)}
-    .winshot .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;
+    .winshot .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:34% center;
       transition:transform var(--t-mid) var(--ease)}
     .winshot:hover .frame img{transform:scale(1.035)}
     .winshot .frame::after{content:"";position:absolute;inset:0;pointer-events:none;
-      background:linear-gradient(to top,rgba(4,7,6,.78) 0%,rgba(4,7,6,.12) 34%,transparent 60%)}
+      background:linear-gradient(to top,rgba(4,7,6,.96) 0%,rgba(4,7,6,.7) 16%,rgba(4,7,6,.12) 40%,transparent 62%)}
     /* result chip — bottom-left green pill */
     .winshot .chip{position:absolute;left:18px;bottom:18px;right:18px;z-index:2;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
     .winshot .result{font-family:var(--display);font-weight:700;font-size:.92rem;letter-spacing:.01em;color:#04140b;
@@ -447,6 +624,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
     .winshot.feature{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column;border-color:var(--green);
       box-shadow:0 0 0 1px rgba(69,240,138,.2),0 34px 84px -44px var(--green)}
     .winshot.feature .frame{aspect-ratio:auto;flex:1 1 auto;min-height:0}
+    .winshot.feature .frame img{object-position:42% center}
     .winshot.feature .result{font-size:clamp(1.05rem,2vw,1.5rem);padding:9px 16px}
     .winshot.feature .result .inst{font-size:.62rem;margin-bottom:2px}
     @media(max-width:680px){.winshot.feature{grid-column:span 2;grid-row:auto}.winshot.feature .frame{aspect-ratio:4/5}}
@@ -465,83 +643,82 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
     <p>We call clean signals — and the Green Light Special indicator gives you the visual to see the exact setup on your own charts. <b style="color:var(--ink);font-weight:600">Signals to follow, the indicator to understand.</b></p>
   </div>
 
-  <!-- REAL WIN SCREENSHOTS — straight from the $IGNALS BY $TEVE room -->
+  <!-- REAL WIN SCREENSHOTS — cropped clean charts at /assets/wins/clean/ (header + side margins removed via ImageMagick) -->
   <div class="wins-grid">
 
     <!-- FEATURED: biggest win, spans 2x2 -->
-    <a class="winshot feature" href="/assets/wins/win-10.png" target="_blank" rel="noopener" aria-label="Gold +3,370 pips, full take profit">
+    <a class="winshot feature" href="/assets/wins/clean/win-10.png" target="_blank" rel="noopener" aria-label="Gold +3,370 pips, full take profit">
       <span class="flag"><span class="blip"></span> Banked</span>
-      <div class="frame"><img src="/assets/wins/win-10.png" alt="Real Gold trade screenshot — +3,370 pips, full TP" loading="lazy" /></div>
+      <div class="frame"><img src="/assets/wins/clean/win-10.png" alt="Real Gold trade screenshot — +3,370 pips, full TP" loading="lazy" /></div>
       <div class="chip">
-        <span class="by">$IGNALS BY $TEVE</span>
         <span class="result"><span class="inst">Gold · Full TP</span>+3,370 pips</span>
       </div>
     </a>
 
-    <a class="winshot" href="/assets/wins/win-12.png" target="_blank" rel="noopener" aria-label="Gold +2,500 pips, full take profit">
+    <a class="winshot" href="/assets/wins/clean/win-12.png" target="_blank" rel="noopener" aria-label="Gold +2,500 pips, full take profit">
       <span class="flag"><span class="blip"></span> Banked</span>
-      <div class="frame"><img src="/assets/wins/win-12.png" alt="Real Gold trade screenshot — +2,500 pips, full TP" loading="lazy" /></div>
-      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · Full TP</span>+2,500 pips</span></div>
+      <div class="frame"><img src="/assets/wins/clean/win-12.png" alt="Real Gold trade screenshot — +2,500 pips, full TP" loading="lazy" /></div>
+      <div class="chip"><span class="result"><span class="inst">Gold · Full TP</span>+2,500 pips</span></div>
     </a>
 
-    <a class="winshot" href="/assets/wins/win-03.png" target="_blank" rel="noopener" aria-label="Gold +1,600 pips, full take profit">
+    <a class="winshot" href="/assets/wins/clean/win-03.png" target="_blank" rel="noopener" aria-label="Gold +1,600 pips, full take profit">
       <span class="flag"><span class="blip"></span> Banked</span>
-      <div class="frame"><img src="/assets/wins/win-03.png" alt="Real Gold trade screenshot — +1,600 pips, full TP" loading="lazy" /></div>
-      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · Full TP</span>+1,600 pips</span></div>
+      <div class="frame"><img src="/assets/wins/clean/win-03.png" alt="Real Gold trade screenshot — +1,600 pips, full TP" loading="lazy" /></div>
+      <div class="chip"><span class="result"><span class="inst">Gold · Full TP</span>+1,600 pips</span></div>
     </a>
 
-    <a class="winshot" href="/assets/wins/win-01.png" target="_blank" rel="noopener" aria-label="Gold +1,258 pips, TP1">
+    <a class="winshot" href="/assets/wins/clean/win-01.png" target="_blank" rel="noopener" aria-label="Gold +1,258 pips, TP1">
       <span class="flag"><span class="blip"></span> Banked</span>
-      <div class="frame"><img src="/assets/wins/win-01.png" alt="Real Gold trade screenshot — +1,258 pips, TP1" loading="lazy" /></div>
-      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · TP1</span>+1,258 pips</span></div>
+      <div class="frame"><img src="/assets/wins/clean/win-01.png" alt="Real Gold trade screenshot — +1,258 pips, TP1" loading="lazy" /></div>
+      <div class="chip"><span class="result"><span class="inst">Gold · TP1</span>+1,258 pips</span></div>
     </a>
 
-    <a class="winshot" href="/assets/wins/win-04.png" target="_blank" rel="noopener" aria-label="Gold +1,149 pips, full take profit">
+    <a class="winshot" href="/assets/wins/clean/win-02.png" target="_blank" rel="noopener" aria-label="Gold +1,149 pips, full take profit">
       <span class="flag"><span class="blip"></span> Banked</span>
-      <div class="frame"><img src="/assets/wins/win-04.png" alt="Real Gold trade screenshot — +1,149 pips, full TP" loading="lazy" /></div>
-      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · Full TP</span>+1,149 pips</span></div>
+      <div class="frame"><img src="/assets/wins/clean/win-02.png" alt="Real Gold trade screenshot — +1,149 pips, full TP" loading="lazy" /></div>
+      <div class="chip"><span class="result"><span class="inst">Gold · Full TP</span>+1,149 pips</span></div>
     </a>
 
-    <a class="winshot" href="/assets/wins/win-18.png" target="_blank" rel="noopener" aria-label="Gold +622 pips, full take profit">
+    <a class="winshot" href="/assets/wins/clean/win-18.png" target="_blank" rel="noopener" aria-label="Gold +622 pips, full take profit">
       <span class="flag"><span class="blip"></span> Banked</span>
-      <div class="frame"><img src="/assets/wins/win-18.png" alt="Real Gold trade screenshot — +622 pips, full TP" loading="lazy" /></div>
-      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · Full TP</span>+622 pips</span></div>
+      <div class="frame"><img src="/assets/wins/clean/win-18.png" alt="Real Gold trade screenshot — +622 pips, full TP" loading="lazy" /></div>
+      <div class="chip"><span class="result"><span class="inst">Gold · Full TP</span>+622 pips</span></div>
     </a>
 
-    <a class="winshot" href="/assets/wins/win-14.png" target="_blank" rel="noopener" aria-label="Gold +575 pips, full take profit">
+    <a class="winshot" href="/assets/wins/clean/win-14.png" target="_blank" rel="noopener" aria-label="Gold +575 pips, full take profit">
       <span class="flag"><span class="blip"></span> Banked</span>
-      <div class="frame"><img src="/assets/wins/win-14.png" alt="Real Gold trade screenshot — +575 pips, full TP" loading="lazy" /></div>
-      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · Full TP</span>+575 pips</span></div>
+      <div class="frame"><img src="/assets/wins/clean/win-14.png" alt="Real Gold trade screenshot — +575 pips, full TP" loading="lazy" /></div>
+      <div class="chip"><span class="result"><span class="inst">Gold · Full TP</span>+575 pips</span></div>
     </a>
 
-    <a class="winshot" href="/assets/wins/win-13.png" target="_blank" rel="noopener" aria-label="Gold +385 pips, TP1">
+    <a class="winshot" href="/assets/wins/clean/win-13.png" target="_blank" rel="noopener" aria-label="Gold +385 pips, TP1">
       <span class="flag"><span class="blip"></span> Banked</span>
-      <div class="frame"><img src="/assets/wins/win-13.png" alt="Real Gold trade screenshot — +385 pips, TP1" loading="lazy" /></div>
-      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · TP1</span>+385 pips</span></div>
+      <div class="frame"><img src="/assets/wins/clean/win-13.png" alt="Real Gold trade screenshot — +385 pips, TP1" loading="lazy" /></div>
+      <div class="chip"><span class="result"><span class="inst">Gold · TP1</span>+385 pips</span></div>
     </a>
 
-    <a class="winshot" href="/assets/wins/win-16.png" target="_blank" rel="noopener" aria-label="Gold +321 pips, TP1">
+    <a class="winshot" href="/assets/wins/clean/win-16.png" target="_blank" rel="noopener" aria-label="Gold +321 pips, TP1">
       <span class="flag"><span class="blip"></span> Banked</span>
-      <div class="frame"><img src="/assets/wins/win-16.png" alt="Real Gold trade screenshot — +321 pips, TP1" loading="lazy" /></div>
-      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">Gold · TP1</span>+321 pips</span></div>
+      <div class="frame"><img src="/assets/wins/clean/win-16.png" alt="Real Gold trade screenshot — +321 pips, TP1" loading="lazy" /></div>
+      <div class="chip"><span class="result"><span class="inst">Gold · TP1</span>+321 pips</span></div>
     </a>
 
-    <a class="winshot" href="/assets/wins/win-17.png" target="_blank" rel="noopener" aria-label="NAS100 full take profit">
+    <a class="winshot" href="/assets/wins/clean/win-17.png" target="_blank" rel="noopener" aria-label="NAS100 full take profit">
       <span class="flag"><span class="blip"></span> Banked</span>
-      <div class="frame"><img src="/assets/wins/win-17.png" alt="Real NAS100 trade screenshot — full TP" loading="lazy" /></div>
-      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">NAS100</span>Full TP</span></div>
+      <div class="frame"><img src="/assets/wins/clean/win-17.png" alt="Real NAS100 trade screenshot — full TP" loading="lazy" /></div>
+      <div class="chip"><span class="result"><span class="inst">NAS100</span>Full TP</span></div>
     </a>
 
-    <a class="winshot" href="/assets/wins/win-07.png" target="_blank" rel="noopener" aria-label="NAS100 TP smashed">
+    <a class="winshot" href="/assets/wins/clean/win-07.png" target="_blank" rel="noopener" aria-label="NAS100 TP smashed">
       <span class="flag"><span class="blip"></span> Banked</span>
-      <div class="frame"><img src="/assets/wins/win-07.png" alt="Real NAS100 trade screenshot — TP smashed" loading="lazy" /></div>
-      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">NAS100</span>TP Smashed</span></div>
+      <div class="frame"><img src="/assets/wins/clean/win-07.png" alt="Real NAS100 trade screenshot — TP smashed" loading="lazy" /></div>
+      <div class="chip"><span class="result"><span class="inst">NAS100</span>TP Smashed</span></div>
     </a>
 
-    <a class="winshot" href="/assets/wins/win-06.png" target="_blank" rel="noopener" aria-label="US30 risked 41 for plus 275 points">
+    <a class="winshot" href="/assets/wins/clean/win-06.png" target="_blank" rel="noopener" aria-label="US30 risked 41 for plus 275 points">
       <span class="flag"><span class="blip"></span> Banked</span>
-      <div class="frame"><img src="/assets/wins/win-06.png" alt="Real US30 trade screenshot — risked 41 for +275 points" loading="lazy" /></div>
-      <div class="chip"><span class="by">$IGNALS BY $TEVE</span><span class="result"><span class="inst">US30 · Risked 41</span>+275 pts</span></div>
+      <div class="frame"><img src="/assets/wins/clean/win-06.png" alt="Real US30 trade screenshot — risked 41 for +275 points" loading="lazy" /></div>
+      <div class="chip"><span class="result"><span class="inst">US30 · Risked 41</span>+275 pts</span></div>
     </a>
 
   </div>
@@ -642,19 +819,20 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   <p class="sig-disc" style="text-align:center;margin:clamp(26px,3vw,34px) auto 0;max-width:680px">For education only. Results shown are individual outcomes from our room and are not typical or guaranteed. Trading involves substantial risk of loss.</p>
 </div></section>
 
-<!-- the 3-step ORB -->
-<section class="section reveal"><div class="wrap">
+<!-- D) RISK & DISCIPLINE -->
+<section class="section reveal" id="risk"><div class="wrap">
   <div class="section-head">
-    <span class="eyebrow">The 3-Step ORB</span>
-    <h2>Opening-Range Breakout</h2>
-    <p>The fakeout filter is the whole point. Mark the range, wait for the break, and let the retest prove it before you go.</p>
+    <span class="eyebrow">Risk &amp; Discipline</span>
+    <h2>Built In, Not Bolted On</h2>
+    <p>The edge isn't the entry — it's the risk and the discipline. Green Light Special enforces both automatically, which is why it's built for funded and prop accounts.</p>
   </div>
-  <div class="orb-wrap">
-    <div class="orb-steps">
-      <div class="ostep"><div class="num">1</div><div><h3>Mark the range</h3><p>Auto-marks the high and low of the first 15 minutes — the gray ORB lines that define the day's battleground.</p></div></div>
-      <div class="ostep"><div class="num">2</div><div><h3>Wait for the breakout</h3><p>A body close beyond the range, in the trend direction. No close, no trade — you're not guessing the break.</p></div></div>
-      <div class="ostep"><div class="num">3</div><div><h3>Retest → confirm → GO</h3><p>Price returns, holds, and closes back in trend = the <span class="go">GO</span>. A close back inside prints <span class="fake">FAKE</span> — don't chase.</p></div></div>
-    </div>
+  <div class="risk">
+    <div class="riskc"><div class="rk">Sizing</div><h3>Auto Position Sizing</h3><p>Sizes the trade to your chosen dollar risk — every entry, sized for you before you click.</p></div>
+    <div class="riskc"><div class="rk">Stops &amp; Targets</div><h3>ATR Stops + R-Multiple TPs</h3><p>ATR-based stops with reward-multiple targets and an optional trail — breakeven at +1R.</p></div>
+    <div class="riskc"><div class="rk">Daily Firewall</div><h3>Loss Limit + Profit Goal</h3><p>Set a daily loss limit and profit goal — hit either and the system auto stands down. Built for funded / prop.</p></div>
+    <div class="riskc"><div class="rk">Chop Filter</div><h3>Kaufman Efficiency Ratio</h3><p>Measures how clean the move really is and stands you aside when price is just chopping.</p></div>
+    <div class="riskc"><div class="rk">No-Chase Gate</div><h3>Don't Chase</h3><p>Blocks late entries once price has already run — no buying the top after the move.</p></div>
+    <div class="riskc"><div class="rk">Session &amp; News</div><h3>Auto-Fit + News Blackout</h3><p>Auto-fits the active session and blacks out the news windows at 8:30 &amp; 10:00 ET.</p></div>
   </div>
 </div></section>
 
@@ -674,50 +852,97 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
     @media(max-width:760px){.osob-grid{grid-template-columns:1fr}}
   </style>
   <div class="section-head">
-    <span class="eyebrow" style="justify-content:center">Read the Tank</span>
-    <h2>The OSOB &amp; the Yellow Man</h2>
-    <p>Two tools that tell you when a move is running out of gas — so you bank profit and stand aside instead of giving it all back.</p>
+    <span class="eyebrow" style="justify-content:center">Indicator 02 · Exit Pane</span>
+    <h2>GLS OSOB — The Exit Companion</h2>
+    <p>A separate pane below price. Its one job is telling you when to <b style="color:var(--ink);font-weight:600">get out and scale</b> — never when to get in.</p>
   </div>
   <div class="osob-grid">
     <div class="osob-card">
-      <span class="ohd">GLS OSOB</span>
-      <h3>The OSOB Tank</h3>
-      <p>The lower pane reads how stretched momentum is. Spike into the red top and the move is overbought — start scaling out of longs. Flush into the green bottom and it's oversold — scale out of shorts. It keeps you taking money out at the extremes instead of round-tripping a winner.</p>
+      <span class="ohd">How to Read It</span>
+      <h3>The OSOB Pane</h3>
+      <p>The pane reads how stretched momentum is, so you bank profit at the extremes instead of round-tripping a winner.</p>
       <ul>
-        <li><span class="d red"></span> Red top — overbought · trim &amp; take profit on longs</li>
-        <li><span class="d green"></span> Green bottom — oversold · trim &amp; take profit on shorts</li>
-        <li><span class="d gold"></span> Gold dots = the EXIT BELL — momentum is spent, the ride is over</li>
-        <li><span class="d"></span> ▲▼ — a momentum flip; the tide is turning</li>
+        <li><span class="d" style="background:#fff"></span> ⚪ White wave drifting — let it ride</li>
+        <li><span class="d red"></span> 🔴 Red top (overbought) — long getting tired → scale</li>
+        <li><span class="d green"></span> 🟢 Green bottom (oversold) — short getting tired → scale</li>
+        <li><span class="d gold"></span> 🟡 GOLD dots = the EXIT BELL — extreme rolling over → take it / tighten</li>
+        <li><span class="d"></span> ▲▼ zero-cross — momentum flipped</li>
       </ul>
     </div>
     <div class="osob-card">
-      <span class="ohd amber">⚠ Yellow Man</span>
-      <h3>The Yellow Man Warning</h3>
-      <p>The Yellow Man candle is your early-warning light — it fires the instant the trend starts to turn. It's a heads-up to tighten your stop and get ready, <b style="color:var(--ink)">never a trade by itself</b>.</p>
-      <p style="margin-top:14px">When the Yellow Man lights up <em>and</em> the OSOB rings the exit bell, the move is done — protect the profit and wait for the next clean setup. Discipline over hope, every time.</p>
+      <span class="ohd amber">⚠ Honest Framing</span>
+      <h3>Exits Only — Never Entries</h3>
+      <p>Overbought/oversold oscillators work in ranges and fail in trends — so OSOB is for EXITS and scaling only, never to fade a trend or pick an entry. That's why it's a companion to GLS, not a standalone signal.</p>
+      <p style="margin-top:14px">Pair it with the Yellow Man warning candle on the main chart: when the Yellow Man lights up <em>and</em> OSOB rings the exit bell, the move is done — protect the profit and wait for the next clean setup.</p>
     </div>
   </div>
 </div></section>
 
-<!-- the trade / what you get -->
-<section class="section reveal"><div class="wrap">
+<!-- F) HOW THEY WORK TOGETHER -->
+<section class="section reveal" id="method"><div class="wrap">
   <div class="section-head">
-    <span class="eyebrow">The Trade</span>
-    <h2>A System, Not Signals</h2>
-    <p>It tells you the direction, the zone, where the stop goes and when to stand down. The rest is discipline — and the system enforces it.</p>
+    <span class="eyebrow">How They Work Together</span>
+    <h2>The Method, In Six Steps</h2>
+    <p>GLS gets you in, OSOB gets you out. Run them in order, respect the firewall, and let the math do its job.</p>
   </div>
-  <div class="feats">
-    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-9"/><path d="M21 7v5h-5"/></svg></div><h3>Pullback Entry, Tight Stop</h3><p>Entry on the pullback into an imbalance, with the SL sized to a fixed dollar amount. Never widened.</p></div>
-    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h6l2-7 4 14 2-7h4"/></svg></div><h3>+1R Auto-Breakeven</h3><p>TP1 banks at +1R and the stop snaps to breakeven the moment +1R tags. The runner risks nothing after that.</p></div>
-    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 20l5-9 4 4 7-13"/><path d="M16 2h5v5"/></svg></div><h3>Runner Trails the Trend</h3><p>The EXIT trail rides the runner until the trend flips — so winners get the room to outsize the losers.</p></div>
-    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Daily Firewall</h3><p>Hit your loss limit and new trades are locked out — STAND DOWN — until the next session. A bad day stays small.</p></div>
-    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><h3>Manipulation-Aware</h3><p>Flags stop-hunt sweeps. A sweep that agrees with your direction = an A+ setup, not a trap.</p></div>
-    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4v16h16"/><path d="M4 14l5-5 4 4 7-8"/></svg></div><h3>Non-Repainting</h3><p>Signals don't move after the fact. Works on any market, any timeframe — futures, gold, crypto, forex, stocks.</p></div>
+  <div class="method">
+    <div class="mstep"><div class="num">1</div><div><h3>Direction</h3><p>Trade with the stack — Day / 4h / 15m / 5m all pointing the same way.</p></div></div>
+    <div class="mstep"><div class="num">2</div><div><h3>Wait for the light</h3><p>Only act on SYSTEM GO. No light, no trade — you sit on your hands.</p></div></div>
+    <div class="mstep"><div class="num">3</div><div><h3>Enter</h3><p>Take the entry, stop, target and size that GLS draws on the chart for you.</p></div></div>
+    <div class="mstep"><div class="num">4</div><div><h3>Manage</h3><p>Breakeven at +1R, then trail. The runner can't hurt you after that.</p></div></div>
+    <div class="mstep"><div class="num">5</div><div><h3>Use OSOB to exit</h3><p>Gold EXIT BELL dots → first target, scale out, or tighten the stop.</p></div></div>
+    <div class="mstep"><div class="num">6</div><div><h3>Respect the firewall</h3><p>Stop at the daily goal or loss limit. Skip the chop. Live to trade tomorrow.</p></div></div>
   </div>
-  <div class="windows">
-    <div class="w"><b>NY Open</b> · 09:30–11:00 ET for index futures</div>
-    <div class="w"><b>Gold</b> · best window opens 08:20 ET</div>
-    <div class="w"><b>Any market</b> · any timeframe</div>
+  <p class="rules">The rules it enforces: <b>with-trend only</b> · <b>in-session only</b> · <b>above-average volume</b> · <b>never chop</b> · <b>never chase</b> · <b>always a stop + daily limit</b>.</p>
+</div></section>
+
+<!-- G) VALIDITY -->
+<section class="section reveal" id="validity"><div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Validity</span>
+    <h2>What You Can Trust</h2>
+    <p>No tricks, no hindsight signals — what you see on the chart is what was actually there at the close.</p>
+  </div>
+  <div class="valids">
+    <span class="vb"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <b>No repainting</b> — confirms on bar close</span>
+    <span class="vb"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <b>Locked</b> to the price scale</span>
+    <span class="vb"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <b>Multi-timeframe</b> non-lagging reads</span>
+  </div>
+</div></section>
+
+<!-- H) HOW TO GET ACCESS -->
+<section class="section reveal" id="access"><div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Invite-Only</span>
+    <h2>How to Get Access</h2>
+    <p>Both indicators are granted to your TradingView account after purchase — added by hand, within 24 hours.</p>
+  </div>
+  <div class="access">
+    <div class="acc"><div class="anum">1</div><h3>Purchase</h3><p>Grab the bundle through secure checkout below.</p></div>
+    <div class="acc"><div class="anum">2</div><h3>Send your username</h3><p>Send your exact TradingView username after you buy.</p></div>
+    <div class="acc"><div class="anum">3</div><h3>Get added</h3><p>You're added to BOTH scripts within 24 hours.</p></div>
+    <div class="acc"><div class="anum">4</div><h3>Add them</h3><p>TradingView → Indicators → Invite-Only Scripts → add both.</p></div>
+  </div>
+  <p class="access-note">Access is <b>per-account</b>, paying members only — <b>no sharing</b>, source hidden.</p>
+</div></section>
+
+<!-- FREE COURSE band -->
+<section class="section reveal" id="free-course"><div class="wrap">
+  <style>
+    .fc-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(24px,4vw,48px);align-items:center;position:relative}
+    @media(max-width:720px){.fc-grid{grid-template-columns:1fr;text-align:center}.fc-grid .eyebrow{justify-content:center}.fc-grid p{margin:0 auto!important}}
+  </style>
+  <div class="final" style="text-align:left">
+    <div class="fc-grid">
+      <div>
+        <span class="eyebrow">Free Course · No Cost</span>
+        <h2 style="font-size:clamp(1.7rem,4vw,2.6rem);text-transform:uppercase;margin:14px 0 12px">How To Use It</h2>
+        <p style="color:var(--ink-soft);font-weight:300;max-width:54ch;margin:0">A free, step-by-step walkthrough of the whole system — set up the indicators, read the dashboard, understand every signal, run the risk firewall, and master the exits with GLS OSOB. No login, no charge.</p>
+      </div>
+      <div style="text-align:left">
+        <a class="btn btn-primary" href="/course/" style="font-size:1.04rem;padding:15px 30px">Free Course — How To Use It <span class="arr">→</span></a>
+      </div>
+    </div>
   </div>
 </div></section>
 
@@ -726,37 +951,39 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   <div class="section-head">
     <span class="eyebrow">Get Access</span>
     <h2>Pick Your Level</h2>
-    <p>Run the indicator solo for $100, get the full system — indicator + the live team — for $150, or go one-on-one. Cancel anytime.</p>
+    <p>Just the indicators for $99.99/mo, or get <b style="color:var(--ink);font-weight:600">the indicators + the group</b> for $149.99/mo (a $500 value), or go one-on-one. Invite-only on TradingView · cancel anytime.</p>
   </div>
   <div class="tiers">
 
     <div class="tier">
-      <div class="tname">Just the Indicator</div>
-      <div class="price">$100<small> / month</small></div>
-      <div class="ptag">The indicator on your charts. Best for self-directed traders.</div>
+      <div class="tname">Just the Indicators</div>
+      <div class="price">$99.99<small> / month</small></div>
+      <div class="ptag">Both indicators on your charts. Best for self-directed traders.</div>
       <ul>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Green Light Special indicator (TradingView)</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> The 3 Lights + 15m bias + Yellow Man + OSOB</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 3-Step ORB, FVG zones &amp; fakeout filter</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Entry / stop / TP1 + runner, daily firewall</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <b style="color:var(--ink);font-weight:600">Green Light Special</b> — main chart indicator</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <b style="color:var(--ink);font-weight:600">GLS OSOB</b> — the exit companion pane</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Both invite-only on TradingView, added within 24h</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Dashboard, 3 green lights, signals &amp; daily firewall</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Setup guide + free course · cancel anytime</li>
       </ul>
-      <a class="btn btn-ghost" href="https://whop.com/green-light-special/green-light-special-indicator" target="_blank" rel="noopener">Get the Indicator</a>
+      <a class="btn btn-ghost" href="https://whop.com/green-light-special/green-light-special-indicator/" target="_blank" rel="noopener">Get the Indicators</a>
     </div>
 
     <div class="tier featured">
-      <div class="badge">Everything · Best Value</div>
-      <div class="tname">Indicator + Team</div>
-      <div class="price">$150<small> / month</small></div>
-      <div class="ptag">The full system — the indicator on your charts AND the live trading room with Royale &amp; Steve.</div>
+      <div class="badge">Best Value</div>
+      <div class="tname">Indicator + Group</div>
+      <div class="valueline"><span class="was">Value $500/mo</span> — yours for</div>
+      <div class="price">$149.99<small> / month</small></div>
+      <div class="ptag">Both indicators on your charts <b style="color:var(--ink);font-weight:600">AND</b> the live signals / trading room with Royale &amp; Steve. Everything, one price.</div>
       <ul>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Green Light Special indicator (TradingView)</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> The 3 Lights + 15m bias + Yellow Man + OSOB</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 3-Step ORB, FVG zones &amp; fakeout filter</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Live room with Royale &amp; Steve — real-time calls + setups</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <b style="color:var(--ink);font-weight:600">Both indicators</b> — Green Light Special + GLS OSOB</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <b style="color:var(--ink);font-weight:600">The live signals / trading room</b> — real-time calls + setups</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Both invite-only on TradingView, added within 24h</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Dashboard, 3 green lights, signals &amp; daily firewall</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Daily bias, watchlists &amp; NY-open sessions · cancel anytime</li>
       </ul>
-      <a class="btn btn-primary" href="/coming-soon/">Get Indicator + Team <span class="arr">→</span></a>
+      <!-- replace /coming-soon/ with real $149.99 group checkout -->
+      <a class="btn btn-primary" href="/coming-soon/">Join — Coming Soon <span class="arr">→</span></a>
     </div>
 
     <div class="tier">
@@ -781,23 +1008,25 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 <section class="section reveal"><div class="wrap">
   <div class="section-head"><span class="eyebrow">FAQ</span><h2>Before You Buy</h2></div>
   <div class="faq">
-    <details class="qa"><summary>How do I get access after I buy? <span class="pl">+</span></summary><div class="a">Checkout runs through Whop. Right after, you'll get the Green Light Special indicator granted to your TradingView account and (for the team plan) an invite to the live room. Setup takes a couple minutes — the included guide and free course walk you through it.</div></details>
-    <details class="qa"><summary>Do I need a TradingView account? <span class="pl">+</span></summary><div class="a">Yes — a free TradingView account works. Send your TradingView username after checkout and the indicator gets granted to it.</div></details>
-    <details class="qa"><summary>What markets and timeframes does it work on? <span class="pl">+</span></summary><div class="a">Any market on TradingView — index futures, gold, forex, crypto, stocks — on any timeframe. The system shines on the 15m bias with entries on lower timeframes during the NY open (09:30–11:00 ET), and 08:20 ET for gold.</div></details>
-    <details class="qa"><summary>Does the indicator repaint or predict the future? <span class="pl">+</span></summary><div class="a">No. Signals are non-repainting — they don't move after the fact. And nothing predicts the future. Entries are roughly a coin flip; you make money from capped losses, bigger winners, and the daily firewall that stops a bad day from snowballing.</div></details>
-    <details class="qa"><summary>Is this financial advice? <span class="pl">+</span></summary><div class="a">No. Green Light Special is a tool and an education community. You make your own trading decisions and manage your own risk.</div></details>
+    <details class="qa"><summary>What exactly do I get? <span class="pl">+</span></summary><div class="a">Two TradingView indicators, both included: <b>Green Light Special</b> (the main chart indicator — when to get in) and <b>GLS OSOB</b> (the exit companion pane — when to get out). One purchase, two invite-only scripts.</div></details>
+    <details class="qa"><summary>How do I get access after I buy? <span class="pl">+</span></summary><div class="a">Access is invite-only. After checkout, send your exact TradingView username — both scripts are added to your account within 24 hours. Then open TradingView → Indicators → Invite-Only Scripts and add both. The team plan also includes an invite to the live room.</div></details>
+    <details class="qa"><summary>Do I need a TradingView account? <span class="pl">+</span></summary><div class="a">Yes — a free TradingView account works. Send your TradingView username after checkout and both indicators get granted to it. Access is per-account, paying members only, no sharing.</div></details>
+    <details class="qa"><summary>What markets and timeframes does it work on? <span class="pl">+</span></summary><div class="a">Intraday index &amp; commodity futures: <b>MES · MNQ · MGC · MYM</b>, on the <b>5-minute and 15-minute</b>. The dashboard reads Day / 4h / 15m / 5m, with entries during the active session.</div></details>
+    <details class="qa"><summary>Does the indicator repaint or predict the future? <span class="pl">+</span></summary><div class="a">No. Signals are non-repainting — they confirm on bar close and don't move after the fact. And nothing predicts the future. The real edge is filtering, risk/reward and discipline — capped losses, bigger winners, and a daily firewall that stops a bad day from snowballing.</div></details>
+    <details class="qa"><summary>Is this financial advice? <span class="pl">+</span></summary><div class="a">No. Green Light Special and GLS OSOB are educational tools, not financial advice and not a signal-for-hire service. You make your own trading decisions and manage your own risk.</div></details>
   </div>
+  <p class="disclaimer" style="margin-top:clamp(28px,4vw,40px)">Green Light Special and GLS OSOB are educational tools, not financial advice and not a signal-for-hire service. No indicator predicts the market or guarantees profits — the real edge is filtering, risk/reward, and discipline. Trading futures involves substantial risk of loss. Always backtest and forward-test on your own instruments, trade small, and manage your risk. Past performance does not guarantee future results.</p>
 </div></section>
 
 <!-- final cta -->
 <section class="section reveal"><div class="wrap">
   <div class="final">
     <span class="eyebrow" style="justify-content:center">Ready</span>
-    <h2>Wait for Green. Trade the Clean Move.</h2>
-    <p>Get the indicator, run the 3 Lights and the 3-Step ORB, and join the room that holds you to the system.</p>
-    <a class="btn btn-primary" href="#pricing">Get Access Now <span class="arr">→</span></a>
+    <h2>When It's Green, You Go.</h2>
+    <p>Get the bundle — both indicators — run the system, and let GLS get you in while OSOB gets you out.</p>
+    <a class="btn btn-primary" href="#pricing">Get the Bundle <span class="arr">→</span></a>
   </div>
-  <p class="disclaimer">Risk disclaimer: Trading futures, forex, crypto and equities involves substantial risk of loss and is not suitable for every investor. The Green Light Special indicator and group are educational tools, not financial advice. No indicator predicts the future. Past performance is not indicative of future results. Only trade with capital you can afford to lose.</p>
+  <p class="disclaimer">Green Light Special and GLS OSOB are educational tools, not financial advice and not a signal-for-hire service. No indicator predicts the market or guarantees profits — the real edge is filtering, risk/reward, and discipline. Trading futures involves substantial risk of loss. Always backtest and forward-test on your own instruments, trade small, and manage your risk. Past performance does not guarantee future results.</p>
 </div></section>
 
 <footer class="footer"><div class="wrap">
@@ -806,51 +1035,6 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-
-  /* =========================================================
-     LAUNCH COUNTDOWN
-     Edit this one constant to change the launch target.
-     ~48h out from build. Local time.
-     ========================================================= */
-  const LAUNCH = new Date('2026-06-28T12:00:00');
-
-  (function(){
-    var WHOP = "https://whop.com/green-light-special/green-light-special-indicator";
-    var el = {
-      d: document.getElementById('cd-d'),
-      h: document.getElementById('cd-h'),
-      m: document.getElementById('cd-m'),
-      s: document.getElementById('cd-s')
-    };
-    var banner = document.getElementById('comingBanner');
-    var pill = document.getElementById('comingPill');
-    var cd = document.getElementById('countdown');
-    var pad = function(n){ return String(n).padStart(2,'0'); };
-    var launched = false;
-
-    function tick(){
-      var diff = LAUNCH.getTime() - Date.now();
-      if(diff <= 0){
-        if(!launched){
-          launched = true;
-          banner.classList.add('launched');
-          banner.setAttribute('href', WHOP);
-          banner.setAttribute('target','_blank');
-          banner.setAttribute('rel','noopener');
-          cd.innerHTML = '<b style="font-family:var(--display);font-size:1rem;letter-spacing:.14em;color:var(--green);text-shadow:0 0 16px rgba(69,240,138,.6)">LAUNCHING NOW</b>';
-          pill.textContent = 'Enter →';
-        }
-        return;
-      }
-      var s = Math.floor(diff/1000);
-      el.d.textContent = pad(Math.floor(s/86400));
-      el.h.textContent = pad(Math.floor((s%86400)/3600));
-      el.m.textContent = pad(Math.floor((s%3600)/60));
-      el.s.textContent = pad(s%60);
-    }
-    tick();
-    setInterval(tick, 1000);
-  })();
 
   /* ===== scroll reveals ===== */
   (function(){
