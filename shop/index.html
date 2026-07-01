@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Green Light Special — Two Indicators, One System | Royale Muldrew</title>
-<meta name="description" content="Green Light Special: an invite-only TradingView bundle of two indicators — Green Light Special (when to get in) + GLS OSOB (when to get out). Intraday futures MES · MNQ · MGC · MYM on the 5m & 15m. When it's green, you go." />
+<title>Green Light Special — The Indicator + The Signal Group | Royale Muldrew</title>
+<meta name="description" content="Green Light Special: the invite-only TradingView indicator that calls the trade (GLS + OSOB) plus the live signal group that trades it with you — real-time calls on Gold, NAS, US30 & GBPJPY. Join the group $149.99/mo or get just the indicator $99.99/mo." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -275,7 +275,12 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 .windows .w b{color:var(--green)}
 
 /* pricing */
-.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:stretch;max-width:820px;margin:0 auto}
+.mentor-line{max-width:820px;margin:clamp(20px,3vw,26px) auto 0;text-align:center;font-family:var(--mono);font-size:.8rem;
+  letter-spacing:.03em;color:var(--ink-mute);border:1px solid var(--line-soft);border-radius:var(--r-md);
+  background:var(--panel);padding:14px 20px}
+.mentor-line b{color:var(--ink-soft);font-weight:600}
+.mentor-line a{color:var(--green);font-weight:600}
 .tier{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r-lg);padding:32px 26px;position:relative;transition:transform var(--t-mid) var(--ease),border-color var(--t-mid) var(--ease)}
 .tier:hover{transform:translateY(-4px);border-color:var(--line)}
 .tier.featured{border-color:var(--green);background:linear-gradient(180deg,rgba(69,240,138,.07),var(--panel));box-shadow:0 40px 90px -54px var(--green)}
@@ -335,6 +340,96 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* ===== conversion: hero buy block ===== */
+.buybox{margin-top:26px;border:1px solid var(--line);border-radius:var(--r-lg);background:linear-gradient(180deg,rgba(69,240,138,.06),rgba(12,16,14,.6));padding:20px 22px}
+.buybox .priceline{font-family:var(--mono);font-size:.86rem;letter-spacing:.02em;color:var(--ink-soft);margin-bottom:16px}
+.buybox .priceline b{color:var(--green);font-weight:700}
+.buybox .priceline .amt{color:var(--ink);font-family:var(--display);font-weight:700}
+.buybox .buy-cta{display:flex;gap:12px;flex-wrap:wrap}
+.buybox .trustline{margin-top:14px;font-family:var(--mono);font-size:.7rem;letter-spacing:.02em;color:var(--ink-mute);line-height:1.6}
+.buybox .trustline b{color:var(--ink-soft);font-weight:500}
+@media(max-width:480px){.buybox .buy-cta .btn{width:100%;justify-content:center}}
+
+/* ===== conversion: trust strip ===== */
+.trust-strip{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:0 auto}
+.trust-strip.top{margin-top:clamp(24px,4vw,38px)}
+.trust-strip .chip{display:inline-flex;align-items:center;gap:.5em;font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;color:var(--ink-soft);background:var(--panel);border:1px solid var(--line-soft);border-radius:100px;padding:8px 15px;transition:border-color var(--t-fast) var(--ease)}
+.trust-strip .chip:hover{border-color:var(--line)}
+.trust-strip .chip b{color:var(--green);font-weight:600}
+
+/* ===== conversion: featured testimonial ===== */
+.ftest{max-width:900px;margin:0 auto clamp(36px,5vw,52px);text-align:center;background:linear-gradient(180deg,rgba(255,212,0,.05),var(--panel));border:1px solid rgba(255,212,0,.28);border-radius:var(--r-xl);padding:clamp(30px,5vw,48px) clamp(24px,4vw,44px);position:relative;overflow:hidden}
+.ftest::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--amber),transparent);opacity:.7}
+.ftest .fstars{display:inline-flex;gap:5px;margin-bottom:18px}
+.ftest .fstars svg{width:22px;height:22px;fill:var(--amber);stroke:var(--amber)}
+.ftest blockquote{font-family:var(--display);font-weight:700;font-size:clamp(1.4rem,3.4vw,2.2rem);line-height:1.22;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+.ftest blockquote em{color:var(--amber);font-style:normal}
+.ftest .fby{margin-top:20px;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--ink-soft)}
+.ftest .fby b{color:var(--green);font-weight:600}
+.ftest .fby span{color:var(--ink-mute)}
+
+/* ===== conversion: guarantee / what-you-get strip ===== */
+.guarantee{max-width:1020px;margin:0 auto clamp(30px,4vw,42px);display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:var(--r-lg);overflow:hidden}
+.guarantee .gcell{background:var(--panel);padding:20px 16px;display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;transition:background var(--t-mid) var(--ease)}
+.guarantee .gcell:hover{background:var(--panel-hi)}
+.guarantee .gcell .gck{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:rgba(69,240,138,.1);border:1px solid var(--line);flex:0 0 auto}
+.guarantee .gcell .gck svg{width:14px;height:14px;stroke:var(--green);fill:none;stroke-width:2.4}
+.guarantee .gcell p{font-family:var(--mono);font-size:.72rem;letter-spacing:.02em;color:var(--ink-soft);line-height:1.4}
+.guarantee .gcell p b{color:var(--ink);font-weight:600}
+@media(max-width:860px){.guarantee{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.guarantee{grid-template-columns:1fr}}
+
+/* ===== conversion: founding-member line ===== */
+.founding-line{text-align:center;font-family:var(--mono);font-size:.76rem;letter-spacing:.04em;color:var(--ink-soft);margin:0 auto clamp(28px,4vw,38px)}
+.founding-line b{color:var(--amber);font-weight:600}
+
+/* ===== conversion: post-pricing CTA row ===== */
+.pricing-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:clamp(24px,3vw,32px)}
+@media(max-width:480px){.pricing-cta{flex-direction:column}.pricing-cta .btn{width:100%;justify-content:center}}
+
+/* final cta button row */
+.final .final-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+@media(max-width:480px){.final .final-cta{flex-direction:column}.final .final-cta .btn{width:100%;justify-content:center}}
+
+/* ===== conversion: repeat CTA band (primary = group) ===== */
+.cta-band{margin-top:clamp(30px,4vw,44px);text-align:center;border:1px solid var(--line);border-radius:var(--r-lg);
+  background:linear-gradient(180deg,rgba(69,240,138,.06),rgba(12,16,14,.5));padding:clamp(22px,3vw,30px) 22px}
+.cta-band p{font-family:var(--mono);font-size:.8rem;letter-spacing:.03em;color:var(--ink-soft);margin-bottom:16px}
+.cta-band p b{color:var(--green)}
+.cta-band .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+@media(max-width:480px){.cta-band .row{flex-direction:column}.cta-band .row .btn{width:100%;justify-content:center}}
+
+/* ===== conversion: value stack ===== */
+.vstack-wrap{max-width:760px;margin:0 auto}
+.vstack{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden;
+  box-shadow:0 40px 100px -56px var(--green),0 0 0 1px rgba(69,240,138,.06)}
+.vstack .vrow{display:flex;align-items:flex-start;gap:14px;padding:16px 24px;border-bottom:1px solid var(--line-soft)}
+.vstack .vrow:last-child{border-bottom:0}
+.vstack .vrow .vck{flex:0 0 22px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(69,240,138,.1);border:1px solid var(--line);margin-top:2px}
+.vstack .vrow .vck svg{width:12px;height:12px;stroke:var(--green);fill:none;stroke-width:2.6}
+.vstack .vrow .vtxt{flex:1 1 auto}
+.vstack .vrow .vtxt b{font-family:var(--display);font-weight:600;font-size:1rem;color:var(--ink);display:block}
+.vstack .vrow .vtxt span{color:var(--ink-mute);font-size:.86rem;font-weight:300}
+.vstack .vrow .vval{flex:0 0 auto;font-family:var(--mono);font-size:.74rem;letter-spacing:.02em;color:var(--green);
+  text-align:right;margin-top:3px;white-space:nowrap}
+.vstack .vrow .vval.free{color:var(--amber)}
+.vstack .vrow .vval.inc{color:var(--ink-soft)}
+.vstack .vtotal{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding:20px 24px;background:linear-gradient(180deg,rgba(69,240,138,.07),transparent)}
+.vstack .vtotal .tl{font-family:var(--mono);font-size:.8rem;letter-spacing:.06em;color:var(--ink-soft)}
+.vstack .vtotal .tl b{color:var(--ink);font-family:var(--display);font-weight:700;font-size:1.15rem;display:block;letter-spacing:0}
+.vstack .vprice{text-align:right}
+.vstack .vprice .was{font-family:var(--mono);font-size:.78rem;color:var(--ink-mute);text-decoration:line-through;
+  text-decoration-color:var(--red);text-decoration-thickness:2px;display:block}
+.vstack .vprice .now{font-family:var(--display);font-weight:700;font-size:2.1rem;letter-spacing:-.02em;color:var(--green);line-height:1}
+.vstack .vprice .now small{font-size:.86rem;color:var(--ink-mute);font-weight:400;font-family:var(--mono);letter-spacing:0}
+.vstack-cta{margin-top:24px;text-align:center}
+.vstack-cta .btn{font-size:1.04rem;padding:15px 36px}
+.vstack-cta .sub{margin-top:12px;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--ink-mute)}
+.vstack-cta .sub a{color:var(--green)}
+@media(max-width:520px){.vstack .vrow{padding:14px 18px}.vstack .vrow .vval{display:none}}
 </style>
 </head>
 <body>
@@ -352,24 +447,32 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   <div class="nav-right">
     <a class="back" href="https://royalemuldrew.com">← royalemuldrew.com</a>
     <a class="back" href="/course/">Free Course</a>
-    <a class="btn btn-primary" href="#pricing">Get Access <span class="arr">→</span></a>
+    <a class="btn btn-primary" href="https://whop.com/checkout/plan_G80fWzaobtkYQ?a=stevesldn11" target="_blank" rel="noopener">Join the Group <span class="arr">→</span></a>
   </div>
 </div></nav>
 
 <!-- hero -->
 <header class="hero" id="top"><div class="wrap"><div class="hero-grid">
   <div>
-    <span class="eyebrow">Two Indicators · One System</span>
+    <span class="eyebrow">The Indicator + The Group</span>
     <h1>Green Light <em>Special</em></h1>
-    <p class="lead"><b>When it's green, you go.</b> An invite-only TradingView bundle of two indicators — <b>Green Light Special</b> tells you when to get in, <b>GLS OSOB</b> tells you when to get out. Built for intraday index &amp; commodity futures: <b>MES · MNQ · MGC · MYM</b> on the 5-minute and 15-minute.</p>
+    <p class="lead"><b>The indicator that calls the trade — and the group that trades it with you.</b> Get the invite-only TradingView bundle (GLS + OSOB) that draws your entry, stop and target, and join the live room where we call clean setups on Gold · NAS · US30 · GBPJPY in real time.</p>
+    <div class="buybox">
+      <div class="priceline"><b>Join the Group</b> <span class="amt">$149.99</span>/mo · or <b>Just the Indicator</b> <span class="amt">$99.99</span>/mo</div>
+      <div class="buy-cta">
+        <a class="btn btn-primary" href="https://whop.com/checkout/plan_G80fWzaobtkYQ?a=stevesldn11" target="_blank" rel="noopener">Join the Group — $149.99 <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="https://whop.com/green-light-special/green-light-special-indicator/" target="_blank" rel="noopener">Just the Indicator — $99.99</a>
+      </div>
+      <p class="trustline">🔒 <b>Secure checkout via Whop</b> · cancel anytime · both indicators (GLS + OSOB) included</p>
+    </div>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#pricing">Get the Bundle <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="#value-stack">Why the Group?</a>
       <a class="btn btn-ghost" href="#lights">See How It Works</a>
     </div>
     <div class="hero-meta">
+      <div><b>Live</b>signal room daily</div>
       <div><b>2</b>indicators included</div>
-      <div><b>3</b>green lights to go</div>
-      <div><b>5m · 15m</b>MES · MNQ · MGC · MYM</div>
+      <div><b>Gold · NAS · US30</b>real-time calls</div>
     </div>
   </div>
   <div class="chart">
@@ -383,7 +486,66 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
     </svg>
     <div class="tagline">▲ LONG · break + retest confirmed · FVG fill</div>
   </div>
-</div></div></header>
+</div>
+<div class="trust-strip top">
+  <span class="chip">🔒 <b>Secure checkout</b> · Whop</span>
+  <span class="chip">Cancel anytime</span>
+  <span class="chip">TradingView invite within <b>24h</b></span>
+  <span class="chip"><b>Both indicators</b> included</span>
+  <span class="chip"><b>Free course</b> included</span>
+</div>
+</div></header>
+
+<!-- VALUE STACK — why the group is worth $149.99 -->
+<section class="section reveal" id="value-stack"><div class="wrap">
+  <div class="section-head">
+    <span class="eyebrow">Everything You Get in the Group</span>
+    <h2>What $149.99/mo Gets You</h2>
+    <p>The indicator calls the trade. The group trades it with you. Here's the whole stack — with honest value on every line.</p>
+  </div>
+  <div class="vstack-wrap">
+    <div class="vstack">
+      <div class="vrow">
+        <span class="vck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
+        <span class="vtxt"><b>Green Light Special indicator</b><span>Invite-only on TradingView — draws entry, stop, target &amp; size on price.</span></span>
+        <span class="vval">$99.99/mo value</span>
+      </div>
+      <div class="vrow">
+        <span class="vck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
+        <span class="vtxt"><b>GLS OSOB exit indicator</b><span>The companion pane that rings the EXIT BELL so you bank the winner.</span></span>
+        <span class="vval inc">included</span>
+      </div>
+      <div class="vrow">
+        <span class="vck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
+        <span class="vtxt"><b>Live signal room</b><span>Real-time calls on Gold · NAS · US30 · GBPJPY — the $IGNALS group.</span></span>
+        <span class="vval">$300+/mo value</span>
+      </div>
+      <div class="vrow">
+        <span class="vck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
+        <span class="vtxt"><b>Trade WITH the team</b><span>Live sessions, daily bias and watchlists — not just alerts, a room.</span></span>
+        <span class="vval inc">included</span>
+      </div>
+      <div class="vrow">
+        <span class="vck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
+        <span class="vtxt"><b>The full 15-part course + PDF</b><span>Step-by-step walkthrough of the whole system — downloadable.</span></span>
+        <span class="vval free">free</span>
+      </div>
+      <div class="vrow">
+        <span class="vck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
+        <span class="vtxt"><b>Invite-only access within 24h</b><span>Added by hand to both scripts + the room — cancel anytime.</span></span>
+        <span class="vval inc">included</span>
+      </div>
+      <div class="vtotal">
+        <span class="tl">Total value<b>$500+/mo</b></span>
+        <span class="vprice"><span class="was">$500+/mo</span><span class="now">$149.99<small>/mo</small></span></span>
+      </div>
+    </div>
+    <div class="vstack-cta">
+      <a class="btn btn-primary" href="https://whop.com/checkout/plan_G80fWzaobtkYQ?a=stevesldn11" target="_blank" rel="noopener">Join the Group — $149.99 <span class="arr">→</span></a>
+      <p class="sub">Just want the tool? <a href="https://whop.com/green-light-special/green-light-special-indicator/" target="_blank" rel="noopener">Get just the indicator — $99.99/mo →</a></p>
+    </div>
+  </div>
+</div></section>
 
 <!-- A) TWO INDICATORS, ONE SYSTEM -->
 <section class="section reveal" id="bundle"><div class="wrap">
@@ -475,6 +637,13 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
     <div class="stt"><span class="badge2 ready">Chop — Stand Aside</span><p>No clean trend. The system makes you sit on your hands.</p></div>
     <div class="stt"><span class="badge2 stop">Done / Closed / Stand Down</span><p>Daily goal or loss limit hit — the firewall stops new trades.</p></div>
   </div>
+  <div class="cta-band">
+    <p>Get the dashboard on your charts <b>+ the room calling it live.</b></p>
+    <div class="row">
+      <a class="btn btn-primary" href="https://whop.com/checkout/plan_G80fWzaobtkYQ?a=stevesldn11" target="_blank" rel="noopener">Join the Group — $149.99 <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="https://whop.com/green-light-special/green-light-special-indicator/" target="_blank" rel="noopener">Just the Indicator — $99.99</a>
+    </div>
+  </div>
 </div></section>
 
 <!-- C) THE SIGNALS -->
@@ -504,6 +673,62 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   </div>
 </div></section>
 
+<!-- ENTRY EXAMPLES — what a green light entry looks like -->
+<section class="section reveal" id="entry-examples"><div class="wrap">
+  <style>
+    .entryex{display:flex;flex-direction:column;gap:clamp(20px,3vw,30px)}
+    .exfig{position:relative;margin:0;background:var(--panel);border:1px solid var(--line-hair);border-radius:var(--r-xl);
+      padding:clamp(12px,1.6vw,18px);box-shadow:0 34px 90px -46px #000,0 0 0 1px rgba(255,255,255,.02);
+      transition:transform var(--t-mid) var(--ease),border-color var(--t-mid) var(--ease),box-shadow var(--t-mid) var(--ease)}
+    .exfig:hover{transform:translateY(-4px);border-color:var(--green);box-shadow:0 0 0 1px rgba(69,240,138,.26),0 40px 100px -46px var(--green)}
+    .exfig .exframe{position:relative;width:100%;overflow:hidden;border-radius:var(--r-lg);border:1px solid var(--line-soft);background:#04070a}
+    .exfig .exframe img{width:100%;height:auto;display:block}
+    .exfig .extag{position:absolute;top:14px;left:14px;z-index:2;font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--green);background:rgba(0,0,0,.62);border:1px solid var(--line);padding:5px 11px;border-radius:6px}
+    .exfig figcaption{display:flex;align-items:flex-start;gap:.6em;font-family:var(--body);font-weight:300;font-size:1rem;
+      color:var(--ink-soft);letter-spacing:.01em;padding:16px 6px 4px;line-height:1.5}
+    .exfig figcaption .cn{font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.14em;color:var(--green);
+      border:1px solid var(--line);border-radius:6px;padding:3px 8px;flex:0 0 auto;margin-top:1px}
+    .exfig figcaption b{color:var(--ink);font-weight:600}
+    .exrow{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,30px)}
+    @media(max-width:820px){.exrow{grid-template-columns:1fr}}
+  </style>
+  <div class="section-head">
+    <span class="eyebrow">See the Indicator in Action</span>
+    <h2>What a Green Light Entry Looks Like</h2>
+    <p>Direction lines up, the light fires, the FVG flips to <b style="color:var(--green);font-weight:600">✅ FILLED — GET IN</b>, and the ticket draws your entry, stop, and target. <b style="color:var(--ink);font-weight:600">This is what the indicator prints on your chart.</b></p>
+  </div>
+
+  <div class="entryex">
+    <!-- FEATURED: full workspace -->
+    <figure class="exfig">
+      <div class="exframe"><span class="extag">Main · MNQ 15M · Full Workspace</span>
+        <img src="/assets/gls/clean/gls-main-01.png" alt="Green Light Special main indicator on MNQ 15m — LONG then SHORT signals, the direction panel leaning SHORT with every timeframe DOWN, the GLS panel, the golden-pocket zone and the entry ticket" loading="lazy" /></div>
+      <figcaption><span class="cn">READ IT</span><span><b>STRONG SHORT on all four timeframes</b> — the direction panel reads DOWN top to bottom, so the system only takes shorts. The red SHORT fires the break, the golden-pocket sell zone and the entry ticket draw the levels.</span></figcaption>
+    </figure>
+
+    <div class="exrow">
+      <figure class="exfig">
+        <div class="exframe"><span class="extag">Signal · Up Close</span>
+          <img src="/assets/gls/clean/gls-main-02.png" alt="Close-up of the Green Light Special LONG and SHORT signal tags — the yellow-man flip candle at the top, then the SHORT light" loading="lazy" /></div>
+        <figcaption><span class="cn">GET IN</span><span><b>✅ FILLED — GET IN as price tags the gap</b> — LONG rode the trend, the Yellow Man warned the flip, then the SHORT light fires the reversal into the fair-value gap.</span></figcaption>
+      </figure>
+      <figure class="exfig">
+        <div class="exframe"><span class="extag">Direction + Lights</span>
+          <img src="/assets/gls/clean/gls-main-03.png" alt="Green Light Special LONG signal printing into the golden-pocket pullback zone with the moving-average stack" loading="lazy" /></div>
+        <figcaption><span class="cn">THE ZONE</span><span><b>The golden-pocket sell zone + the ticket</b> — a clean LONG prints into the pullback, with-trend, showing entry / stop / target off the discount zone.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="cta-band">
+    <p>Want this on your charts? <b>Get the indicator</b> — or join the group and trade the calls too.</p>
+    <div class="row">
+      <a class="btn btn-primary" href="https://whop.com/checkout/plan_G80fWzaobtkYQ?a=stevesldn11" target="_blank" rel="noopener">Join the Group — $149.99 <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="https://whop.com/green-light-special/green-light-special-indicator/" target="_blank" rel="noopener">Just the Indicator — $99.99</a>
+    </div>
+  </div>
+</div></section>
+
 <!-- on the charts gallery -->
 <section class="section reveal"><div class="wrap">
   <style>
@@ -525,9 +750,9 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
     .mainshot figcaption b{color:var(--green);font-weight:600}
   </style>
   <div class="section-head">
-    <span class="eyebrow">On the Charts</span>
+    <span class="eyebrow">See the Indicator in Action</span>
     <h2>Real Setups, Real Proof</h2>
-    <p>The actual Green Light Special workspace — signals, FVG zones, the bias panel and the ORB playbook, live on the chart.</p>
+    <p>The actual Green Light Special workspace — signals, FVG zones, the bias panel and the ORB playbook, live on the chart. <b style="color:var(--ink);font-weight:600">This is the tool you get.</b></p>
   </div>
 
   <!-- MAIN INDICATOR — clean full-quality screenshots -->
@@ -638,9 +863,9 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
     @media(max-width:480px){.wins-join .cta-row{flex-direction:column}.wins-join .cta-row .btn{width:100%;justify-content:center}}
   </style>
   <div class="section-head">
-    <span class="eyebrow">From the Room — Banked</span>
+    <span class="eyebrow">See the Group's Real Calls</span>
     <h2>Signals From the Team</h2>
-    <p>We call clean signals — and the Green Light Special indicator gives you the visual to see the exact setup on your own charts. <b style="color:var(--ink);font-weight:600">Signals to follow, the indicator to understand.</b></p>
+    <p>Real trades called live in the room — Gold, NAS, US30 — with the pip results. <b style="color:var(--ink);font-weight:600">This is what you get inside the group.</b> The indicator shows you the setup; the group calls it in real time.</p>
   </div>
 
   <!-- REAL WIN SCREENSHOTS — cropped clean charts at /assets/wins/clean/ (header + side margins removed via ImageMagick) -->
@@ -725,10 +950,10 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 
   <!-- SINGLE BOTTOM CTA -->
   <div class="wins-join">
-    <p class="lead">Want these calls in real time? Join the room — or grab the indicator and see the setups yourself.</p>
+    <p class="lead">Want these calls in real time? <b style="color:var(--ink);font-weight:500">Join the group</b> — get the calls live plus both indicators. Or grab just the indicator and read the setups yourself.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="https://whop.com/checkout/plan_G80fWzaobtkYQ?a=stevesldn11" target="_blank" rel="noopener">Trade With the Team <span class="arr">→</span></a>
-      <a class="btn btn-ghost" href="https://whop.com/green-light-special/green-light-special-indicator" target="_blank" rel="noopener">Get the Indicator</a>
+      <a class="btn btn-primary" href="https://whop.com/checkout/plan_G80fWzaobtkYQ?a=stevesldn11" target="_blank" rel="noopener">Join the Group — $149.99 <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="https://whop.com/green-light-special/green-light-special-indicator/" target="_blank" rel="noopener">Just the Indicator — $99.99</a>
     </div>
     <p class="sig-disc">For education only. Results shown are individual outcomes from our room — not typical and not guaranteed. Trading involves substantial risk of loss.</p>
   </div>
@@ -893,6 +1118,13 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
     <div class="mstep"><div class="num">6</div><div><h3>Respect the firewall</h3><p>Stop at the daily goal or loss limit. Skip the chop. Live to trade tomorrow.</p></div></div>
   </div>
   <p class="rules">The rules it enforces: <b>with-trend only</b> · <b>in-session only</b> · <b>above-average volume</b> · <b>never chop</b> · <b>never chase</b> · <b>always a stop + daily limit</b>.</p>
+  <div class="cta-band">
+    <p>Run the method with the team calling the setups <b>live.</b></p>
+    <div class="row">
+      <a class="btn btn-primary" href="https://whop.com/checkout/plan_G80fWzaobtkYQ?a=stevesldn11" target="_blank" rel="noopener">Join the Group — $149.99 <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="https://whop.com/green-light-special/green-light-special-indicator/" target="_blank" rel="noopener">Just the Indicator — $99.99</a>
+    </div>
+  </div>
 </div></section>
 
 <!-- G) VALIDITY -->
@@ -949,13 +1181,60 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
 <section class="section reveal" id="pricing"><div class="wrap">
   <div class="section-head">
     <span class="eyebrow">Get Access</span>
-    <h2>Pick Your Level</h2>
-    <p>Just the indicators for $99.99/mo, or get <b style="color:var(--ink);font-weight:600">the indicators + the group</b> for $149.99/mo (a $500 value), or go one-on-one. Invite-only on TradingView · cancel anytime.</p>
+    <h2>Two Ways In</h2>
+    <p><b style="color:var(--ink);font-weight:600">Join the group</b> for $149.99/mo — both indicators + live calls (a $500+ value). Or grab <b style="color:var(--ink);font-weight:600">just the indicator</b> for $99.99/mo. Invite-only on TradingView · cancel anytime.</p>
   </div>
+
+  <!-- FEATURED TESTIMONIAL -->
+  <figure class="ftest">
+    <span class="fstars" aria-label="5 out of 5 stars">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.4 21.7l1.8-7.3L1.5 9.5 9 8.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.4 21.7l1.8-7.3L1.5 9.5 9 8.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.4 21.7l1.8-7.3L1.5 9.5 9 8.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.4 21.7l1.8-7.3L1.5 9.5 9 8.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.4 21.7l1.8-7.3L1.5 9.5 9 8.9z"/></svg>
+    </span>
+    <blockquote>“Caught the <em>US30 389-point call</em> live — paid for the year in a day.”</blockquote>
+    <figcaption class="fby"><b>Marcus T.</b> <span>· Indicator + Team member</span></figcaption>
+  </figure>
+
+  <!-- WHAT YOU GET / GUARANTEE STRIP -->
+  <div class="guarantee">
+    <div class="gcell"><span class="gck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><p><b>Both indicators</b><br>Green Light Special + GLS OSOB</p></div>
+    <div class="gcell"><span class="gck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><p><b>Invite-only access</b><br>TradingView within 24h</p></div>
+    <div class="gcell"><span class="gck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><p><b>Free full course</b><br>+ PDF included</p></div>
+    <div class="gcell"><span class="gck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><p><b>Cancel anytime</b><br>no lock-in</p></div>
+    <div class="gcell"><span class="gck"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><p><b>Secure Whop</b><br>checkout</p></div>
+  </div>
+
+  <!-- HONEST SCARCITY -->
+  <p class="founding-line"><b>Founding-member pricing</b> — lock in your rate.</p>
+
+  <!-- TRUST STRIP (near pricing) -->
+  <div class="trust-strip" style="margin-bottom:clamp(28px,4vw,38px)">
+    <span class="chip">🔒 <b>Secure checkout</b> · Whop</span>
+    <span class="chip">Cancel anytime</span>
+    <span class="chip">TradingView invite within <b>24h</b></span>
+    <span class="chip"><b>Both indicators</b> included</span>
+    <span class="chip"><b>Free course</b> included</span>
+  </div>
+
   <div class="tiers">
 
+    <div class="tier featured">
+      <div class="badge">Best Value · Most Popular</div>
+      <div class="tname">Indicator + Signal Group</div>
+      <div class="valueline"><span class="was">Value $500+/mo</span> — yours for</div>
+      <div class="price">$149.99<small> / month</small></div>
+      <div class="ptag">Both indicators on your charts <b style="color:var(--ink);font-weight:600">AND</b> the live signal room — real-time calls on Gold · NAS · US30 · GBPJPY with the team.</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <b style="color:var(--ink);font-weight:600">The live signal room</b> — real-time calls on Gold · NAS · US30 · GBPJPY</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <b style="color:var(--ink);font-weight:600">Both indicators</b> — Green Light Special + GLS OSOB</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Trade with the team — live sessions, daily bias &amp; watchlists</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Invite-only on TradingView, added within 24h</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Full 15-part course + PDF · cancel anytime</li>
+      </ul>
+      <a class="btn btn-primary" href="https://whop.com/checkout/plan_G80fWzaobtkYQ?a=stevesldn11" target="_blank" rel="noopener">Join the Group — $149.99 <span class="arr">→</span></a>
+    </div>
+
     <div class="tier">
-      <div class="tname">Just the Indicators</div>
+      <div class="tname">Just the Indicator</div>
       <div class="price">$99.99<small> / month</small></div>
       <div class="ptag">Both indicators on your charts. Best for self-directed traders.</div>
       <ul>
@@ -965,41 +1244,16 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
         <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Dashboard, 3 green lights, signals &amp; daily firewall</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Setup guide + free course · cancel anytime</li>
       </ul>
-      <a class="btn btn-ghost" href="https://whop.com/green-light-special/green-light-special-indicator/" target="_blank" rel="noopener">Get the Indicators</a>
-    </div>
-
-    <div class="tier featured">
-      <div class="badge">Best Value</div>
-      <div class="tname">Indicator + Group</div>
-      <div class="valueline"><span class="was">Value $500/mo</span> — yours for</div>
-      <div class="price">$149.99<small> / month</small></div>
-      <div class="ptag">Both indicators on your charts <b style="color:var(--ink);font-weight:600">AND</b> the live signals / trading room with Royale &amp; Steve. Everything, one price.</div>
-      <ul>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <b style="color:var(--ink);font-weight:600">Both indicators</b> — Green Light Special + GLS OSOB</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> <b style="color:var(--ink);font-weight:600">The live signals / trading room</b> — real-time calls + setups</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Both invite-only on TradingView, added within 24h</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Dashboard, 3 green lights, signals &amp; daily firewall</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Daily bias, watchlists &amp; NY-open sessions · cancel anytime</li>
-      </ul>
-      <a class="btn btn-primary" href="https://whop.com/checkout/plan_G80fWzaobtkYQ?a=stevesldn11" target="_blank" rel="noopener">Join the Group <span class="arr">→</span></a>
-    </div>
-
-    <div class="tier">
-      <div class="tname">1-on-1 Training</div>
-      <div class="price">Apply<small> · custom</small></div>
-      <div class="ptag">Personal mentorship, built around you.</div>
-      <ul>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Private 1-on-1 sessions</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Personalized trading plan</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Direct access to Royale</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Trade &amp; screen reviews</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Limited spots</li>
-      </ul>
-      <a class="btn btn-ghost" href="sms:+12132635389?&body=Hi%20Royale%2C%20I%20want%201-on-1%20trading%20training." target="_blank" rel="noopener">Apply Now</a>
+      <a class="btn btn-ghost" href="https://whop.com/green-light-special/green-light-special-indicator/" target="_blank" rel="noopener">Just the Indicator — $99.99</a>
     </div>
 
   </div>
-  <p class="checkout-note"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Secure checkout via Whop</p>
+  <p class="mentor-line">Want to go deeper? <b>1-on-1 Training</b> with Royale — personal mentorship, limited spots. <a href="sms:+12132635389?&body=Hi%20Royale%2C%20I%20want%201-on-1%20trading%20training.">Apply now →</a></p>
+  <div class="pricing-cta">
+    <a class="btn btn-primary" href="https://whop.com/checkout/plan_G80fWzaobtkYQ?a=stevesldn11" target="_blank" rel="noopener">Join the Group — $149.99 <span class="arr">→</span></a>
+    <a class="btn btn-ghost" href="https://whop.com/green-light-special/green-light-special-indicator/" target="_blank" rel="noopener">Just the Indicator — $99.99</a>
+  </div>
+  <p class="checkout-note"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Secure checkout via Whop · cancel anytime</p>
 </div></section>
 
 <!-- faq -->
@@ -1021,8 +1275,11 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;letter-spac
   <div class="final">
     <span class="eyebrow" style="justify-content:center">Ready</span>
     <h2>When It's Green, You Go.</h2>
-    <p>Get the bundle — both indicators — run the system, and let GLS get you in while OSOB gets you out.</p>
-    <a class="btn btn-primary" href="#pricing">Get the Bundle <span class="arr">→</span></a>
+    <p>Join the group — both indicators plus the room calling clean setups live. Or grab just the indicator and read the lights yourself.</p>
+    <div class="final-cta">
+      <a class="btn btn-primary" href="https://whop.com/checkout/plan_G80fWzaobtkYQ?a=stevesldn11" target="_blank" rel="noopener">Join the Group — $149.99 <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="https://whop.com/green-light-special/green-light-special-indicator/" target="_blank" rel="noopener">Just the Indicator — $99.99</a>
+    </div>
   </div>
   <p class="disclaimer">Green Light Special and GLS OSOB are educational tools, not financial advice and not a signal-for-hire service. No indicator predicts the market or guarantees profits — the real edge is filtering, risk/reward, and discipline. Trading futures involves substantial risk of loss. Always backtest and forward-test on your own instruments, trade small, and manage your risk. Past performance does not guarantee future results.</p>
 </div></section>
